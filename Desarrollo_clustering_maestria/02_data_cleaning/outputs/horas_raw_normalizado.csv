@@ -1,0 +1,413 @@
+﻿empresa,id_pro,nombre,mostrar_listas,id_emp,lugar_por_defecto,id_esp,horas_estimadas,en_ejecucion,facturacion,ocupacion,horas_ejecutadas,fecha_corte,horas_ejecutadas_facturables,tipo_alcance,id_col_responsable,avance_real,avance_estimado,empresa_raw,empresa_norm
+3DPHARMA,4298,GPF - Proyecto Necesidades AWS,1,3472,2,1,640.0,,22500.0,Esporádico,,,,Por Alcance,,,,3dpharma,3DPHARMA
+AVIS,364,Presupuesto Financiero,0,552,1,2,,0.0,,Stand by,672.0,2026-03-02 09:50:07,654.0,Por Alcance,,,,AVIS,AVIS
+AVIS,938,Presupuesto 2016,0,552,2,2,,0.0,,Stand by,368.0,2026-03-02 09:50:07,294.5,Por Alcance,,,,AVIS,AVIS
+ADIUM,2458,Soporte Filiales,0,4193,2,2,1440.0,0.0,,Permanente,5256.48,2026-03-02 09:50:07,4945.33,Por Alcance,,,,Adium,ADIUM
+ADIUM,2397,Rollout Mexico,0,4193,2,2,415.0,0.0,,Stand by,1159.0,2026-03-02 09:50:07,984.0,Por Alcance,,,,Adium,ADIUM
+ADIUM,2557,Rollout CO,0,4193,2,2,,0.0,,Stand by,463.0,2026-03-02 09:50:07,460.5,Por Alcance,,,,Adium,ADIUM
+ADIUM,2797,Rollout EC,0,4193,2,2,500.0,0.0,,Stand by,555.95,2026-03-02 09:50:07,498.45,Por Alcance,,,,Adium,ADIUM
+ADIUM,2459,Rollout CAM,0,4193,2,2,753.0,0.0,,Stand by,850.25,2026-03-02 09:50:07,798.25,Por Alcance,,,,Adium,ADIUM
+ADIUM,2617,Adium - CAM Soporte,0,4193,2,2,,0.0,,Stand by,319.25,2026-03-02 09:50:07,301.25,Por Alcance,,,,Adium,ADIUM
+ADIUM,3058,Adium Soporte,1,4193,2,62,20000.0,1.0,321000.0,Permanente,19790.72,2026-03-16 00:00:00,18913.11,Por Alcance,,,,Adium,ADIUM
+ADIUM,3037,Rollout Argentina,0,4193,2,2,250.0,0.0,,Esporádico,12.0,2026-03-02 09:50:07,12.0,Por Alcance,,,,Adium,ADIUM
+ALMEXA,2457,Blackline -  Tasks y Recs,1,4240,2,22,320.0,,22000.0,Stand by,158.0,2026-03-02 09:50:07,149.0,Por Alcance,,,,Almexa,ALMEXA
+ALPER SEGUROS,3658,Alper Soporte 40,1,4993,2,2,40.0,1.0,3600.0,Por Facturar,12.5,2026-03-16 00:00:00,12.5,Por Alcance,,,,Alper Seguros,ALPER SEGUROS
+ARAUCO,3139,AR - Recs and Variance,0,4072,2,22,,0.0,,Permanente,751.5,2026-03-02 09:50:07,749.5,Por Alcance,,,,Arauco,ARAUCO
+ASEGURADORA DEL SUR,987,MIGRACION BI12C,0,21,1,1,,0.0,,Stand by,105.0,2026-03-02 09:50:07,105.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,988,Migración DWH ,0,21,1,1,,0.0,,Stand by,314.0,2026-03-02 09:50:07,314.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,961,BI Comercial,0,21,2,1,,0.0,,Stand by,114.5,2026-03-02 09:50:07,114.5,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,1013,Reportes de Estructuras SBS,0,21,1,21,,0.0,,Stand by,77.0,2026-03-02 09:50:07,77.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,939,Data Warehouse - APEX,0,21,1,3,,0.0,,Stand by,2603.0,2026-03-02 09:50:07,2267.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,837,APLINK,0,21,2,21,,0.0,,Stand by,54.0,2026-03-02 09:50:07,49.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,789,Presupuesto Financiero,0,21,2,2,,0.0,,Stand by,693.5,2026-03-02 09:50:07,573.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,707,OBI Coaching,0,21,1,1,,0.0,,Stand by,,,,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,587,Administración BI,0,21,2,1,,0.0,,Stand by,360.0,2026-03-02 09:50:07,338.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,566,APEX Soporte,0,21,2,1,,0.0,,Stand by,108.0,2026-03-02 09:50:07,108.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,386,BI Financiero,0,21,1,1,,0.0,,Stand by,1469.0,2026-03-02 09:50:07,1369.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,385,BI Siniestros,0,21,1,1,,0.0,,Stand by,52.0,2026-03-02 09:50:07,52.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,264,BI de Mercado,0,21,1,1,,0.0,,Stand by,1319.0,2026-03-02 09:50:07,1281.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,161,BSC Estratégico,0,21,2,1,,0.0,,Stand by,470.5,2026-03-02 09:50:07,470.5,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,666,BI Cartera,0,21,2,1,,0.0,,Stand by,45.0,2026-03-02 09:50:07,45.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,21,OBI Coaching ASEGSUR,0,21,2,1,,0.0,,Stand by,1108.333333,2026-03-02 09:50:07,807.333333,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,5237,Upgrade ODI y APEX,1,21,2,1,560.0,1.0,28000.0,Permanente,731.0,2026-03-16 00:00:00,731.0,Por Alcance,2.0,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,4177,Asesoria 2024,0,21,2,1,60.0,0.0,3000.0,Esporádico,36.0,2026-03-02 09:50:07,36.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,3937,MIgración OBI 2024,0,21,2,1,240.0,0.0,10000.0,Permanente,279.0,2026-03-02 09:50:07,279.0,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASEGURADORA DEL SUR,1033,Soporte BI,0,21,2,1,16.0,0.0,1080.0,Stand by,251.5,2026-03-02 09:50:07,251.5,Por Alcance,,,,Aseguradora del Sur,ASEGURADORA DEL SUR
+ASESORIA Y CONTROL,1637,Proyecto 20h,0,2212,2,1,20.0,0.0,,Stand by,,,,Por Alcance,,,,Asesoría y Control,ASESORIA Y CONTROL
+ASESORIA Y CONTROL,1577,Soporte Aplicación Actividades,0,2212,2,3,40.0,0.0,,Stand by,9.0,2026-03-02 09:50:07,9.0,Por Alcance,,,,Asesoría y Control,ASESORIA Y CONTROL
+ASESORIA Y CONTROL,1797,Cambios registro de horas,0,2212,2,3,24.0,0.0,950.0,Stand by,0.1,2026-03-02 09:50:07,0.1,Por Alcance,,,,Asesoría y Control,ASESORIA Y CONTROL
+AUTOSHARE,5077,AutoShare_20horas,1,8512,2,1,20.0,,1200.0,Esporádico,,,,Por Alcance,,,,AutoShare,AUTOSHARE
+BAC,4217,BAC - Soporte,1,4692,2,122,100.0,1.0,9000.0,Esporádico,89.2,2026-03-16 00:00:00,89.2,Por Alcance,,,,BAC,BAC
+BAC,5257,BAC_S4H Migración,1,4692,2,22,520.0,1.0,46820.0,Permanente,31.5,2026-03-16 00:00:00,31.5,Por Alcance,,,,BAC,BAC
+BAC,3737,BAC - Diagnóstico + Training,0,4692,2,122,100.0,0.0,9000.0,Esporádico,74.0,2026-03-02 09:50:07,74.0,Por Alcance,,,,BAC,BAC
+BANRED,834,Proyecto Plataforma BI,0,1510,1,1,,0.0,,Stand by,,,,Por Alcance,,,,BANRED,BANRED
+BANRED,833,Proyecto Cargas Macro,0,1510,1,1,,0.0,,Stand by,,,,Por Alcance,,,,BANRED,BANRED
+BMI,3317,BMI - 2023,1,1424,2,2,80.0,1.0,5000.0,Esporádico,65.25,2026-03-16 00:00:00,64.25,Por Alcance,,,,BMI,BMI
+BMI,933,Presupuesto Finaciero,0,1424,2,2,,0.0,,Stand by,399.0,2026-03-02 09:50:07,322.5,Por Alcance,,,,BMI,BMI
+BMI,4197,Consultoría Distribución Gastos,0,1424,2,2,30.0,0.0,2500.0,Esporádico,7.5,2026-03-02 09:50:07,7.5,Por Alcance,,,,BMI,BMI
+BMI,3197,BMI Presupuesto 2023,0,1424,1,2,,0.0,,Permanente,52.15,2026-03-02 09:50:07,44.5,Por Alcance,,,,BMI,BMI
+BANCO FINANCIERO,831,Presupuesto Financiero,0,1479,2,2,,0.0,,Stand by,279.5,2026-03-02 09:50:07,263.5,Por Alcance,,,,Banco Financiero,BANCO FINANCIERO
+BANCO DEL AUSTRO,4618,Proyecto Implementación BI Publisher,1,5474,2,1,280.0,1.0,14000.0,Esporádico,176.5,2026-03-16 00:00:00,176.5,Por Alcance,21.0,,,Banco del Austro,BANCO DEL AUSTRO
+BEKAERT,1457,Actual cost,0,1912,2,2,1132.0,0.0,54064.0,Stand by,1311.0,2026-03-02 09:50:07,1243.0,Por Alcance,,,,Bekaert,BEKAERT
+BEKAERT,1999,Cash Flow Peru,0,1912,2,2,40.0,0.0,,Stand by,46.5,2026-03-02 09:50:07,39.5,Por Alcance,,,,Bekaert,BEKAERT
+BEKAERT,1437,Cash Flow,0,1912,2,2,1112.0,0.0,57133.0,Stand by,1148.0,2026-03-02 09:50:07,1141.0,Por Alcance,,,,Bekaert,BEKAERT
+BEKAERT,2477,Soporte 2021,0,1912,2,2,80.0,0.0,,Stand by,20.5,2026-03-02 09:50:07,15.5,Por Alcance,,,,Bekaert,BEKAERT
+BEMIS,1217,Capacitación Adaptive,0,1872,2,2,,0.0,,Stand by,24.0,2026-03-02 09:50:07,24.0,Por Alcance,,,,Bemis,BEMIS
+BEMIS,1218,Soporte (40 Horas),0,1872,2,2,,0.0,,Stand by,16.0,2026-03-02 09:50:07,16.0,Por Alcance,,,,Bemis,BEMIS
+BITSO,2297,Tasks & Recs,0,3092,2,22,185.0,0.0,13500.0,Esporádico,54.0,2026-03-02 09:50:07,54.0,Por Alcance,,,,Bitso,BITSO
+BLOOMIN BRANDS,4258,Bloomin - Training,0,7132,1,2,20.0,0.0,4150.0,Esporádico,20.0,2026-03-02 09:50:07,20.0,Por Alcance,,,,Bloomin Brands,BLOOMIN BRANDS
+BOSTON BSCI,4497,BSCI Adaptive Implementation,0,6312,2,162,920.0,0.0,59000.0,Permanente,644.25,2026-03-02 09:50:07,644.25,Por Alcance,,,,Boston BSCI,BOSTON BSCI
+BOSTON BSCI,4498,BSCI Support,0,6312,2,162,80.0,0.0,6000.0,Esporádico,,,,Por Alcance,,,,Boston BSCI,BOSTON BSCI
+CEPSA,425,Acompañamiento BI Comercial,0,512,1,1,,0.0,,Stand by,203.833333,2026-03-02 09:50:07,203.833333,Por Alcance,,,,CEPSA,CEPSA
+CONSEP,141,OBI Coaching CONSEP,0,162,1,1,,0.0,,Stand by,165.5,2026-03-02 09:50:07,158.0,Por Alcance,,,,CONSEP,CONSEP
+CORSAM,283,BI - Flujo Caja,0,457,2,1,,0.0,,Stand by,3278.0,2026-03-02 09:50:07,3202.0,Por Alcance,,,,CORSAM,CORSAM
+CETI VEHICULOS,304,OBI Coaching Express,0,453,2,1,,0.0,,Stand by,86.5,2026-03-02 09:50:07,86.5,Por Alcance,,,,Ceti Vehículos,CETI VEHICULOS
+CHARGERLOGISTICS,4259,Charger Logistigs - Implementation,1,7012,2,142,1052.0,1.0,74955.0,Stand by,170.5,2026-03-16 00:00:00,160.0,Por Alcance,,,,ChargerLogistics,CHARGERLOGISTICS
+CHARGERLOGISTICS,4260,Charger Logistigs - Training,1,7012,2,2,16.0,1.0,4050.0,Esporádico,,,,Por Alcance,,,,ChargerLogistics,CHARGERLOGISTICS
+CLINTON FOUNDATION,1918,Budget,0,2732,2,2,137.0,0.0,19180.0,Stand by,24.0,2026-03-02 09:50:07,23.0,Por Alcance,,,,Clinton Foundation,CLINTON FOUNDATION
+COLSUBSIDIO,5117,COLS_Soporte,1,2679,2,22,20.0,1.0,2000.0,Esporádico,8.5,2026-03-16 00:00:00,7.5,Por Alcance,,,,Colsubsidio,COLSUBSIDIO
+COLSUBSIDIO,3697,COL BlackLine,0,2679,2,22,2368.0,0.0,314000.0,Permanente,1754.84,2026-03-02 09:50:07,1752.59,Por Alcance,,,,Colsubsidio,COLSUBSIDIO
+COMANDATO,1117,Flujo de Caja CGC,0,1056,2,2,,0.0,,Stand by,184.5,2026-03-02 09:50:07,163.0,Por Alcance,,,,Comandato,COMANDATO
+COMESTIBLES INTEGRALES,2277,Presupuesto 2020,0,1730,2,2,40.0,0.0,,Stand by,52.5,2026-03-02 09:50:07,50.5,Por Alcance,,,,Comestibles Integrales,COMESTIBLES INTEGRALES
+COMESTIBLES INTEGRALES,986,Presupuesto Financiero,0,1730,2,2,,0.0,,Stand by,250.0,2026-03-02 09:50:07,193.5,Por Alcance,,,,Comestibles Integrales,COMESTIBLES INTEGRALES
+CORONA,5297,Corona - Implementación BlackLine ,1,8034,2,22,545.0,1.0,43600.0,Permanente,297.0,2026-03-16 00:00:00,284.0,Por Alcance,,,,Corona,CORONA
+CORPORACION GPF,4679,Consolidador Promociones,1,61,2,1,,1.0,,Permanente,27.5,2026-03-16 00:00:00,12.5,Por Alcance,409.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5478,Proyecto Fenix Planning,1,61,2,1,800.0,1.0,40000.0,Esporádico,720.5,2026-03-16 00:00:00,668.5,Por Alcance,409.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5483,GPF - División Comercial,1,61,2,1,,0.0,,Permanente,323.0,2026-03-02 09:50:07,322.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5484,GPF - Totem,1,61,2,1,,0.0,,Permanente,1936.0,2026-03-02 09:50:07,1930.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3797,ABF Integración con Docuclass,1,61,2,1,90.0,0.0,4500.0,Esporádico,64.0,2026-03-02 09:50:07,64.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3858,GPF - Critical Updates,1,61,2,1,80.0,0.0,2984.0,Esporádico,54.0,2026-03-02 09:50:07,54.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3859,GPF - Geoanálisis,1,61,2,1,800.0,0.0,3600.0,Esporádico,51.0,2026-03-02 09:50:07,44.0,Por Alcance,21.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3860,GPF - Soporte Fabri,1,61,2,1,84.0,1.0,5000.0,Esporádico,56.0,2026-03-16 00:00:00,56.0,Horas,21.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3862,GPF - Automatización de Finanzas,1,61,2,1,860.0,0.0,33000.0,Esporádico,42.0,2026-03-02 09:50:07,42.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3863,GPF - Modelo Comercial OMS,1,61,2,1,660.0,0.0,26000.0,Permanente,450.0,2026-03-02 09:50:07,448.0,Por Alcance,489.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3877,GPF - Sell In,0,61,2,1,160.0,0.0,6400.0,Esporádico,191.5,2026-03-02 09:50:07,168.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3878,GPF - Conciliación de Integraciones,1,61,2,1,900.0,0.0,35000.0,Stand by,68.5,2026-03-02 09:50:07,68.5,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3879,GPF - Plan Dermo Afiliaciones Loyalty,1,61,2,1,400.0,0.0,10000.0,Esporádico,336.0,2026-03-02 09:50:07,330.0,Por Alcance,489.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3880,GPF - Cambio lógica GeoPromotion,1,61,2,1,500.0,1.0,20000.0,Permanente,136.5,2026-03-16 00:00:00,54.0,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3917,GPF - Cambio Canal Pedidos Ya,0,61,2,1,64.0,0.0,2500.0,Esporádico,30.0,2026-03-02 09:50:07,30.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3884,GPF - Conciliación REIM,1,61,2,1,460.0,1.0,18000.0,Esporádico,195.0,2026-03-16 00:00:00,195.0,Por Alcance,409.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3885,GPF - Iniciativas comerciales,0,61,2,1,,0.0,,Esporádico,981.0,2026-03-02 09:50:07,451.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4057,GPF - Fusión,0,61,2,1,400.0,0.0,18000.0,Permanente,160.0,2026-03-02 09:50:07,160.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4058,ABF - Presupuestos,0,61,2,1,120.0,0.0,4000.0,Permanente,85.0,2026-03-02 09:50:07,85.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4237,GPF - Soporte hasta May 2026,1,61,2,1,370.0,1.0,15000.0,Esporádico,408.0,2026-03-16 00:00:00,400.5,Horas,21.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4297,GPF - Inventario Inmovilizado C2,1,61,2,1,120.0,0.0,5000.0,Esporádico,173.0,2026-03-02 09:50:07,166.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4299,GPF - Proyecto Necesidades AWS,1,61,2,1,640.0,0.0,22500.0,Esporádico,351.5,2026-03-02 09:50:07,351.5,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4517,ABF- Requerimiento Fraudes,1,61,2,1,150.0,0.0,7000.0,Esporádico,116.5,2026-03-02 09:50:07,116.5,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4617,GPF - AP Modelo Consolidación,1,61,2,2,425.0,1.0,31875.0,Permanente,438.0,2026-03-16 00:00:00,428.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4797,GPF - Productos Caducados,1,61,2,1,150.0,0.0,6000.0,Esporádico,26.0,2026-03-02 09:50:07,26.0,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4957,GPF - Pertinencia Médica,1,61,2,1,80.0,0.0,3840.0,Esporádico,85.5,2026-03-02 09:50:07,85.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5238,GPF - Faltantes de Aseguradoras,1,61,2,1,240.0,1.0,10000.0,Permanente,260.0,2026-03-16 00:00:00,260.0,Por Alcance,21.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5357,Mejora de Procesos One Stream,1,61,2,1,240.0,1.0,12400.0,Esporádico,262.0,2026-03-16 00:00:00,260.0,Por Alcance,21.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5497,GPF - Smart BI,1,61,2,1,,0.0,,Esporádico,166.0,2026-03-02 09:50:07,,Por Horas,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5486,GPF - Pago Digital,1,61,2,1,,0.0,,Esporádico,81.5,2026-03-02 09:50:07,81.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5487,GPF - Iniciativa Personalización,1,61,2,1,,1.0,,Esporádico,321.0,2026-03-16 00:00:00,41.0,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5489,GPF - Iniciativa Venta Perdida,1,61,2,1,,1.0,,Esporádico,21.0,2026-03-16 00:00:00,19.0,Por Horas,3.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5490,GPF - Iniciativa Ubicaciones,1,61,2,1,,0.0,,Esporádico,2.5,2026-03-02 09:50:07,,Por Horas,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5491,GPF - Migración JDE,1,61,2,1,,0.0,,Esporádico,57.0,2026-03-02 09:50:07,23.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,5517,GPF - Mantenimiento DWH,1,61,2,1,160.0,1.0,8000.0,Permanente,36.5,2026-03-16 00:00:00,36.5,Por Horas,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,343,Soporte OWB,0,61,1,1,,0.0,,Stand by,2.5,2026-03-02 09:50:07,2.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,242,Capacitración Warehouse Builder,0,61,2,1,,0.0,,Stand by,59.0,2026-03-02 09:50:07,58.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,61,Presupuesto Financiero,0,61,1,2,,0.0,,Stand by,457.0,2026-03-02 09:50:07,424.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,324,Datamart Financiero y Marketing,0,61,1,1,,0.0,,Stand by,936.0,2026-03-02 09:50:07,936.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,243,Capacitación Adaptive,0,61,2,2,,0.0,,Stand by,57.0,2026-03-02 09:50:07,54.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,263,Soporte,0,61,2,2,600.0,0.0,24000.0,Stand by,601.0,2026-03-02 09:50:07,455.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,811,APLINK Fybeca,0,61,2,3,,0.0,,Stand by,249.0,2026-03-02 09:50:07,197.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,1075,Integración Loyalty,0,61,1,3,,0.0,,Stand by,4397.0,2026-03-02 09:50:07,4393.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,1257,BK Actuals Adaptive,0,61,2,1,,0.0,,Stand by,6.0,2026-03-02 09:50:07,6.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,991,Soporte 2016 - 80 horas,0,61,2,3,,0.0,,Stand by,26.0,2026-03-02 09:50:07,20.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,1011,Logihealth (40h),0,61,2,2,,0.0,,Stand by,15.0,2026-03-02 09:50:07,10.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,2037,GPF DWH,0,61,2,1,20000.0,0.0,700000.0,Permanente,23754.5,2026-03-02 09:50:07,23751.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,2497,Proyecto SAM ABF,0,61,2,1,1680.0,0.0,59000.0,Stand by,1595.5,2026-03-02 09:50:07,1595.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,2097,Integración SAS Promociones,1,61,2,1,500.0,0.0,20000.0,Stand by,563.0,2026-03-02 09:50:07,545.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,2177,Cliente Unico DQ,0,61,2,1,1700.0,0.0,68000.0,Permanente,1836.25,2026-03-02 09:50:07,1796.25,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,2438,Clientes Chile,1,61,2,1,285.0,0.0,16600.0,Stand by,379.5,2026-03-02 09:50:07,369.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,2577,Forecast simplificado,0,61,2,2,80.0,0.0,5000.0,Stand by,80.5,2026-03-02 09:50:07,80.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3237,One Stream,0,61,2,1,1600.0,0.0,64000.0,Permanente,1718.5,2026-03-02 09:50:07,1700.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3857,GPF - Soporte Proyecto DWH - Jun_24,0,61,2,1,217.0,0.0,10000.0,Esporádico,231.0,2026-03-02 09:50:07,221.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3861,GPF - Conciliación cierre tarjetas de crédito,0,61,2,1,240.0,0.0,10000.0,Esporádico,354.0,2026-03-02 09:50:07,354.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3864,GPF - Onebeat,0,61,2,1,200.0,0.0,8000.0,Esporádico,50.0,2026-03-02 09:50:07,48.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3881,GPF - COMP800,1,61,2,1,400.0,0.0,16000.0,Stand by,247.0,2026-03-02 09:50:07,245.0,Por Alcance,409.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3883,GPF - Reportes históricos Buxis,1,61,2,1,310.0,1.0,13800.0,Permanente,51.5,2026-03-16 00:00:00,51.5,Por Alcance,369.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3897,GPF- Acompañamiento Mejoras Abastecimiento,1,61,1,1,400.0,1.0,15000.0,Stand by,271.0,2026-03-16 00:00:00,258.0,Por Alcance,409.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,3957,GPF - Consolidacion Regional Chile,0,61,2,1,860.0,0.0,30000.0,Permanente,1025.5,2026-03-02 09:50:07,1024.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4157,ABF - Inmedical,1,61,2,1,160.0,0.0,7000.0,Permanente,172.0,2026-03-02 09:50:07,172.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4158,GPF - Upgrade MOM,0,61,2,1,910.0,0.0,35000.0,Esporádico,2040.5,2026-03-02 09:50:07,2036.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4437,GPF - Fusion - Reorganizacion,0,61,2,1,625.0,0.0,25000.0,Permanente,578.0,2026-03-02 09:50:07,577.0,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4537,ABF - Codigo EAN,1,61,2,1,40.0,0.0,2400.0,Esporádico,64.5,2026-03-02 09:50:07,64.5,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4677,Iniciativas 2025,0,61,2,1,,0.0,,Esporádico,,2026-02-22 23:00:00,,Por Alcance,,,,Corporacion GPF,CORPORACION GPF
+CORPORACION GPF,4678,Proyecto RV ,1,61,2,1,,1.0,,Esporádico,1244.5,2026-03-16 00:00:00,1190.5,Por Alcance,2.0,,,Corporacion GPF,CORPORACION GPF
+CORPORACION AZENDE,883,Presupuesto Financiero,0,211,2,2,,0.0,,Stand by,1363.5,2026-03-02 09:50:07,787.5,Por Alcance,,,,Corporación AZENDE,CORPORACION AZENDE
+CORPORACION AZENDE,893,APLINK,0,211,2,21,,0.0,,Stand by,274.5,2026-03-02 09:50:07,232.0,Por Alcance,,,,Corporación AZENDE,CORPORACION AZENDE
+CORPORACION MARESA,323,Planning CMH,0,371,1,2,,0.0,,Stand by,1563.0,2026-03-02 09:50:07,1540.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,506,Soporte AP,0,371,2,2,,0.0,,Stand by,299.5,2026-03-02 09:50:07,269.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,1034,Soporte fuera de contrato,0,371,2,3,,0.0,,Stand by,23.5,2026-03-02 09:50:07,23.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,767,Soporte-Reestructuración CC,0,371,2,2,90.0,0.0,4475.0,Stand by,408.5,2026-03-02 09:50:07,368.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,768,beAFinance,0,371,2,1,,0.0,,Stand by,2378.8,2026-03-02 09:50:07,890.8,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,888,Consolidación,0,371,2,21,,0.0,,Stand by,1194.5,2026-03-02 09:50:07,1194.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,2977,Soporte por pagar,0,371,2,1,,0.0,,Esporádico,6.0,2026-03-02 09:50:07,6.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,1677,Capacitación BAF y OBI12 reportes,0,371,1,1,12.0,0.0,1000.0,Stand by,30.0,2026-03-02 09:50:07,30.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,4477,Soporte Nov2024,1,371,2,1,100.0,1.0,6000.0,Esporádico,131.0,2026-03-16 00:00:00,128.5,Horas,2.0,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,1777,Enterprise Data Warehouse,0,371,1,1,1200.0,0.0,,Esporádico,5655.0,2026-03-02 09:50:07,5646.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,885,TT-HH 2015,0,371,2,2,,0.0,,Stand by,102.0,2026-03-02 09:50:07,88.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,886,Fase II,0,371,2,21,,0.0,,Stand by,551.0,2026-03-02 09:50:07,207.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,891,APLINK,0,371,2,21,,0.0,,Stand by,171.5,2026-03-02 09:50:07,121.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,1757,BAF - 34 horas,0,371,2,1,34.0,0.0,,Stand by,99.1,2026-03-02 09:50:07,99.1,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,2997,Cambios en DWH por CC,0,371,2,1,90.0,0.0,,Permanente,91.0,2026-03-02 09:50:07,91.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,2857,CarFlow,0,371,2,2,104.0,0.0,,Esporádico,132.5,2026-03-02 09:50:07,132.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,2877,Capacitación y Soporte 2022,0,371,2,1,131.0,0.0,8125.0,Permanente,65.5,2026-03-02 09:50:07,65.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,3537,MAR-Soporte-Server10,0,371,2,1,10.0,0.0,600.0,Esporádico,10.5,2026-03-02 09:50:07,10.5,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,2697,Separacion ASC,0,371,2,2,36.0,0.0,,Stand by,43.0,2026-03-02 09:50:07,43.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,3378,Soporte BAF y AP 2023,0,371,2,1,90.0,0.0,4950.0,Esporádico,90.0,2026-03-02 09:50:07,90.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,3397,Mar-Migración Server,0,371,2,1,90.0,0.0,5400.0,Esporádico,77.0,2026-03-02 09:50:07,77.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CORPORACION MARESA,3417,ASC - Comisiones 20,0,371,2,2,20.0,0.0,,Esporádico,22.0,2026-03-02 09:50:07,22.0,Por Alcance,,,,Corporación Maresa,CORPORACION MARESA
+CUERPO INGENIEROS EJERCITO,746,OBI Coaching,0,1035,2,1,,0.0,,Stand by,18.0,2026-03-02 09:50:07,18.0,Por Alcance,,,,Cuerpo Ingenieros Ejercito,CUERPO INGENIEROS EJERCITO
+DANEC,4377,Budget,1,1704,2,2,1300.0,1.0,80000.0,Esporádico,850.0,2026-03-16 00:00:00,789.0,Por Alcance,,,,Danec,DANEC
+DEPRATI,1477,Budget 2019,0,1605,1,2,1640.0,0.0,96438.0,Stand by,2539.0,2026-03-02 09:50:07,2478.5,Por Alcance,,,,DePrati,DEPRATI
+DEPRATI,2737,OTB,0,1605,2,2,70.0,0.0,4000.0,Stand by,47.5,2026-03-02 09:50:07,46.0,Por Alcance,,,,DePrati,DEPRATI
+DEPRATI,2437,Presupuesto en Board,0,1605,2,2,,0.0,,Stand by,972.5,2026-03-02 09:50:07,864.5,Por Alcance,,,,DePrati,DEPRATI
+DINERS,726,Soporte AP,0,290,2,2,,0.0,,Stand by,188.0,2026-03-02 09:50:07,160.0,Por Alcance,,,,Diners,DINERS
+DINERS,588,Presupuesto Financiero,0,290,1,2,,0.0,,Stand by,2250.0,2026-03-02 09:50:07,2174.0,Por Alcance,,,,Diners,DINERS
+DINERS,809,Forecast 6+6,0,290,1,2,,0.0,,Stand by,98.5,2026-03-02 09:50:07,65.5,Por Alcance,,,,Diners,DINERS
+DINERS,1258,Reconstrucción,0,290,2,2,,0.0,,Stand by,753.5,2026-03-02 09:50:07,738.5,Por Alcance,,,,Diners,DINERS
+DINERS,3097,Diners 160,1,290,2,2,160.0,1.0,9500.0,Esporádico,146.5,2026-03-16 00:00:00,146.5,Por Alcance,,,,Diners,DINERS
+DINET,2837,Reimplementación Adaptive,0,1654,2,2,910.0,0.0,45502.0,Permanente,971.67,2026-03-02 09:50:07,904.67,Por Alcance,,,,Dinet,DINET
+DINET,4858,Dinet - Soporte 300,1,1654,2,2,300.0,1.0,18500.0,Esporádico,114.0,2026-03-16 00:00:00,114.0,Por Alcance,,,,Dinet,DINET
+DINET,3077,Soporte Postimplementación,0,1654,2,2,160.0,0.0,7650.0,Esporádico,176.66,2026-03-02 09:50:07,160.16,Por Alcance,,,,Dinet,DINET
+EEQ,303,Mapas,0,124,1,1,,0.0,,Stand by,9.0,2026-03-02 09:50:07,9.0,Por Alcance,,,,EEQ,EEQ
+ESPE,769,100h Soporte,0,1456,2,1,,0.0,,Stand by,90.0,2026-03-02 09:50:07,37.0,Por Alcance,,,,ESPE,ESPE
+EL SABOR,1277,Presupuesto Financiero	,0,1932,2,2,,0.0,,Stand by,633.0,2026-03-02 09:50:07,633.0,Por Alcance,,,,El Sabor,EL SABOR
+EL TELEGRAFO,606,OBIEE Coaching,0,755,2,1,,0.0,,Stand by,168.5,2026-03-02 09:50:07,168.5,Por Alcance,,,,El Telégrafo,EL TELEGRAFO
+ELOSERVICOS,5177,ELO Sopore 30hrs,1,5376,2,2,30.0,1.0,2000.0,Esporádico,30.0,2026-03-16 00:00:00,29.0,Por Alcance,,,,EloServicos,ELOSERVICOS
+ELOSERVICOS,4257,ELO - Soporte 25,0,5376,2,2,25.0,0.0,1750.0,Esporádico,25.0,2026-03-02 09:50:07,23.0,Por Alcance,,,,EloServicos,ELOSERVICOS
+EQUIVIDA,1055,Presupuesto Financiero,0,572,2,2,,0.0,,Stand by,9.0,2026-03-02 09:50:07,,Por Alcance,,,,Equivida,EQUIVIDA
+FADESA,835,Proyecto Finaciero AP,0,1511,2,1,,0.0,,Stand by,,,,Por Alcance,,,,FADESA,FADESA
+FPA,4737,Thompson IA,1,1,2,1,340.0,1.0,0.0,Esporádico,38.3,2026-03-16 00:00:00,38.3,Por Alcance,1.0,,,FPA,FPA
+FPA,626,Curso de Apex GYE (Oct 2013),0,1,2,1,,0.0,,Stand by,1.0,2026-03-02 09:50:07,1.0,Por Alcance,,,,FPA,FPA
+FPA,1297,Cockpit Financiero,0,1,2,1,,0.0,,Stand by,,,,Por Alcance,,,,FPA,FPA
+FPA,1458,Información de Mercado,1,1,2,1,,0.0,,Stand by,30.5,2026-03-02 09:50:07,30.5,Por Alcance,,,,FPA,FPA
+FPA,1857,Ambiente OBI y ODI,1,1,2,1,40.0,0.0,0.0,Stand by,123.5,2026-03-02 09:50:07,115.5,Por Alcance,,,,FPA,FPA
+FPA,838,Analíticos SAP B1,0,1,2,1,,0.0,,Stand by,4.0,2026-03-02 09:50:07,4.0,Por Alcance,,,,FPA,FPA
+FPA,1032,BAF Be Analytic,0,1,2,21,,0.0,,Stand by,137.0,2026-03-02 09:50:07,21.0,Por Alcance,,,,FPA,FPA
+FPA,858,APLINK,1,1,2,3,,0.0,,Stand by,429.5,2026-03-02 09:50:07,326.5,Por Alcance,,,,FPA,FPA
+FPA,937,AP-Interno,0,1,2,2,,0.0,,Stand by,340.5,2026-03-02 09:50:07,307.5,Por Alcance,,,,FPA,FPA
+FPA,881,Saci Administrator,0,1,2,21,,0.0,,Stand by,27.0,2026-03-02 09:50:07,3.0,Por Alcance,,,,FPA,FPA
+FPA,766,AP Cooperativas,0,1,2,2,,0.0,,Stand by,225.0,2026-03-02 09:50:07,193.0,Por Alcance,,,,FPA,FPA
+FPA,1337,Conciliaciones,1,1,2,21,,0.0,,Stand by,361.5,2026-03-02 09:50:07,294.5,Por Alcance,,,,FPA,FPA
+FPA,3577,Mejoras Integrator,0,1,2,1,,0.0,,Permanente,106.0,2026-03-02 09:50:07,106.0,Por Alcance,,,,FPA,FPA
+FPA,3038,Programacion Recursos,0,1,2,2,,0.0,,Esporádico,135.5,2026-03-02 09:50:07,135.5,Por Alcance,,,,FPA,FPA
+FPA,1977,Advisors,1,1,2,1,,0.0,,Stand by,203.5,2026-03-02 09:50:07,203.5,Por Alcance,,,,FPA,FPA
+FPA,686,Tesis BI,0,1,2,1,,0.0,,Stand by,3.0,2026-03-02 09:50:07,,Por Alcance,,,,FPA,FPA
+FPA,708,beAnalytic Finance,0,1,2,3,,0.0,,Stand by,2653.5,2026-03-02 09:50:07,1154.5,Por Alcance,,,,FPA,FPA
+FPA,1737,Solver BI 360 Capacitación,1,1,2,3,120.0,0.0,,Stand by,53.0,2026-03-02 09:50:07,53.0,Por Alcance,,,,FPA,FPA
+FPA,880,BAF Aseguradoras,0,1,2,3,,0.0,,Stand by,239.0,2026-03-02 09:50:07,97.0,Por Alcance,,,,FPA,FPA
+FPA,3886,Demos ORA BI 2024,1,1,2,1,,1.0,0.0,Permanente,45.0,2026-03-16 00:00:00,41.0,Por Alcance,2.0,,,FPA,FPA
+FPA,4097,Rocas,1,1,2,3,,1.0,,Esporádico,286.0,2026-03-16 00:00:00,282.0,Por Alcance,,,,FPA,FPA
+FARMAPIEL,2137,Budget 20,1,3112,2,2,,,,Stand by,417.0,2026-03-02 09:50:07,410.0,Por Alcance,,,,Farmapiel,FARMAPIEL
+GRAIMAN,1557,Migración Ap-Link,0,420,2,2,71.0,0.0,3478.0,Stand by,35.5,2026-03-02 09:50:07,35.5,Por Alcance,,,,Graiman,GRAIMAN
+GRAIMAN,935,Soporte 80h.,0,420,2,2,,0.0,,Stand by,92.0,2026-03-02 09:50:07,36.5,Por Alcance,,,,Graiman,GRAIMAN
+GRAIMAN,832,Presupuesto Financiero,0,420,2,2,,0.0,,Stand by,1028.0,2026-03-02 09:50:07,884.0,Por Alcance,,,,Graiman,GRAIMAN
+HEINSOHN TECH,884,Reportes Conti,0,1568,2,1,,0.0,,Stand by,297.5,2026-03-02 09:50:07,270.5,Por Alcance,,,,Heinsohn Tech,HEINSOHN TECH
+HEINSOHN TECH,887,BI SAP Crystal Reports,0,1568,2,1,,0.0,,Stand by,8.0,2026-03-02 09:50:07,8.0,Por Alcance,,,,Heinsohn Tech,HEINSOHN TECH
+HIDROPAUTE,181,BSC Estratégico,0,330,2,1,,0.0,,Stand by,,,,Por Alcance,,,,Hidropaute,HIDROPAUTE
+HOSPITAL METROPOLITANO,526,Capacitación AP,0,975,1,2,,0.0,,Stand by,98.0,2026-03-02 09:50:07,96.0,Por Alcance,,,,Hospital Metropolitano,HOSPITAL METROPOLITANO
+HOSPITAL METROPOLITANO,546,Soporte,0,975,1,2,,0.0,,Stand by,214.5,2026-03-02 09:50:07,193.5,Por Alcance,,,,Hospital Metropolitano,HOSPITAL METROPOLITANO
+IDEAL ALAMBREC BEKAERT,81,Pronóstico de Ventas,0,81,1,2,,0.0,,Stand by,37.0,2026-03-02 09:50:07,25.0,Por Alcance,,,,Ideal Alambrec Bekaert,IDEAL ALAMBREC BEKAERT
+INDUGLOB,201,Presupuesto y Control Financiero,0,22,2,2,,0.0,,Stand by,713.5,2026-03-02 09:50:07,678.5,Por Alcance,,,,Induglob,INDUGLOB
+INDUGLOB,646,Soporte,0,22,2,2,,0.0,,Stand by,47.0,2026-03-02 09:50:07,45.0,Por Alcance,,,,Induglob,INDUGLOB
+INDUGLOB,989,120 horas (Soporte 2016),0,22,2,2,,0.0,,Stand by,161.0,2026-03-02 09:50:07,128.0,Por Alcance,,,,Induglob,INDUGLOB
+INDUGLOB,990,Taller de OWB,0,22,1,1,,0.0,,Stand by,18.0,2026-03-02 09:50:07,18.0,Por Alcance,,,,Induglob,INDUGLOB
+INDUGLOB,1015,APLINK - Configuración,0,22,2,3,,0.0,,Stand by,1.0,2026-03-02 09:50:07,1.0,Por Alcance,,,,Induglob,INDUGLOB
+INDUGLOB,1317,Electroandina (80h),0,22,2,2,80.0,0.0,5950.0,Stand by,41.0,2026-03-02 09:50:07,26.0,Por Alcance,,,,Induglob,INDUGLOB
+INPROEL,1137,Coachin BI,0,1852,1,1,,0.0,,Stand by,,,,Por Alcance,,,,Inproel,INPROEL
+INPROEL,4038,Evaluacion BI Inproel,0,1852,2,1,10.0,0.0,480.0,Esporádico,2.0,2026-03-02 09:50:07,2.0,Por Alcance,,,,Inproel,INPROEL
+INPROEL,4037,Migracion BI 2024,0,1852,2,1,120.0,0.0,5000.0,Esporádico,221.0,2026-03-02 09:50:07,221.0,Por Alcance,,,,Inproel,INPROEL
+INTACO,1717,PPTO 2020 - 52H,0,4,2,2,52.0,0.0,2340.0,Stand by,16.0,2026-03-02 09:50:07,14.0,Por Alcance,,,,Intaco,INTACO
+INTACO,913,Soporte AP,0,4,2,2,,0.0,,Stand by,36.0,2026-03-02 09:50:07,21.0,Por Alcance,,,,Intaco,INTACO
+INTACO,964,Capacitación + Soporte,0,4,2,2,,0.0,,Stand by,83.0,2026-03-02 09:50:07,64.0,Por Alcance,,,,Intaco,INTACO
+INTACO,1358,Presupuesto 2019,0,4,2,2,388.0,0.0,17660.0,Stand by,750.5,2026-03-02 09:50:07,750.5,Por Alcance,,,,Intaco,INTACO
+INTACO,942,Migración OBI 10 11,0,4,2,1,,0.0,,Stand by,92.5,2026-03-02 09:50:07,92.5,Por Alcance,,,,Intaco,INTACO
+INTACO,1014,Soporte 2016 - 14 horas,0,4,2,1,,0.0,,Stand by,17.0,2026-03-02 09:50:07,17.0,Por Alcance,,,,Intaco,INTACO
+INTACO,1718,Migracion Integrator 2019/11,1,4,2,21,40.0,0.0,2000.0,Stand by,86.0,2026-03-02 09:50:07,67.0,Por Alcance,,,,Intaco,INTACO
+INTACO,41,Presupuesto Financiero,0,4,2,2,,0.0,,Stand by,177.5,2026-03-02 09:50:07,143.5,Por Alcance,,,,Intaco,INTACO
+INTACO,101,APLINK,0,4,2,3,,0.0,,Stand by,778.0,2026-03-02 09:50:07,242.0,Por Alcance,,,,Intaco,INTACO
+INTACO,4137,Migración BI Publisher,1,4,2,1,102.0,0.0,5100.0,Esporádico,67.0,2026-03-02 09:50:07,67.0,Por Alcance,21.0,,,Intaco,INTACO
+INTACO,363,BI Alquileres,0,4,2,1,,0.0,,Stand by,512.0,2026-03-02 09:50:07,510.0,Por Alcance,,,,Intaco,INTACO
+INTACO,241,BI Recurso Humanos,0,4,2,1,,0.0,,Stand by,501.5,2026-03-02 09:50:07,499.5,Por Alcance,,,,Intaco,INTACO
+KPMG,4657,Budget CeCo x Cuenta,0,7253,2,2,300.0,0.0,20000.0,Permanente,76.0,2026-03-02 09:50:07,76.0,Por Alcance,,,,KPMG,KPMG
+KPMG,4877,Soporte KPMG 2025,1,7253,2,2,40.0,1.0,,Esporádico,20.5,2026-03-16 00:00:00,20.5,Por Alcance,,,,KPMG,KPMG
+KOMATSU,1077,Fase I: DCC,0,1753,2,2,,0.0,,Stand by,304.0,2026-03-02 09:50:07,230.0,Por Alcance,,,,Komatsu,KOMATSU
+KOMATSU,1558,POC,0,1753,2,2,60.0,0.0,2880.0,Stand by,30.0,2026-03-02 09:50:07,30.0,Por Alcance,,,,Komatsu,KOMATSU
+KOMATSU,1659,Nueva Arquitectura,0,1753,2,2,160.0,0.0,7680.0,Stand by,58.5,2026-03-02 09:50:07,54.5,Por Alcance,,,,Komatsu,KOMATSU
+LA FABRIL,2637,Soporte,0,1540,2,2,40.0,0.0,,Stand by,30.0,2026-03-02 09:50:07,26.0,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,2657,Soporte 2021 - Cambios,0,1540,2,2,150.0,0.0,,Esporádico,90.0,2026-03-02 09:50:07,67.5,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,2757,Soporte 30h,0,1540,2,2,30.0,0.0,,Stand by,25.0,2026-03-02 09:50:07,23.0,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,2897,Soporte 2022 x facturar,1,1540,2,2,140.0,0.0,8400.0,Esporádico,128.0,2026-03-02 09:50:07,79.0,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,2417,Caja Registradora,0,1540,2,2,160.0,0.0,,Stand by,149.5,2026-03-02 09:50:07,145.5,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,3297,Restructuración SAP 2023,0,1540,2,2,110.0,0.0,,Stand by,889.25,2026-03-02 09:50:07,880.75,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,3059,Nómina 2022,0,1540,2,2,120.0,0.0,,Permanente,78.5,2026-03-02 09:50:07,74.5,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,3060,Caja Registradora 2022,0,1540,2,2,,0.0,,Permanente,17.75,2026-03-02 09:50:07,17.75,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,3061,Comercial simulaciones 2022,0,1540,2,2,,0.0,,Permanente,27.5,2026-03-02 09:50:07,25.5,Por Alcance,,,,La Fabril,LA FABRIL
+LA FABRIL,2257,Presupuesto 2021,0,1540,2,2,,0.0,,Stand by,1075.75,2026-03-02 09:50:07,883.25,Por Alcance,,,,La Fabril,LA FABRIL
+LA UNIVERSAL,810,Gestión de Rentabilidad,0,1452,2,2,,0.0,,Stand by,2483.0,2026-03-02 09:50:07,2161.0,Por Alcance,,,,La Universal,LA UNIVERSAL
+MADERERA,4817,Carga de Budget 2025,1,182,2,2,300.0,1.0,16500.0,Esporádico,,,,Por Alcance,,,,Maderera,MADERERA
+MARATHON,121,OBI Coaching,0,128,1,1,,0.0,,Stand by,24.0,2026-03-02 09:50:07,7.0,Por Alcance,,,,Marathon,MARATHON
+MAVESA,1357,Proyecto de Integración de Datos y BI,0,1656,1,1,,0.0,,Stand by,398.0,2026-03-02 09:50:07,398.0,Por Alcance,,,,Mavesa,MAVESA
+MAVESA,1537,Control Presupuestario,1,1656,2,1,580.0,0.0,40000.0,Stand by,410.0,2026-03-02 09:50:07,410.0,Por Alcance,,,,Mavesa,MAVESA
+MAVESA,1418,Conciliaciones,1,1656,1,3,800.0,0.0,30800.0,Stand by,2260.5,2026-03-02 09:50:07,2260.5,Por Alcance,,,,Mavesa,MAVESA
+MAVESA,984,Coaching Ampliado BI - DWH,0,1656,1,1,,0.0,,Stand by,300.0,2026-03-02 09:50:07,290.0,Por Alcance,,,,Mavesa,MAVESA
+MAYFLOWER BUFFALO,142,OBI Coaching MB,0,86,1,1,,0.0,,Stand by,135.333,2026-03-02 09:50:07,127.5,Por Alcance,,,,Mayflower-Buffalo,MAYFLOWER BUFFALO
+MILLICOM TELEFONICA PA NI,1198,Capex,0,1798,2,2,,0.0,,Stand by,372.0,2026-03-02 09:50:07,342.0,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,3437,Modelo B2B y otros - 200,1,1798,2,2,200.0,0.0,12800.0,Esporádico,227.0,2026-03-02 09:50:07,210.75,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,1917,Respaldos SEM,0,1798,2,2,30.0,0.0,,Stand by,19.0,2026-03-02 09:50:07,11.0,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,1497,ID gastos,0,1798,2,2,36.0,0.0,3038.0,Stand by,52.0,2026-03-02 09:50:07,52.0,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,2197,Mejoras Presupuesto 2020,0,1798,2,2,182.0,0.0,12896.0,Esporádico,183.5,2026-03-02 09:50:07,165.5,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,1097,FIN-Presupuesto,0,1798,2,2,,0.0,,Stand by,2759.0,2026-03-02 09:50:07,2655.0,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,1076,Presupuesto Financiero,0,1798,2,2,,0.0,,Stand by,1919.5,2026-03-02 09:50:07,1797.5,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,1197,Talento Humano,0,1798,2,2,,0.0,,Stand by,175.5,2026-03-02 09:50:07,167.5,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MILLICOM TELEFONICA PA NI,1517,Separación Instancias,0,1798,2,2,344.0,0.0,22200.0,Stand by,193.0,2026-03-02 09:50:07,193.0,Por Alcance,,,,"Millicom - Telefónica PA, NI",MILLICOM TELEFONICA PA NI
+MINISTERIO SALUD PUBLICA,567,Preventa Indicadores Gerenciales,0,127,2,1,,0.0,,Stand by,256.667,2026-03-02 09:50:07,209.667,Por Alcance,,,,Ministerio Salud Pública,MINISTERIO SALUD PUBLICA
+MODEC,5037,Modec_support_2025,1,6732,2,2,200.0,1.0,14000.0,Esporádico,63.0,2026-03-16 00:00:00,58.5,Por Alcance,,,,Modec,MODEC
+MODEC,4397,Modec_Support_200,0,6732,2,2,200.0,0.0,13500.0,Esporádico,235.0,2026-03-02 09:50:07,201.0,Por Alcance,,,,Modec,MODEC
+MODEC,3997,Modec_Budget,0,6732,2,2,806.0,0.0,52436.0,Permanente,786.0,2026-03-02 09:50:07,658.0,Por Alcance,,,,Modec,MODEC
+MODEC GUYANA,4697,Modec Guyana Adaptive,0,7592,2,2,420.0,0.0,29396.0,Permanente,361.75,2026-03-03 23:00:00,356.75,Por Alcance,,,,Modec Guyana,MODEC GUYANA
+MODEC GUYANA,5537,Modec_Guyana_Soporte_80,1,7592,2,2,80.0,1.0,5440.0,Esporádico,86.0,2026-03-16 00:00:00,81.0,Por Horas,,,,Modec Guyana,MODEC GUYANA
+MODERNA,3977,Moderna - Budget 2024,0,6852,1,2,,0.0,,Permanente,33.5,2026-03-02 09:50:07,32.5,Por Alcance,,,,Moderna,MODERNA
+MODERNA ALIMENTOS,4837,Carga datos 2025,1,1731,2,2,,1.0,,Esporádico,354.0,2026-03-16 00:00:00,328.0,Por Alcance,,,,Moderna Alimentos,MODERNA ALIMENTOS
+MODERNA ALIMENTOS,3978,Proyecto Budget,0,1731,2,2,1600.0,0.0,80000.0,Permanente,2121.75,2026-03-02 09:50:07,1952.0,Por Alcance,,,,Moderna Alimentos,MODERNA ALIMENTOS
+MULTICINES,1738,Multicines,0,2352,2,2,242.0,0.0,12285.0,Stand by,289.5,2026-03-02 09:50:07,281.0,Por Alcance,,,,Multicines,MULTICINES
+MUNICIPIO DE QUITO,836,Adquisición de Licencias BI,0,1512,2,1,,0.0,,Stand by,12.0,2026-03-02 09:50:07,12.0,Por Alcance,,,,Municipio de Quito,MUNICIPIO DE QUITO
+NOVA ECUADOR,790,Presupuesto Financiero,0,1423,2,2,,0.0,,Stand by,379.5,2026-03-02 09:50:07,365.5,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,3617,Nueva Capacitación,0,1423,2,1,10.0,0.0,,Esporádico,10.0,2026-03-02 09:50:07,10.0,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,5157,Nova 5h,1,1423,2,2,5.0,1.0,,Esporádico,1.5,2026-03-16 00:00:00,1.5,Horas,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,1897,Modelo Rentabilidad - 160,0,1423,2,2,160.0,0.0,6600.0,Stand by,209.5,2026-03-02 09:50:07,197.5,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,879,Horas Soporte,0,1423,2,2,,0.0,,Stand by,168.0,2026-03-02 09:50:07,121.0,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,1617,Proyecto 87 h,0,1423,2,2,87.0,0.0,,Stand by,93.0,2026-03-02 09:50:07,78.0,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,962,H. Soporte (PPTO 2016),0,1423,2,2,,0.0,,Stand by,91.0,2026-03-02 09:50:07,87.0,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,5098,Soporte 5h,1,1423,2,1,5.0,1.0,,Esporádico,2.0,2026-03-16 00:00:00,2.0,Horas,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,3717,Nova - Por facturar 2024,1,1423,2,2,,1.0,,Por Facturar,16.5,2026-03-16 00:00:00,13.0,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOVA ECUADOR,1157,Soporte Ppto 2018,0,1423,2,2,,0.0,,Stand by,20.0,2026-03-02 09:50:07,20.0,Por Alcance,,,,NOVA Ecuador,NOVA ECUADOR
+NOBIS,892,APLINK,0,1487,2,21,,0.0,,Stand by,20.0,2026-03-02 09:50:07,20.0,Por Alcance,,,,Nobis,NOBIS
+NOBIS,889,Proyecto BI - USI,0,1487,1,1,,0.0,,Stand by,234.0,2026-03-02 09:50:07,155.0,Por Alcance,,,,Nobis,NOBIS
+NUTRI,2317,Presupuesto 2021,0,3152,2,2,734.0,0.0,,Esporádico,1106.0,2026-03-02 09:50:07,690.5,Por Alcance,,,,Nutri,NUTRI
+OLVA,3777,Gestión de Datos y Analítica,0,6675,2,1,40.0,0.0,2000.0,Esporádico,24.0,2026-03-02 09:50:07,24.0,Por Alcance,,,,Olva,OLVA
+OVERSEAS,940,OBI Coaching,0,1573,1,1,,0.0,,Stand by,223.933,2026-03-02 09:50:07,222.933,Por Alcance,,,,Overseas,OVERSEAS
+PROPHAR,2817,Planful - Prophar,0,1732,2,2,260.0,0.0,16000.0,Esporádico,298.0,2026-03-02 09:50:07,297.0,Por Alcance,,,,PROPHAR,PROPHAR
+PROPHAR,1377,Ppto x Producto,0,1732,2,2,40.0,0.0,2600.0,Stand by,74.0,2026-03-02 09:50:07,23.0,Por Alcance,,,,PROPHAR,PROPHAR
+PROPHAR,1010,Presupuesto,0,1732,2,2,,0.0,,Stand by,458.0,2026-03-02 09:50:07,349.0,Por Alcance,,,,PROPHAR,PROPHAR
+PROPHAR,1237,Talento Humano,0,1732,2,2,,0.0,,Stand by,28.0,2026-03-02 09:50:07,24.0,Por Alcance,,,,PROPHAR,PROPHAR
+PUCE,963,DATA WAREHOUSE,0,1236,1,1,,0.0,,Stand by,24.0,2026-03-02 09:50:07,24.0,Por Alcance,,,,PUCE,PUCE
+PRESIDENCIA,859,Endeca,0,1492,2,1,,0.0,,Stand by,,,,Por Alcance,,,,Presidencia,PRESIDENCIA
+PRINCETON,42,Presupuesto Financiero,0,41,2,2,,0.0,,Stand by,1.0,2026-03-02 09:50:07,,Por Alcance,,,,Princeton,PRINCETON
+PRIOX,586,Acompañamiento Adaptive,0,1016,2,2,,0.0,,Stand by,114.0,2026-03-02 09:50:07,114.0,Por Alcance,,,,Priox,PRIOX
+PROALCO,706,Modelo Replicación Pronóstico de Ventas,0,822,1,3,,0.0,,Stand by,268.0,2026-03-02 09:50:07,268.0,Por Alcance,,,,Proalco,PROALCO
+PROAUTO,890,Presupuesto,0,1565,2,2,,0.0,,Stand by,310.5,2026-03-02 09:50:07,218.0,Por Alcance,,,,Proauto,PROAUTO
+QUINTO ANDAR,3597,QA - Accounting,0,5112,2,2,140.0,0.0,10500.0,Permanente,81.5,2026-03-02 09:50:07,81.5,Por Alcance,,,,Quinto Andar,QUINTO ANDAR
+QUINTO ANDAR,3078,QA Reimplementation,0,5112,2,82,316.0,0.0,25123.0,Esporádico,270.75,2026-03-02 09:50:07,267.0,Por Alcance,,,,Quinto Andar,QUINTO ANDAR
+REDCAPITAL,936,Demo BI,0,1629,2,1,,0.0,,Stand by,12.0,2026-03-02 09:50:07,,Por Alcance,,,,RedCapital,REDCAPITAL
+REYBANPAC,1657,Lacteos y Corp,1,1815,2,2,1724.0,0.0,109512.0,Permanente,1683.4,2026-03-02 09:50:07,1649.4,Por Alcance,,,,Reybanpac,REYBANPAC
+SEPS,486,Indicadores,0,714,2,1,,0.0,,Stand by,1020.5,2026-03-02 09:50:07,1020.5,Por Alcance,,,,SEPS,SEPS
+SERTECPET,4357,Flujo de Caja,1,412,2,2,720.0,1.0,36000.0,Permanente,548.5,2026-03-16 00:00:00,541.5,Por Alcance,,,,SERTECPET,SERTECPET
+SERTECPET,4337,Diagnostico,0,412,2,2,80.0,0.0,5000.0,Permanente,135.0,2026-03-02 09:50:07,135.0,Por Alcance,,,,SERTECPET,SERTECPET
+SIC,985,Coaching SICSAS,0,253,1,1,,0.0,,Stand by,86.5,2026-03-02 09:50:07,86.5,Por Alcance,,,,SIC,SIC
+SEGUROS EQUINOCCIAL,1056,Presupuesto Financiero,0,754,2,2,,0.0,,Stand by,1305.0,2026-03-02 09:50:07,909.5,Por Alcance,,,,Seguros Equinoccial,SEGUROS EQUINOCCIAL
+SEGUROS EQUINOCCIAL,1177,Integracion AX,0,754,2,3,,0.0,,Stand by,93.0,2026-03-02 09:50:07,89.0,Por Alcance,,,,Seguros Equinoccial,SEGUROS EQUINOCCIAL
+SEGUROS EQUINOCCIAL,1397,Soporte 80H - 2019,0,754,1,2,80.0,0.0,5000.0,Stand by,76.0,2026-03-02 09:50:07,70.0,Por Alcance,,,,Seguros Equinoccial,SEGUROS EQUINOCCIAL
+SEGUROS DEL PICHINCHA,3157,SDP Reingenieria,0,2373,2,102,200.0,0.0,,Esporádico,260.67,2026-03-02 09:50:07,230.75,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SEGUROS DEL PICHINCHA,2017,Forecast 3+9,0,2373,2,2,150.0,0.0,,Stand by,99.5,2026-03-02 09:50:07,78.0,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SEGUROS DEL PICHINCHA,2777,Budget 2022,0,2373,2,2,,0.0,,Esporádico,55.0,2026-03-02 09:50:07,53.0,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SEGUROS DEL PICHINCHA,2937,Modelo 2022,0,2373,2,2,60.0,0.0,7520.0,Esporádico,74.5,2026-03-02 09:50:07,41.0,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SEGUROS DEL PICHINCHA,1597,Presupuesto Financiero,0,2373,2,2,400.0,0.0,30275.0,Stand by,923.0,2026-03-02 09:50:07,830.0,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SEGUROS DEL PICHINCHA,2377,Descarga a Qlik,0,2373,2,2,32.0,0.0,,Stand by,25.0,2026-03-02 09:50:07,25.0,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SEGUROS DEL PICHINCHA,4457,SDP Soporte 2025,1,2373,2,2,200.0,1.0,,Esporádico,252.0,2026-03-16 00:00:00,250.0,Por Alcance,,,,Seguros del Pichincha,SEGUROS DEL PICHINCHA
+SUNSHINE,4997,Sunshine,1,8452,2,2,360.0,1.0,25020.0,Permanente,153.0,2026-03-16 00:00:00,147.5,Por Alcance,,,,Sunshine,SUNSHINE
+SUPERTEL,445,BPM,0,753,2,3,,0.0,,Stand by,3.0,2026-03-02 09:50:07,3.0,Por Alcance,,,,SuperTel,SUPERTEL
+TCG GROUP,1877,Soporte BI DWH 2020,1,593,2,1,20.0,0.0,1000.0,Stand by,3.0,2026-03-02 09:50:07,3.0,Por Alcance,,,,TCG Group,TCG GROUP
+TCG GROUP,466,Soporte,0,593,1,1,24.0,0.0,1200.0,Stand by,60.5,2026-03-02 09:50:07,59.5,Por Alcance,,,,TCG Group,TCG GROUP
+TECNISEGUROS,5317,Innovación de Procesos de Planificación,1,2552,2,2,420.0,1.0,24570.0,Esporádico,220.25,2026-03-16 00:00:00,213.75,Por Alcance,,,,Tecniseguros,TECNISEGUROS
+TELEFONICA CR,2157,Instancia CR,0,3212,2,2,204.0,0.0,,Stand by,20.0,2026-03-02 09:50:07,20.0,Por Alcance,,,,Telefonica CR,TELEFONICA CR
+TELEFONICA EC,1818,Presupuesto Rosetta,0,613,2,2,1200.0,0.0,,Stand by,2237.0,2026-03-02 09:50:07,2059.5,Por Alcance,,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,3677,CAPEX,0,613,2,182,1200.0,0.0,60000.0,Esporádico,1328.0,2026-03-02 09:50:07,1326.0,Por Alcance,,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,3637,Telefonica EC Soporte 23-24,0,613,2,2,100.0,0.0,6000.0,Esporádico,101.5,2026-03-02 09:50:07,95.5,Por Alcance,,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,4977,Soporte Telefónica 2026,1,613,2,1,500.0,1.0,,Esporádico,17.5,2026-03-16 00:00:00,17.5,Horas,,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,5197,CAPEX Soporte,1,613,2,1,200.0,1.0,,Esporádico,153.5,2026-03-16 00:00:00,143.0,Por Alcance,369.0,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,5137,Estados Financieros,1,613,2,1,,1.0,,Permanente,55.0,2026-03-16 00:00:00,55.0,Por Alcance,2.0,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,5017,Modelo de Compras,1,613,2,1,320.0,1.0,18960.0,Permanente,51.0,2026-03-16 00:00:00,50.0,Por Alcance,2.0,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,5277,Migracion Integrator,1,613,2,1,120.0,1.0,6000.0,Esporádico,,,,Por Alcance,2.0,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,3837,Cuentas de Margen,0,613,2,2,500.0,0.0,30000.0,Esporádico,186.5,2026-03-02 09:50:07,186.5,Por Alcance,,,,Telefónica EC,TELEFONICA EC
+TELEFONICA EC,4417,Soporte 24 a 27,1,613,2,2,2300.0,1.0,138000.0,Esporádico,367.0,2026-03-16 00:00:00,363.0,Por Alcance,,,,Telefónica EC,TELEFONICA EC
+TELMEX,365,Soporte BI,0,594,2,1,,0.0,,Stand by,,,,Por Alcance,,,,Telmex,TELMEX
+TELNA,5377,Telna - Adaptive Implementation,1,8852,2,202,302.0,1.0,20000.0,Permanente,67.5,2026-03-16 00:00:00,63.0,Por Horas,,,,Telna,TELNA
+TERNIUM,4077,TERNIUM POR FACTURAR,1,5712,2,2,,1.0,,Por Facturar,7.5,2026-03-16 00:00:00,5.0,Por Alcance,,,,Ternium,TERNIUM
+TERPEL,934,Presupuesto Finaciero,0,1626,2,2,,0.0,,Stand by,,,,Por Alcance,,,,Terpel,TERPEL
+UPC,143,Binocular,0,163,2,3,,0.0,,Stand by,231.5,2026-03-02 09:50:07,226.5,Por Alcance,,,,UPC,UPC
+UTN,882,Coaching BI,0,1359,1,1,,0.0,,Stand by,233.0,2026-03-02 09:50:07,212.0,Por Alcance,,,,UTN,UTN
+UTPL,527,Soporte OWB 2013,0,2,2,1,,0.0,,Stand by,32.66666,2026-03-02 09:50:07,32.0,Por Alcance,,,,UTPL,UTPL
+UTPL,325,Soporte OWB 2012,0,2,1,1,,0.0,,Stand by,133.0,2026-03-02 09:50:07,133.0,Por Alcance,,,,UTPL,UTPL
+UTPL,3,Migracion Syllabus,0,2,1,3,,0.0,,Stand by,81.5,2026-03-02 09:50:07,1.0,Por Alcance,,,,UTPL,UTPL
+UNACEM,1658,POC Costos,0,2353,2,2,120.0,0.0,3500.0,Stand by,173.0,2026-03-02 09:50:07,173.0,Por Alcance,,,,Unacem,UNACEM
+UNACEM,5099,Implementación Adaptive,1,2353,2,2,2800.0,1.0,172000.0,Permanente,633.5,2026-03-16 00:00:00,630.0,Por Alcance,,,,Unacem,UNACEM
+UNACEM,4277,POC,0,2353,2,2,220.0,0.0,5700.0,Esporádico,116.5,2026-03-02 09:50:07,111.0,Por Alcance,,,,Unacem,UNACEM
+UNIVERSIDAD JAVERIANA CALI,5097,Data Lake,1,7692,2,1,720.0,1.0,38370.0,Permanente,686.5,2026-03-16 00:00:00,665.5,Por Alcance,489.0,,,Universidad Javeriana Cali,UNIVERSIDAD JAVERIANA CALI
+VEOLIA ARGENTINA,3138,AR - Soporte 2022,1,5375,2,2,200.0,1.0,12000.0,Esporádico,227.0,2026-03-16 00:00:00,209.0,Por Alcance,,,,Veolia Argentina,VEOLIA ARGENTINA
+VEOLIA ARGENTINA,5018,Nuevos modelos y distribución,1,5375,2,2,500.0,1.0,29970.0,Permanente,101.0,2026-03-16 00:00:00,100.5,Por Alcance,,,,Veolia Argentina,VEOLIA ARGENTINA
+VEOLIA ARGENTINA,4897,Proyecto Latis 2025,1,5375,2,1,100.0,1.0,5800.0,Esporádico,33.0,2026-03-16 00:00:00,33.0,Por Alcance,409.0,,,Veolia Argentina,VEOLIA ARGENTINA
+VEOLIA ARGENTINA,4757,Veolia AR capacitacón,1,5375,2,2,50.0,1.0,6500.0,Esporádico,33.0,2026-03-16 00:00:00,33.0,Por Alcance,,,,Veolia Argentina,VEOLIA ARGENTINA
+VEOLIA ARGENTINA,4557,Veolia AR RRHH,0,5375,2,2,200.0,0.0,12000.0,Esporádico,190.45,2026-03-02 09:50:07,178.45,Por Alcance,,,,Veolia Argentina,VEOLIA ARGENTINA
+VEOLIA ARGENTINA,5457,Capacitacion reportes,1,5375,2,2,4.0,1.0,2000.0,Esporádico,6.5,2026-03-16 00:00:00,6.0,Por Alcance,,,,Veolia Argentina,VEOLIA ARGENTINA
+VEOLIA BRASIL,4017,Estimado,0,2452,2,2,40.0,0.0,,Esporádico,37.5,2026-03-02 09:50:07,37.5,Por Alcance,,,,Veolia Brasil,VEOLIA BRASIL
+VEOLIA BRASIL,3497,Integracion,1,2452,2,2,254.0,0.0,14243.33,Esporádico,348.5,2026-03-02 09:50:07,345.5,Por Alcance,,,,Veolia Brasil,VEOLIA BRASIL
+VEOLIA CHILE,3117,CH - Soporte 2022,1,2678,2,2,200.0,0.0,12000.0,Esporádico,547.5,2026-03-02 09:50:07,530.5,Por Alcance,,,,Veolia Chile,VEOLIA CHILE
+VEOLIA CHINA,3277,2023 Support and Improvements,0,3612,2,63,960.0,0.0,91200.0,Permanente,839.0,2026-03-02 09:50:07,826.5,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA CHINA,5057,VCH_Support_2025,0,3612,2,63,160.0,0.0,16300.0,Esporádico,137.0,2026-03-02 09:50:07,135.5,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA CHINA,5218,VCH Support 2026,1,3612,2,63,80.0,1.0,8150.0,Por Facturar,3.0,2026-03-16 00:00:00,3.0,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA CHINA,2917,2022 Support and Improvements,0,3612,2,63,558.0,0.0,60000.0,Permanente,633.0,2026-03-02 09:50:07,584.5,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA CHINA,2517,Phase 2 - Deletion - Vector - Actuals ,0,3612,2,2,80.0,0.0,7600.0,Esporádico,552.5,2026-03-02 09:50:07,540.5,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA CHINA,2357,Core Model,0,3612,2,2,832.0,0.0,79040.0,Stand by,1218.5,2026-03-02 09:50:07,915.0,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA CHINA,2518,Phase 2 - PxQ and Improvements,0,3612,2,2,700.0,0.0,66500.0,Esporádico,623.5,2026-03-02 09:50:07,600.0,Por Alcance,,,,Veolia China,VEOLIA CHINA
+VEOLIA COLOMBIA,3557,Veolia Colombia 2023,0,2676,2,2,70.0,0.0,6000.0,Por Facturar,315.5,2026-03-02 09:50:07,313.5,Por Alcance,,,,Veolia Colombia,VEOLIA COLOMBIA
+VEOLIA COLOMBIA,4317,Soporte 2024,0,2676,2,2,100.0,0.0,6000.0,Esporádico,116.0,2026-03-02 09:50:07,112.0,Por Alcance,,,,Veolia Colombia,VEOLIA COLOMBIA
+VEOLIA COLOMBIA,4917,Veolia CO Soporte 2025 S2,1,2676,2,2,200.0,1.0,6500.0,Esporádico,154.5,2026-03-16 00:00:00,154.5,Por Alcance,,,,Veolia Colombia,VEOLIA COLOMBIA
+VEOLIA COLOMBIA,4777,Soporte Cuadre horas ,0,2676,2,2,180.0,0.0,11520.0,Esporádico,63.0,2026-03-02 09:50:07,61.0,Por Alcance,,,,Veolia Colombia,VEOLIA COLOMBIA
+VEOLIA COLOMBIA,5217,Soporte 2026,1,2676,2,2,100.0,1.0,6500.0,Esporádico,6.5,2026-03-16 00:00:00,6.5,Por Alcance,,,,Veolia Colombia,VEOLIA COLOMBIA
+VEOLIA ECUADOR,5477,Mejoras Core Model ,1,1117,2,2,300.0,1.0,,Esporádico,28.0,2026-03-16 00:00:00,28.0,Por Alcance,,,,Veolia Ecuador,VEOLIA ECUADOR
+VEOLIA JAPON,4577,Adaptive Implementation,0,7112,2,63,1272.0,0.0,127200.0,Permanente,1206.5,2026-03-12 00:00:00,1197.5,Por Alcance,,,,Veolia Japón,VEOLIA JAPON
+VEOLIA JAPON,5557,VJPN_2026,1,7112,2,222,980.0,1.0,98000.0,Permanente,39.0,2026-03-16 00:00:00,39.0,Por Horas,,,,Veolia Japón,VEOLIA JAPON
+VEOLIA LATAM,2677,Colombia 100,0,2674,2,2,100.0,0.0,6500.0,Esporádico,156.0,2026-03-02 09:50:07,156.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2537,Argentina - Soporte,0,2674,2,2,,0.0,,Stand by,189.5,2026-03-02 09:50:07,184.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2217,Perú - Implementación,0,2674,2,2,100.0,0.0,,Stand by,198.5,2026-03-02 09:50:07,171.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2341,México - Soporte,0,2674,2,2,,0.0,,Stand by,46.0,2026-03-02 09:50:07,46.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,1998,Colombia - Implementación,0,2674,2,2,750.0,0.0,,Stand by,1460.5,2026-03-02 09:50:07,1192.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2718,Arg PLT,0,2674,2,2,7.0,0.0,,Stand by,5.5,2026-03-02 09:50:07,1.5,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2717,Chile PLT,0,2674,2,2,7.0,0.0,,Stand by,9.5,2026-03-02 09:50:07,9.5,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2237,Argentina - Implementación,0,2674,2,2,,0.0,,Stand by,581.5,2026-03-02 09:50:07,533.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2077,Chile - Implementación,0,2674,2,2,,0.0,,Stand by,424.25,2026-03-02 09:50:07,380.75,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2597,PLT,0,2674,2,2,600.0,0.0,35000.0,Stand by,156.0,2026-03-02 09:50:07,149.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2340,Colombia - Soporte,0,2674,2,2,,0.0,,Stand by,80.5,2026-03-02 09:50:07,80.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2338,Brasil - Soporte,0,2674,2,2,,0.0,,Stand by,2.0,2026-03-02 09:50:07,2.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2337,Ecuador - Soporte,1,2674,2,2,60.0,0.0,3600.0,Stand by,61.5,2026-03-02 09:50:07,38.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2138,Brasil - Implementación,0,2674,2,2,,0.0,,Stand by,296.0,2026-03-02 09:50:07,273.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2117,Holding - Implementación,0,2674,2,2,,0.0,,Stand by,58.5,2026-03-02 09:50:07,7.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2057,Ecuador - Implementación,0,2674,2,2,,0.0,,Stand by,573.75,2026-03-02 09:50:07,506.75,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,1997,Mexico - Implementación,0,2674,2,2,830.0,0.0,,Stand by,1346.0,2026-03-02 09:50:07,1089.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,1937,Core Model Veolia,0,2674,2,2,180.0,0.0,,Stand by,582.25,2026-03-02 09:50:07,422.75,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2678,Perú - Soporte,0,2674,2,2,,0.0,,Stand by,5.0,2026-03-02 09:50:07,5.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,3017,Sinergias,0,2674,2,2,12.0,0.0,780.0,Esporádico,1.5,2026-03-02 09:50:07,1.5,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA LATAM,2339,Chile - Soporte,0,2674,2,2,,0.0,,Stand by,56.0,2026-03-02 09:50:07,53.0,Por Alcance,,,,Veolia Latam,VEOLIA LATAM
+VEOLIA MEXICO,3137,MX - soporte 2022 por facturar,1,2573,2,2,,1.0,,Por Facturar,,,,Por Alcance,,,,Veolia Mexico,VEOLIA MEXICO
+VEOLIA PERU,3657,Veolia Peru Por Facturar,1,6612,2,2,,1.0,,Esporádico,112.75,2026-03-16 00:00:00,112.25,Por Alcance,,,,Veolia Peru,VEOLIA PERU
+VEOLIA PERU,5437,Soporte RH 2026,1,2653,2,2,50.0,1.0,,Esporádico,,,,Por Horas,,,,Veolia Perú,VEOLIA PERU
+WEBMOTORS,3477,WebMotors - Support,0,5812,2,2,,0.0,,Esporádico,9.5,2026-03-02 09:50:07,9.0,Por Alcance,,,,Webmotors,WEBMOTORS
+WEBMOTORS,3357,Profitability,0,5812,2,2,200.0,0.0,12000.0,Permanente,291.0,2026-03-02 09:50:07,280.5,Por Alcance,,,,Webmotors,WEBMOTORS
+XCARET,3337,XCT - Yates,0,1934,2,2,26.0,0.0,,Esporádico,20.5,2026-03-02 09:50:07,20.0,Por Alcance,,,,Xcaret,XCARET
+XCARET,3457,Xcaret - Reimplementacion,0,1934,2,2,,0.0,,Permanente,1566.95,2026-03-02 09:50:07,1531.95,Por Alcance,,,,Xcaret,XCARET
+XCARET,3257,XCT - Diagnostico y Capacitacion,0,1934,2,2,124.0,0.0,11000.0,Esporádico,128.0,2026-03-02 09:50:07,114.0,Por Alcance,,,,Xcaret,XCARET
+XCARET,3177,Soporte,0,1934,2,2,50.0,0.0,3000.0,Esporádico,44.5,2026-03-02 09:50:07,41.5,Por Alcance,,,,Xcaret,XCARET
+XCARET,3817,Xcaret Soporte 2024,0,1934,2,2,100.0,0.0,,Esporádico,100.7,2026-03-02 09:50:07,99.2,Por Alcance,,,,Xcaret,XCARET
+XCARET,3517,XC - Datos Reales,0,1934,2,1,274.0,0.0,11000.0,Esporádico,466.9,2026-03-02 09:50:07,462.9,Por Alcance,,,,Xcaret,XCARET
+YARA,3757,Yara Support,0,5353,2,2,80.0,0.0,5760.0,Esporádico,86.5,2026-03-02 09:50:07,84.5,Por Alcance,,,,Yara,YARA
+YARA,4937,Yara - 2025,1,5353,2,2,200.0,1.0,14000.0,Esporádico,19.0,2026-03-16 00:00:00,19.0,Por Alcance,,,,Yara,YARA
+YARA,3217,YAR - Implementación Adaptive,0,5353,2,2,400.0,0.0,36000.0,Esporádico,209.75,2026-03-02 09:50:07,194.25,Por Alcance,,,,Yara,YARA
+REDPARTNER,405,Zoho,0,3,2,3,,0.0,,Stand by,35.0,2026-03-02 09:50:07,35.0,Por Alcance,,,,redPartner,REDPARTNER
+REDPARTNER,446,AP redPartner,0,3,2,2,,0.0,,Stand by,629.0,2026-03-02 09:50:07,574.0,Por Alcance,,,,redPartner,REDPARTNER
+REDPARTNER,221,Camaleón,0,3,2,3,,0.0,,Stand by,97.5,2026-03-02 09:50:07,97.5,Por Alcance,,,,redPartner,REDPARTNER
