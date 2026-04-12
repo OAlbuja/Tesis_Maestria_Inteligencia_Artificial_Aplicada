@@ -1,0 +1,21 @@
+# --- Datos / artefactos pesados ---
+# Ignorar todos los CSV en cualquier carpeta
+*.csv
+
+# Carpetas de datos (SRI / Super)
+01_data_ingestion_enrichment/data_SRI/
+01_data_ingestion_enrichment/data_super_compañias/
+
+# Salidas generadas (exports, compilados, etc.)
+**/outputs/
+
+# Excels de ingesta: ignorar todos excepto los 2 que quieres subir
+01_data_ingestion_enrichment/*.xlsx
+01_data_ingestion_enrichment/*.xls
+01_data_ingestion_enrichment/*.xlsm
+
+!01_data_ingestion_enrichment/leads.xlsx
+!01_data_ingestion_enrichment/proyectos_empresa.xlsx
+
+# Temporales de Excel
+~$*.xlsx
