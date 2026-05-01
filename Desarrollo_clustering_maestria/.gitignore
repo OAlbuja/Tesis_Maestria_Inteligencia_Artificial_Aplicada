@@ -5,6 +5,12 @@
 # Carpetas de datos (SRI / Super)
 01_data_ingestion_enrichment/data_SRI/
 01_data_ingestion_enrichment/data_super_compañias/
+02_data_cleaning/data_SRI/**
+!02_data_cleaning/data_SRI/
+!02_data_cleaning/data_SRI/.gitkeep
+02_data_cleaning/data_super_compañias/**
+!02_data_cleaning/data_super_compañias/
+!02_data_cleaning/data_super_compañias/.gitkeep
 
 # Salidas generadas (exports, compilados, etc.)
 **/outputs/
