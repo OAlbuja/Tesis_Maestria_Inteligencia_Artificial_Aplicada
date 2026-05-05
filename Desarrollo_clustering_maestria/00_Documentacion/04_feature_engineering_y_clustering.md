@@ -62,12 +62,16 @@ La siguiente tabla resume el problema central de cobertura que motivó la estrat
 | Grupo | N | % del total (177) |
 |---|---|---|
 | Total empresas con RUC verificado (`match_final_empresas.csv`) | 177 | 100% |
-| Con datos SRI (al menos una columna encontrada) | 163 | 92% |
+| En `features_capa1.csv` (antes de deduplicar) | 175 | 99% |
+| **Empresas únicas en Capa 1 (tras deduplicar por RUC)** | **163** | **92%** |
 | Con expediente SCVS en directorio | 98 | 55% |
-| Con datos financieros en ranking SCVS | **93** | **53%** |
-| Identificadas como clientes FPA activos | 50 | 28% |
+| Con datos financieros en ranking SCVS | **92** | **52%** |
+| Identificadas como clientes FPA activos (en 163 únicos) | **49** | **30,1%** |
 
-**Interpretación:** Si se construye el modelo exclusivamente con datos financieros del ranking SCVS, se descarta el 47% del dataset. Con N=93 y un K=4 clusters, el promedio sería ~23 empresas por cluster — demasiado pequeño para generalizar o para que el modelo sea operativo en el futuro con nuevos leads.
+**Interpretación:** Si se construye el modelo exclusivamente con datos financieros del ranking SCVS, se descarta el 47% del dataset. Con N=92 y un K=4 clusters, el promedio sería ~23 empresas por cluster — demasiado pequeño para generalizar o para que el modelo sea operativo en el futuro con nuevos leads.
+
+> **Nota sobre deduplicación de Capa 1 (paso crítico de preprocesamiento):**  
+> El archivo `features_capa1.csv` contiene **175 filas** porque la fuente `match_final_empresas.csv` proviene de dos fuentes de leads distintas (HORAS y LEADS), y 12 empresas aparecen en ambas fuentes con el mismo RUC. Al ejecutar el modelo de clustering, estas filas duplicadas se eliminan conservando la versión con `es_cliente_fpa = 1` cuando existe conflicto, lo que resulta en **163 empresas únicas** (163 RUCs distintos). Esta deduplicación se aplica al inicio del notebook `04_modeling/01_clustering.ipynb` y es el motivo por el que la cifra de referencia del modelo es **N = 163**, no 175 ni 177.
 
 ---
 
@@ -85,7 +89,7 @@ Se decidió construir el modelo en **dos capas con roles distintos**. Esta estra
 
 ### Capa 2 — Análisis de enriquecimiento (validación de robustez)
 
-- **N = 93 empresas** (subconjunto de las 163 que tienen datos en el ranking SCVS)
+- **N = 92 empresas** (subconjunto de las 163 únicas que tienen datos en el ranking SCVS)
 - **Features: 14 variables** (las 8 de Capa 1 + 6 financieras del ranking SCVS)
 - **Propósito:** No es un modelo independiente — es la misma pregunta de segmentación ejecutada sobre las 93 empresas con información financiera adicional. Sirve para responder: *"¿El clustering que encontré en Capa 1 se confirma cuando tengo datos económicos reales?"*
 - **Si los clusters coinciden:** El modelo Capa 1 es robusto y las variables SRI capturan la misma estructura que los datos financieros detallados.
