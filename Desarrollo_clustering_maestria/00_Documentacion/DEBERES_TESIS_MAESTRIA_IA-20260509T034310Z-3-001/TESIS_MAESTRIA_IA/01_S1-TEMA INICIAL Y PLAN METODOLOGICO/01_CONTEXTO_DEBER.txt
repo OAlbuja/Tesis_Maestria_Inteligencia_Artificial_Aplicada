@@ -1,0 +1,142 @@
+Tarea: Tema inicial y plan metodológico.
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: Delimitar el problema que abordará a lo largo del proyecto de titulación y establecer el plan metodológico preliminar que oriente el desarrollo del proyecto.
+
+Instrucciones:
+Elaborar un documento que contenga: 
+Nombre tentativo del proyecto de titulación 
+Problemática a abordar 
+Alternativas de solución 
+Justificación
+Alcance 
+Objetivo general y específicos
+Cronograma tentativo de desarrollo 
+El proyecto se desarrolla en equipos de hasta 3 integrantes.
+ Formato de entrega:
+
+Archivo en formato PDF. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 2% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA1.   Identifica un problema organizacional relacionado con la inteligencia artificial.
+
+Vence el 4 de marzo de 2026 23:59
+
+Ocultar rúbricas
+Nombre de rúbrica: TTMZ0055-S1 PLAN METODOLOGICO
+Criterios	
+EXCELENTE
+MUY BUENO
+BUENO
+REGULAR
+INSUFICIENTE
+Puntuación del criterio
+DEFINICIÓN DEL PROBLEMA Y ALCANCE
+20 puntos
+Ensayo en PDF, con aplicación concreta de criterios de factibilidad a un caso específico. Se valorará claridad, lógica de análisis y vínculo entre dimensiones evaluadas. 
+
+16 puntos
+El problema está bien definido y relacionado con IA, aunque el alcance podría acotarse ligeramente.
+
+12 puntos
+El problema es identificable, pero es amplio o poco específico para una solución de IA.
+
+8 puntos
+El problema es ambiguo, genérico o débilmente relacionado con IA.
+
+4 puntos
+El problema no está definido o no guarda relación con IA aplicada.
+
+Puntuación de DEFINICIÓN DEL PROBLEMA Y ALCANCE,/20
+OBJETIVOS DEL PROYECTO
+20 puntos
+Objetivo general y específicos formulados de manera clara, medible y verificable (SMART), directamente alineados al problema y al alcance.
+
+16 puntos
+Objetivos claros y alineados, aunque algunos no son completamente medibles.
+
+12 puntos
+Objetivos formulados de manera general, con baja precisión o medición.
+
+8 puntos
+Objetivos poco claros, incompletos o mal formulados.
+
+4 puntos
+No se presentan objetivos o son incoherentes.
+
+Puntuación de OBJETIVOS DEL PROYECTO,/20
+PLAN METODOLÓGICO
+20 puntos
+Metodología estructurada, lógica y factible, que describe claramente fases, actividades y relación con técnicas de IA.
+
+16 puntos
+Metodología clara, aunque con menor nivel de detalle en algunas fases.
+
+12 puntos
+Metodología general, con descripción superficial de las actividades.
+
+8 puntos
+Metodología confusa o poco viable técnicamente.
+
+4 puntos
+No se presenta metodología.
+
+Puntuación de PLAN METODOLÓGICO,/20
+CRONOGRAMA Y ENTREGABLES
+20 puntos
+Cronograma detallado, realista y coherente, con hitos y entregables claramente definidos.
+
+16 puntos
+Cronograma claro, con leves ajustes necesarios en tiempos o entregables.
+
+12 puntos
+Cronograma básico, con entregables poco definidos.
+
+8 puntos
+Cronograma poco realista o desorganizado.
+
+4 puntos
+No se presenta cronograma
+
+Puntuación de CRONOGRAMA Y ENTREGABLES,/20
+COHERENCIA Y PRESENTACIÓN DEL DOCUMENTO
+20 puntos
+Documento bien estructurado, claro, consistente y fácil de seguir.
+
+16 puntos
+Documento ordenado, con mínimos problemas de claridad.
+
+12 puntos
+Documento comprensible, pero con problemas de organización.
+
+8 puntos
+Documento desordenado o difícil de seguir.
+
+4 puntos
+Documento incompleto o incoherente.
+
+Puntuación de COHERENCIA Y PRESENTACIÓN DEL DOCUMENTO,/20
+Total
+Puntuación de TTMZ0055-S1 PLAN METODOLOGICO,/100
+Puntuación general
+EXCELENTE
+90 puntos mínimos
+MUY BUENO
+80 puntos mínimos
+BUENO
+75 puntos mínimos
+REGULAR
+65 puntos mínimos
+INSUFICIENTE
+55 puntos mínimos
