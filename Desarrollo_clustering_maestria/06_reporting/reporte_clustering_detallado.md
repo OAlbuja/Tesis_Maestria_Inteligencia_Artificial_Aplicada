@@ -1,332 +1,208 @@
-# Reporte detallado — Clustering de empresas (Capa 1 y Capa 2)
+# Reporte detallado - Clustering de empresas B2B
 
-**Fecha:** 2026-05-09  
-**Proyecto:** Desarrollo_clustering_maestria
+**Fecha de actualizacion:** 2026-05-18  
+**Proyecto:** Desarrollo_clustering_maestria  
+**Fuente operativa:** Golden Record manual `match_final_empresas_verificado.csv`
 
-> Nota de consistencia: las cifras de este reporte se calculan/leen desde los CSV en `04_modeling/outputs/` y `05_evaluation/outputs/`. Algunas figuras exportadas pueden mostrar N o líneas de “tasa base” de una corrida previa; usa las tablas como referencia numérica.
+Este reporte resume la corrida vigente del pipeline despues de revertir la regla de exclusion por pais comercial/origen. El criterio operativo actual es: entra todo registro manual con nombre original, razon social y RUC ecuatoriano valido de 13 digitos. El pais de la empresa queda como trazabilidad, no como filtro de exclusion.
+
+El archivo historico `match_final_empresas.csv` pertenece al carril automatizado de Entity Resolution y no se usa como fuente operativa del modelo final.
 
 ---
 
-## 1) Resumen ejecutivo
+## 1. Resumen ejecutivo
 
-Este reporte documenta los resultados del clustering en dos niveles:
+El modelo se construye en dos capas:
 
-- **Capa 1 (N=157):** segmentación basada en variables tipo “registro/estructura/operación” (por ejemplo, tipo de sociedad, obligaciones, sector macro, región, estado activo, fuente).
-- **Capa 2 (N=87):** segmentación basada en variables con mayor contenido financiero/tamaño (por ejemplo, ingresos/activos/empleados en escala log, antigüedad, liquidez, margen, segmento).
+| Capa | Fuente principal | Empresas | Variables de matriz | Clientes FPA | Tasa base |
+|---|---|---:|---:|---:|---:|
+| Capa 1 | SRI | 181 | 14 | 82 | 45,3% |
+| Capa 2 | SRI + ranking SCVS | 141 | 20 | 57 | 40,4% |
 
 Hallazgos principales:
 
-- **Capa 1 (K=4) separa fuertemente la tasa FPA:**
-  - Clústeres con tasas altas (~48% y ~50%) y clústeres con tasas bajas (~10.5% y ~17.1%).
-- **Capa 2 (K=2) no separa tanto la tasa FPA:** ambos segmentos quedan cerca de la tasa base (~42.5%).
-- **Cobertura SCVS por clúster (Capa 1):** un clúster (C2) tiene **cobertura financiera 0%**, lo que limita análisis financieros/externos para ese segmento.
-- **Consistencia entre capas (ARI):** concordancia **moderada** (ARI ~0.38 para C1 K=4 vs C2 K=2 en el subconjunto común).
+- La Capa 1 se mantiene como modelo principal por cobertura: 181 empresas con RUC unico.
+- La Capa 2 opera como enriquecimiento financiero complementario sobre 141 empresas con informacion SCVS.
+- `es_cliente_fpa` se conserva solo para validacion externa agregada por cluster; no entra a K-Means.
+- Las matrices finales no contienen `es_cliente_fpa`, `source_label` ni variables operativas de proyectos/horas.
+- La separacion por clusters muestra una senal comercial relevante en Capa 1: el cluster 1 concentra 65,7% de clientes FPA frente a una tasa base de 45,3%.
 
 ---
 
-## 2) Artefactos revisados (fuentes del reporte)
+## 2. Golden Record manual
 
-### Modelado (Capa 1 y Capa 2)
+El Golden Record operativo se genera desde:
 
-- Asignaciones:
-  - [`clusters_capa1.csv`](../04_modeling/outputs/clusters_capa1.csv)
-  - [`clusters_capa2.csv`](../04_modeling/outputs/clusters_capa2.csv)
-- Perfiles por clúster:
-  - [`perfil_clusters_capa1.csv`](../04_modeling/outputs/perfil_clusters_capa1.csv)
-  - [`perfil_clusters_capa2.csv`](../04_modeling/outputs/perfil_clusters_capa2.csv)
-- Comparación entre capas:
-  - [`comparacion_capas_best_k.csv`](../04_modeling/outputs/comparacion_capas_best_k.csv)
-  - [`comparacion_capas_same_k.csv`](../04_modeling/outputs/comparacion_capas_same_k.csv)
-- Sensibilidad (Capa 2 con K=4):
-  - [`clusters_capa2_k4_sensibilidad.csv`](../04_modeling/outputs/clusters_capa2_k4_sensibilidad.csv)
-  - [`perfil_clusters_capa2_k4.csv`](../04_modeling/outputs/perfil_clusters_capa2_k4.csv)
+```text
+02_data_cleaning/data_ruc_universo_empresas/new/
+```
 
-### Evaluación
+Insumos activos principales:
 
-- Métricas internas:
-  - [`metricas_evaluacion_capa1.csv`](../05_evaluation/outputs/metricas_evaluacion_capa1.csv)
-  - [`metricas_evaluacion_capa1_ward.csv`](../05_evaluation/outputs/metricas_evaluacion_capa1_ward.csv)
-  - [`metricas_evaluacion_capa2.csv`](../05_evaluation/outputs/metricas_evaluacion_capa2.csv)
-- Validación externa / consistencia:
-  - [`cobertura_financiera_por_cluster.csv`](../05_evaluation/outputs/cobertura_financiera_por_cluster.csv)
-  - [`tabla_concordancia_ari.csv`](../05_evaluation/outputs/tabla_concordancia_ari.csv)
-- Figuras exportadas:
-  - [`fig_seleccion_k_kmeans.png`](../05_evaluation/outputs/fig_seleccion_k_kmeans.png)
-  - [`fig_silhouette_muestras_c1.png`](../05_evaluation/outputs/fig_silhouette_muestras_c1.png)
-  - [`fig_pca_capa1.png`](../05_evaluation/outputs/fig_pca_capa1.png)
-  - [`fig_tsne_capa1.png`](../05_evaluation/outputs/fig_tsne_capa1.png)
-  - [`fig_pca_capa2.png`](../05_evaluation/outputs/fig_pca_capa2.png)
-  - [`fig_tasa_fpa_por_cluster.png`](../05_evaluation/outputs/fig_tasa_fpa_por_cluster.png)
-  - [`fig_cobertura_vs_fpa.png`](../05_evaluation/outputs/fig_cobertura_vs_fpa.png)
+- `leads_ruc_new.xlsx`
+- `proyectos_empresa_ruc_new.xlsx`
 
----
+Insumos historicos no operativos:
 
-## 3) Universo y tasas base (calculadas desde asignaciones)
+- `leads_ruc.xlsx`
+- `proyectos_empresa_ruc.xlsx`
 
-- **Capa 1:** N = 157, clientes FPA = 51 → **tasa base = 32.5%**
-- **Capa 2:** N = 87, clientes FPA = 37 → **tasa base = 42.5%**
-- **Comunes (intersección entre Capa 1 y Capa 2):** N = 87, clientes FPA = 37 → **tasa base = 42.5%**
+Resultados de consolidacion:
 
-Interpretación rápida:
+| Indicador | Valor |
+|---|---:|
+| Alias verificados aceptados | 209 |
+| RUC unicos verificados | 181 |
+| Alias provenientes de leads | 114 |
+| Alias provenientes de proyectos/horas | 95 |
+| Alias presentes en ambas fuentes manuales | 0 |
+| Registros descartados | 312 |
+| Conflictos alias -> multiples RUC | 0 |
+| Conflictos RUC -> multiples razones sociales | 0 |
 
-- Capa 2 trabaja sobre un **subuniverso** con información adicional (financiera/tamaño). Por eso su tasa base puede diferir respecto al universo de Capa 1.
+Los 312 registros descartados corresponden a registros sin RUC valido y/o sin razon social completa. No existe descarte operativo por pais comercial/origen en la regla vigente.
+
+Interpretacion metodologica:
+
+- `leads.xlsx` representa prospectos comerciales del CRM.
+- `proyectos_empresa.xlsx` representa proyectos/horas trabajadas por FPA.
+- `es_cliente_fpa = 1` se deriva unicamente de la presencia en proyectos/horas.
+- Los resultados se reportan agregados por cluster, no empresa por empresa.
 
 ---
 
-## 4) Metodología — Variables de entrada por capa
+## 3. Artefactos operativos
 
-El pipeline de preparación parte de dos fuentes principales (LEADS y HORAS) enriquecidas con datos de la Superintendencia de Compañías (SCVS) y el SRI. Tras el matching, normalización y limpieza, se construyen dos matrices de features:
+### Feature Engineering
 
-### 4.1 Capa 1 — Variables de estructura y registro (N=157)
+| Archivo | Filas | Columnas | Observacion |
+|---|---:|---:|---|
+| `features_capa1.csv` | 181 | 13 | SRI + trazabilidad + `es_cliente_fpa`. |
+| `features_capa2.csv` | 141 | 20 | SRI + SCVS + trazabilidad + `es_cliente_fpa`. |
+| `matriz_capa1.csv` | 181 | 14 | Matriz numerica sin labels ni variables operativas. |
+| `matriz_capa2.csv` | 141 | 20 | Matriz numerica sin labels ni variables operativas. |
+| `labels_capa1.csv` | 181 | 5 | Identificadores y metadata para evaluacion. |
+| `labels_capa2.csv` | 141 | 6 | Identificadores y metadata para evaluacion. |
 
-Capa de **mayor cobertura**: usa únicamente información registral/tributaria disponible para casi todo el universo.
+Validaciones realizadas:
 
-| Variable | Tipo | Descripción |
-|---|---|---|
-| `tipo_sociedad` | Binaria (0/1) | 1 = sociedad anónima/compañía; 0 = persona natural |
-| `obligado_contabilidad` | Binaria | Obligación de llevar contabilidad (SRI) |
-| `es_agente_retencion` | Binaria | Calificado como agente de retención (SRI) |
-| `es_contribuyente_especial` | Binaria | Calificado como contribuyente especial (SRI) |
-| `estado_activo` | Binaria | Empresa activa en el registro (SCVS/SRI) |
-| `antiguedad_anos` | Continua (estandarizada) | Años desde constitución hasta fecha de análisis |
-| `sector_ciiu_macro_*` | One-hot | Sector económico macro (C=manufactura, G=comercio, K=finanzas, M=profesionales, S=servicios, OTRO) |
-| `region_*` | One-hot | Región geográfica (Guayas, Pichincha, Resto) |
-
-Fuente: [`matriz_capa1.csv`](../03_feature_engineering/outputs/matriz_capa1.csv) / [`features_capa1.csv`](../03_feature_engineering/outputs/features_capa1.csv)
-
-### 4.2 Capa 2 — Variables de tamaño y finanzas (N=87)
-
-Capa de **mayor profundidad**: requiere que la empresa tenga estados financieros disponibles en SCVS. Incluye todo lo de Capa 1 más variables financieras/de tamaño derivadas de los estados financieros.
-
-| Variable | Tipo | Descripción |
-|---|---|---|
-| `tipo_sociedad` | Binaria | Igual que Capa 1 |
-| `obligado_contabilidad` | Binaria | Igual que Capa 1 |
-| `es_agente_retencion` | Binaria | Igual que Capa 1 |
-| `es_contribuyente_especial` | Binaria | Igual que Capa 1 |
-| `estado_activo` | Binaria | Igual que Capa 1 |
-| `antiguedad_anos` | Continua (estandarizada) | Igual que Capa 1 |
-| `log_empleados` | Continua (log+estand.) | Logaritmo del número de empleados |
-| `log_ingresos` | Continua (log+estand.) | Logaritmo de los ingresos totales (SCVS) |
-| `log_activos` | Continua (log+estand.) | Logaritmo de los activos totales (SCVS) |
-| `segmento` | Continua (estandarizada) | Segmento SCVS (1=micro, 2=pequeña, 3=mediana, 4=grande) |
-| `liquidez_corriente` | Continua (estandarizada) | Activo corriente / pasivo corriente |
-| `margen_operacional` | Continua (estandarizada) | Resultado operacional / ingresos |
-| `sector_ciiu_macro_*` | One-hot | Igual que Capa 1 |
-| `region_*` | One-hot | Igual que Capa 1 |
-
-Fuente: [`matriz_capa2.csv`](../03_feature_engineering/outputs/matriz_capa2.csv) / [`features_capa2.csv`](../03_feature_engineering/outputs/features_capa2.csv)
-
-### 4.3 Preprocesamiento aplicado
-
-- Variables continuas: estandarizadas (media=0, std=1) antes del clustering.
-- Variables binarias: se usan directamente (0/1).
-- Variables categóricas (sector, región): codificadas como One-Hot.
-- Variables financieras (empleados, ingresos, activos): transformadas a log antes de estandarizar, para reducir el efecto de outliers extremos.
-- El año de los estados financieros (Capa 2) es el más reciente disponible por empresa.
-
-### 4.4 Algoritmo y configuración
-
-- **Algoritmo principal:** K-Means (inicialización k-means++, 100 inicializaciones, semilla fija).
-- **Algoritmo comparativo:** Ward (clustering jerárquico), usado para validar robustez del K elegido.
-- **Criterio de K:** combinación del método del codo (inercia) + silhouette promedio + restricción práctica de no generar clústeres con n < 10.
+| Validacion | Estado |
+|---|---|
+| `features_capa1.csv` queda a nivel RUC unico | Cumplido: 181 RUC unicos. |
+| `features_capa2.csv` queda a nivel RUC unico | Cumplido: 141 RUC unicos. |
+| `matriz_capa1.csv` no contiene `es_cliente_fpa` ni `source_label` | Cumplido. |
+| `matriz_capa2.csv` no contiene `es_cliente_fpa` ni `source_label` | Cumplido. |
+| Las matrices no contienen variables de horas, facturacion, avance u ocupacion | Cumplido. |
+| `labels_capa1.csv` conserva `es_cliente_fpa` | Cumplido: 82 clientes. |
+| `labels_capa2.csv` conserva `es_cliente_fpa` | Cumplido: 57 clientes. |
 
 ---
 
-## 5) Selección de K y desempeño interno
+## 4. Seleccion de K
 
-### 5.1 Capa 1 — Comparación KMeans vs Ward
+### Capa 1 - K-Means
 
-- KMeans tiende a dar mejores resultados de **silhouette** que Ward para los mismos K, según:
-  - [`metricas_evaluacion_capa1.csv`](../05_evaluation/outputs/metricas_evaluacion_capa1.csv)
-  - [`metricas_evaluacion_capa1_ward.csv`](../05_evaluation/outputs/metricas_evaluacion_capa1_ward.csv)
+| K | Silhouette | Davies-Bouldin | Min cluster | Max cluster |
+|---:|---:|---:|---:|---:|
+| 2 | 0,224 | 1,590 | 66 | 115 |
+| 3 | 0,192 | 1,838 | 56 | 64 |
+| **4** | **0,209** | **1,601** | **35** | **60** |
+| 5 | 0,215 | 1,453 | 27 | 44 |
+| 6 | 0,208 | 1,529 | 17 | 43 |
+| 7 | 0,213 | 1,469 | 11 | 39 |
+| 8 | 0,192 | 1,591 | 10 | 29 |
 
-**Extracto (Capa 1):**
+Aunque K=2 obtiene la mayor Silhouette, K=4 se conserva como solucion principal por interpretabilidad y granularidad comercial. Sus clusters tienen tamanos entre 35 y 60 empresas.
 
-| Método | K | Silhouette | Davies-Bouldin | Tamaño min/max |
-|---|---:|---:|---:|---|
-| KMeans | 2 | 0.266 | 1.487 | 55 / 102 |
-| KMeans | 4 | 0.213 | 1.613 | 34 / 50 |
-| Ward | 2 | 0.257 | 1.506 | 51 / 106 |
-| Ward | 4 | 0.185 | 1.731 | 28 / 51 |
+### Capa 2 - K-Means
 
-**Decisión práctica recomendada (Capa 1):** **K=4 (KMeans)** por:
+| K | Silhouette | Davies-Bouldin | Min cluster | Max cluster |
+|---:|---:|---:|---:|---:|
+| **2** | **0,379** | **1,212** | **31** | **110** |
+| 3 | 0,197 | 1,605 | 17 | 71 |
+| 4 | 0,209 | 1,341 | 3 | 71 |
+| 5 | 0,233 | 1,141 | 2 | 84 |
+| 6 | 0,172 | 1,299 | 2 | 70 |
+| 7 | 0,182 | 1,241 | 2 | 53 |
+| 8 | 0,178 | 1,240 | 2 | 42 |
 
-- Granularidad útil (4 segmentos interpretables).
-- Tamaños balanceados (34–50 por clúster) evitando micro-clústeres.
-
-### 5.2 Capa 2 — Robustez vs "micro-clústeres"
-
-En Capa 2, silhouette aumenta cuando K crece (hasta K=4), pero aparecen clústeres muy pequeños:
-
-| K (KMeans) | Silhouette | Tamaño min/max | Comentario |
-|---:|---:|---|---|
-| 2 | 0.386 | 35 / 52 | Segmentación robusta y estable |
-| 3 | 0.399 | 2 / 52 | Aparecen micro-clústeres |
-| 4 | 0.409 | 1 / 50 | Riesgo alto de clúster “outlier” |
-
-**Decisión práctica recomendada (Capa 2):** **K=2 (KMeans)** para mantener estabilidad y evitar que outliers definan clústeres de tamaño 1.
-
-### Figura — Selección de K (KMeans)
-
-![Selección de K — KMeans](../05_evaluation/outputs/fig_seleccion_k_kmeans.png)
+K=2 se mantiene como configuracion de Capa 2 porque evita micro-clusters y ofrece una lectura financiera estable.
 
 ---
 
-## 6) Resultados — Capa 1 (K=4)
+## 5. Resultados Capa 1
 
-### 6.1 Resumen por clúster (Capa 1)
+Tasa base Capa 1: **45,3%**  
+Contraste chi-cuadrado vs `es_cliente_fpa`: `chi2 = 7,58`, `p = 0,0556`.
 
-Tasa base Capa 1: **32.5%**
+| Cluster | Segmento | n | Clientes FPA | Tasa FPA | Diferencia vs base | Cobertura SCVS |
+|---:|---|---:|---:|---:|---:|---:|
+| 0 | Comercio formal maduro en Pichincha | 46 | 20 | 43,5% | -1,8 pp | 84,8% |
+| 1 | Industriales consolidados de alta afinidad FPA | 35 | 23 | 65,7% | +20,4 pp | 62,9% |
+| 2 | Comercio formal emergente en Pichincha | 60 | 23 | 38,3% | -7,0 pp | 75,0% |
+| 3 | Comercio formal regional en Guayas | 40 | 16 | 40,0% | -5,3 pp | 87,5% |
 
-| Clúster | Segmento | n | Tasa FPA | Δ vs base (pp) | Cobertura SCVS |
+Lectura:
+
+- El cluster 1 concentra la mayor afinidad historica con FPA.
+- La diferencia estadistica queda muy cerca del umbral de 5%, por lo que debe reportarse como tendencia comercial relevante, no como prueba concluyente.
+- La cobertura SCVS es suficiente en todos los clusters; la minima observada es 62,9%.
+
+---
+
+## 6. Resultados Capa 2
+
+Tasa base Capa 2: **40,4%**  
+Contraste chi-cuadrado vs `es_cliente_fpa`: `chi2 = 0,16`, `p = 0,6883`.
+
+| Cluster | Segmento | n | Clientes FPA | Tasa FPA | Diferencia vs base |
 |---:|---|---:|---:|---:|---:|
-| C0 | Sociedades jovenes de alta afinidad FPA | 50 | 48.0% | +15.52 | 82.0% |
-| C1 | Grandes corporativos maduros establecidos | 34 | 50.0% | +17.52 | 64.7% |
-| C2 | Empresas comerciales de Guayas | 38 | 10.5% | -21.96 | 0.0% |
-| C3 | Personas naturales del resto del pais | 35 | 17.1% | -15.34 | 68.6% |
+| 0 | Empresas grandes consolidadas | 110 | 43 | 39,1% | -1,3 pp |
+| 1 | Empresas medianas y recientes de alta afinidad | 31 | 14 | 45,2% | +4,7 pp |
 
-Fuente:
+Lectura:
 
-- Asignaciones: [`clusters_capa1.csv`](../04_modeling/outputs/clusters_capa1.csv)
-- Cobertura: [`cobertura_financiera_por_cluster.csv`](../05_evaluation/outputs/cobertura_financiera_por_cluster.csv)
-
-### 6.2 Interpretación cualitativa (Capa 1)
-
-Basado en [`perfil_clusters_capa1.csv`](../04_modeling/outputs/perfil_clusters_capa1.csv):
-
-- **C0 — “Alta afinidad FPA” (48%)**
-  - Moda región: **Pichincha**; sector macro: **C**; fuente modal: **LEADS**.
-  - Alta proporción de obligaciones/atributos (p. ej., agente de retención ~82%, contribuyente especial ~86%, activo ~88%).
-  - **Uso sugerido:** priorizar campañas/seguimiento comercial y propuestas de valor FPA.
-
-- **C1 — “Grandes corporativos maduros” (50%)**
-  - Moda región: **Pichincha**; fuente modal: **HORAS**.
-  - Aunque el segmento sugiere “corporativos”, en los indicadores tributarios aparece menor proporción de “agente de retención” vs C0.
-  - **Uso sugerido:** cuenta clave / estrategia enterprise, con enfoques de retención y expansión.
-
-- **C2 — “Comerciales de Guayas” (10.5%)**
-  - **Cobertura SCVS = 0%**, lo cual indica que para este segmento no se dispone de estados/financieros SCVS en el universo actual.
-  - Sector macro modal: **G**; región modal: **Resto** (según perfil).
-  - **Uso sugerido:** es el segmento “baja afinidad” y con baja trazabilidad financiera; requiere enriquecimiento adicional (otras fuentes) antes de decisiones basadas en finanzas.
-
-- **C3 — “Personas naturales resto del país” (17.1%)**
-  - Región modal: **Guayas**; sector macro: **G**; fuente modal: **LEADS**.
-  - **Uso sugerido:** segmento de afinidad baja-media; enfoque más selectivo y con mayor filtrado previo.
-
-### Figura — Silhouette por muestra (Capa 1)
-
-![Silhouette por muestra — Capa 1](../05_evaluation/outputs/fig_silhouette_muestras_c1.png)
-
-### Figuras — Embeddings (PCA / t-SNE) para visualización
-
-> PCA/t-SNE se usan aquí como **visualización** (no como modelo).
-
-![PCA 2D — Capa 1](../05_evaluation/outputs/fig_pca_capa1.png)
-
-![t-SNE 2D — Capa 1](../05_evaluation/outputs/fig_tsne_capa1.png)
+- La Capa 2 agrega profundidad financiera, pero separa menos la afinidad historica con FPA que la Capa 1.
+- Su valor principal es complementar la interpretacion con tamano, empleados, ingresos, activos, liquidez y margen operacional.
 
 ---
 
-## 7) Resultados — Capa 2 (K=2)
+## 7. Concordancia entre capas
 
-### 7.1 Resumen por clúster (Capa 2)
-
-Tasa base Capa 2: **42.5%**
-
-| Clúster | Segmento | n | Tasa FPA | Δ vs base (pp) |
-|---:|---|---:|---:|---:|
-| C0 | Empresas pequenas y recientes | 35 | 42.9% | +0.33 |
-| C1 | Empresas medianas-grandes consolidadas | 52 | 42.3% | -0.22 |
-
-Fuente:
-
-- Asignaciones: [`clusters_capa2.csv`](../04_modeling/outputs/clusters_capa2.csv)
-- Perfiles: [`perfil_clusters_capa2.csv`](../04_modeling/outputs/perfil_clusters_capa2.csv)
-
-### 7.2 Interpretación cualitativa (Capa 2)
-
-Basado en [`perfil_clusters_capa2.csv`](../04_modeling/outputs/perfil_clusters_capa2.csv):
-
-- **C0 — Pequeñas y recientes**
-  - Mediana antigüedad ~8 años.
-  - Métricas en escala log (empleados/activos/ingresos) sugieren menor tamaño relativo.
-
-- **C1 — Medianas-grandes consolidadas**
-  - Mediana antigüedad ~36.5 años.
-  - Escalas log más altas (empleados/ingresos/activos), consistente con mayor tamaño.
-
-Conclusión operativa:
-
-- Esta capa separa bien por **tamaño/madurez**, pero **no separa de forma marcada** por tasa FPA (ambos segmentos quedan cerca de la tasa base).
-
-### Figura — PCA 2D (Capa 2)
-
-![PCA 2D — Capa 2](../05_evaluation/outputs/fig_pca_capa2.png)
-
-### Sensibilidad K=4 (Capa 2)
-
-El análisis K=4 crea clústeres muy pequeños (n=1–2), típicamente outliers (por ejemplo, liquidez extremadamente alta).
-
-- Perfil K=4: [`perfil_clusters_capa2_k4.csv`](../04_modeling/outputs/perfil_clusters_capa2_k4.csv)
-
----
-
-## 8) Validación externa: Cobertura financiera (SCVS) vs afinidad FPA
-
-La cobertura financiera por clúster (Capa 1) muestra un patrón relevante:
-
-- C0 (82%), C1 (64.7%) y C3 (68.6%) tienen cobertura SCVS moderada/alta.
-- **C2 tiene cobertura 0%**, lo que limita contrastes financieros y puede sesgar análisis “financieros” si se mezclan universos.
-
-Figura:
-
-![Cobertura SCVS vs Tasa FPA — Capa 1](../05_evaluation/outputs/fig_cobertura_vs_fpa.png)
-
----
-
-## 9) Consistencia entre capas (ARI)
-
-En el subconjunto común (N=87), la concordancia entre particiones es **moderada**:
-
-| Comparación | N comunes | ARI |
+| Comparacion | Empresas comunes | ARI |
 |---|---:|---:|
-| C1 K=4 vs C2 K=2 | 87 | 0.376 |
-| C1 K=4 vs C2 K=4 | 87 | 0.324 |
+| C1 K=4 vs C2 K=2 | 141 | 0,0315 |
+| C1 K=4 vs C2 K=4 | 141 | 0,1258 |
 
-Fuente: [`tabla_concordancia_ari.csv`](../05_evaluation/outputs/tabla_concordancia_ari.csv)
-
-Interpretación:
-
-- Las capas capturan criterios distintos (Capa 1: “estructura/operación”; Capa 2: “tamaño/finanzas”), por lo que no se espera ARI alto.
+La concordancia es baja. Esto es esperable porque la Capa 2 incorpora variables financieras que no existen en Capa 1 y trabaja sobre un subconjunto de empresas. La tesis debe presentar la Capa 2 como enriquecimiento complementario, no como reemplazo del modelo principal.
 
 ---
 
-## 10) Recomendaciones de uso (operativas)
+## 8. Figuras exportadas
 
-1) **Priorización comercial (FPA):**
-- En Capa 1, priorizar C0 y C1 por tasas FPA muy superiores a la base.
-- Tratar C2 como segmento de baja afinidad; evitar esfuerzos intensivos salvo que haya señales adicionales.
+Las figuras actuales se encuentran en:
 
-2) **Estrategia de datos:**
-- Para C2 (cobertura SCVS 0%), considerar enriquecer con otras fuentes o validar si su naturaleza (tipo de contribuyente/actividad) explica la ausencia en SCVS.
+```text
+05_evaluation/outputs/
+```
 
-3) **Uso combinado de capas:**
-- Capa 1 sirve mejor para “afinidad FPA” (separación clara).
-- Capa 2 sirve mejor para “tamaño/madurez” (segmentación empresarial) y puede complementar el perfilado, aunque no discrimine FPA por sí sola.
+Archivos principales:
 
----
-
-## 11) Cómo regenerar el reporte (reproducibilidad)
-
-- Re-generar outputs y figuras ejecutando:
-  - `04_modeling/01_clustering.ipynb`
-  - `05_evaluation/01_evaluacion_clustering.ipynb`
-
-- Luego actualizar este reporte si cambian los CSV/figuras.
+- `fig_seleccion_k_kmeans.png`
+- `fig_silhouette_muestras_c1.png`
+- `fig_pca_capa1.png`
+- `fig_tsne_capa1.png`
+- `fig_pca_capa2.png`
+- `fig_tasa_fpa_por_cluster.png`
+- `fig_cobertura_vs_fpa.png`
 
 ---
 
-## Anexo A — Figura: Tasa de clientes FPA por clúster
+## 9. Conclusion para tesis
 
-![Tasa de clientes FPA por clúster](../05_evaluation/outputs/fig_tasa_fpa_por_cluster.png)
+El resultado final valida la separacion metodologica entre:
+
+1. un carril automatizado de Entity Resolution, usado como diagnostico y propuesta futura, y
+2. un Golden Record manual, usado como fuente operativa para construir las matrices del modelo.
+
+La Capa 1 es el modelo principal porque maximiza cobertura y mantiene variables publicas replicables. La Capa 2 aporta interpretacion financiera adicional, pero no sustituye a la Capa 1. En ambos casos, la etiqueta `es_cliente_fpa` queda fuera del entrenamiento y se utiliza solo para validar, de forma agregada, si los clusters tienen sentido comercial para FPA.

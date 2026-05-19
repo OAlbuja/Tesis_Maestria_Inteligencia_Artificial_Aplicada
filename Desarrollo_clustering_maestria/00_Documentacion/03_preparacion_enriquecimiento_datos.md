@@ -1,128 +1,240 @@
-# 3. Metodología de preparación y enriquecimiento de datos
+# 3. Preparacion y enriquecimiento de datos
+
+Este documento describe la preparacion de las fuentes internas de FPA Latam, la resolucion de entidades empresariales y la construccion del archivo maestro que habilita el enriquecimiento con fuentes publicas oficiales de Ecuador. La version actual del proyecto separa explicitamente dos carriles metodologicos:
+
+- **Carril automatizado o baseline experimental:** normalizacion, matching exacto/difuso y auditoria automatizada. Su funcion es demostrar empiricamente la dificultad de resolver empresas a partir de nombres comerciales y dejar una base productizable para futuros leads.
+- **Carril manual o Golden Record:** diccionario verificado manualmente con RUC y razon social, construido a partir de busquedas en SRI para empresas con identificador ecuatoriano disponible. Este es el insumo operativo usado para el modelo final de machine learning.
+
+La distincion es central para la tesis: el modelo final no depende de matches probabilisticos, sino de un identificador oficial verificado por empresa.
 
 ---
 
 ## 3.1 Fuentes de datos utilizadas
 
-El presente proyecto utilizó dos fuentes de datos internas de la organización FPA Latam como punto de partida:
+El proyecto parte de dos fuentes internas de FPA Latam:
 
-- **Leads del CRM** (`leads.xlsx`): registro histórico de 440 empresas prospecto capturadas en el pipeline comercial B2B de FPA Latam a lo largo de los últimos ciclos comerciales. Cada registro contiene atributos mínimos de contacto y firmografía: nombre de empresa, industria, cargo del contacto, fuente del lead, interés declarado y, en un subconjunto menor (25 registros), el país explícito.
-
-- **Proyectos activos** (`proyectos_empresa.xlsx`): registro de 412 proyectos de consultoría ejecutados o en ejecución por FPA Latam, asociados a 120 empresas únicas. Este archivo contiene variables operativas de cada proyecto (horas estimadas, horas ejecutadas, facturación, avance real y estimado, tipo de alcance, entre otras).
-
-Adicionalmente, se emplearon tres fuentes de datos públicos oficiales del Ecuador como catálogos de enriquecimiento:
-
-- **Catastro RUC del SRI** (Servicio de Rentas Internas): archivos CSV por provincia —26 en total— con información tributaria de contribuyentes registrados. Cada registro contiene número de RUC, razón social, nombre fantasía o comercial, tipo y clase de contribuyente, estado, sector CIIU, provincia, cantón y parroquia del establecimiento, entre otros atributos. El catálogo consolidado supera los 2,5 millones de registros.
-
-- **Directorio de Compañías de la Superintendencia de Compañías, Valores y Seguros (SCVS)**: archivo Excel con 219.339 sociedades registradas en Ecuador, que incluye razón social, RUC, situación legal, tipo societario, capital suscrito, CIIU, región, provincia, ciudad, representante legal y año del último balance presentado.
-
-- **Listas auxiliares SRI**: catastro de empresas fantasmas (SENAE) y lista de contribuyentes inscritos en plataformas de mercado en línea, utilizados como señales de calidad y enriquecimiento adicional.
-
----
-
-## 3.2 Análisis exploratorio de fuentes (Data Profiling)
-
-Previo al proceso de matching, se realizó un análisis de perfilado de datos sobre ambas fuentes internas mediante el notebook `01_profiling_fuentes_validacion_join.ipynb`. Este análisis permitió identificar:
-
-- La cardinalidad y distribución de valores en las columnas de nombre de empresa en leads y proyectos.
-- El porcentaje de valores nulos en variables clave (industria, cargo, país, revenue estimado).
-- La distribución geográfica implícita de los leads: del total de 440 registros, solo 25 registros contenían un país explícitamente declarado, de los cuales 22 correspondían a empresas de México, Colombia, Perú, Venezuela, Brasil y Chile —es decir, entidades fuera del registro tributario ecuatoriano—. Los 415 registros restantes carecían del campo país, lo que, junto al contexto del CRM de FPA Latam (empresa ecuatoriana), permite asumir que corresponden en su mayoría a empresas con presencia en Ecuador.
-- La ausencia de coincidencias exactas entre los nombres de empresa presentes en leads y los presentes en proyectos, lo que evidenció la necesidad de un proceso de resolución de entidades (*entity resolution*) robusto.
-
----
-
-## 3.3 Normalización de nombres de empresa (Staging)
-
-Dado que los registros provenientes del CRM y del directorio de proyectos presentan inconsistencias típicas de datos no estructurados (variaciones tipográficas, abreviaturas, sufijos legales, tildes y caracteres especiales), se diseñó e implementó una función de normalización de nombres de empresa en el notebook `01_staging_empresas_normalizadas.ipynb`. El procedimiento aplicado a cada nombre fue el siguiente:
-
-1. **Eliminación de espacios extremos** y conversión a cadena de texto.
-2. **Desacento de caracteres** mediante descomposición Unicode canónica (NFKD), eliminando los modificadores combinantes.
-3. **Conversión a mayúsculas**.
-4. **Eliminación de caracteres no alfanuméricos** (reemplazados por espacio).
-5. **Supresión de sufijos legales y conectores frecuentes** que no aportan valor discriminante para el matching: `SA`, `S.A.`, `SAS`, `LTDA`, `CIA`, `COMPANIA`, `CORP`, `INC`, `LLC`, `C.LTDA`, `&`, `Y`, así como artículos y preposiciones (`DE`, `DEL`, `LA`, `EL`, `LOS`, `LAS`).
-6. **Colapso de espacios múltiples** y eliminación de espacios iniciales y finales.
-
-Este proceso generó una versión normalizada de cada nombre (`name_norm`) que se utilizó exclusivamente para la comparación en el proceso de matching, preservando el nombre original (`name_raw`) para trazabilidad y visualización.
-
-Los outputs de esta etapa fueron:
-
-| Archivo | Descripción | Registros |
+| Fuente | Archivo | Rol en el proyecto |
 |---|---|---|
-| `leads_companies_clean.csv` | Empresas únicas del CRM normalizadas | 418 |
-| `horas_empresas_clean.csv` | Empresas únicas de proyectos normalizadas | 120 |
-| `empresas_universe_compilado.csv` | Universo unificado (LEADS ∪ HORAS) | ~500 |
+| Leads comerciales | `leads.xlsx` | Universo historico de prospectos B2B del CRM. Se interpreta como empresas capturadas comercialmente que no necesariamente han concretado proyecto. |
+| Proyectos ejecutados o activos | `proyectos_empresa.xlsx` | Registro operativo de proyectos/horas por empresa: horas estimadas, horas ejecutadas, facturacion, avance y responsable. La presencia de una empresa aqui evidencia relacion de cliente o proyecto con FPA. |
 
----
+Estas fuentes contienen nombres de empresas, datos comerciales y variables operativas, pero no incluyen de forma sistematica RUC ni razon social. Por esta razon no pueden conectarse directamente con fuentes publicas ecuatorianas.
 
-## 3.4 Resolución de entidades: asignación de RUC mediante matching multi-estrategia
+Para efectos del modelo, `proyectos_empresa.xlsx` no se usa como fuente de variables de clustering. Sus variables de horas, facturacion y avance son consecuencia de haber trabajado con FPA y podrian introducir fuga de informacion. Su uso se limita a construir la etiqueta externa `es_cliente_fpa`, que permite validar despues del clustering que segmentos concentran mayor proporcion historica de clientes.
 
-El núcleo del proceso de enriquecimiento consistió en vincular cada empresa del universo interno con su registro oficial en las fuentes públicas, obteniendo así su Número de RUC (Registro Único de Contribuyentes) —identificador único de 13 dígitos en el sistema tributario ecuatoriano— como llave primaria para la extracción posterior de atributos firmográficos.
+Las fuentes publicas utilizadas para enriquecimiento son:
 
-Se diseñó un pipeline de matching en tres etapas, implementado en los notebooks `02_matching_exacto_scvs.ipynb` y `03_catalogos_y_torneo_fuzzy.ipynb`:
-
-### Etapa 1 — Matching exacto contra la SCVS
-
-Se construyó un catálogo de búsqueda a partir del Directorio de Compañías de la SCVS, aplicando la misma función de normalización descrita anteriormente. Cada empresa del universo interno fue comparada contra este catálogo mediante **unión exacta por nombre normalizado**. Esta estrategia prioriza precisión sobre cobertura: solo se acepta un match cuando los nombres normalizados son idénticos, lo que minimiza falsos positivos.
-
-### Etapa 2 — Matching difuso con catálogos SRI (torneo competitivo)
-
-Las empresas que no obtuvieron match exacto pasaron a una segunda etapa de **búsqueda aproximada** (*fuzzy matching*) contra tres catálogos construidos a partir de los archivos RUC del SRI:
-
-- **Catálogo SRI Razón Social**: construido a partir de la columna `RAZON_SOCIAL` de los 26 archivos provinciales, consolidando más de 2,5 millones de registros. Se mantuvo un único registro por nombre normalizado, resolviendo duplicados por frecuencia.
-- **Catálogo SRI Nombre Fantasía**: construido a partir de la columna `NOMBRE_FANTASIA_COMERCIAL`, que registra el nombre comercial del establecimiento.
-- **Catálogo SCVS difuso**: reutilización del directorio de la Superintendencia para comparación aproximada en los casos en que el nombre normalizado difiere ligeramente del registrado.
-
-Para el cálculo de similitud se utilizó la métrica **`token_set_ratio`** de la librería `rapidfuzz`, que es robusta ante permutaciones y subconjuntos de tokens, y se fijó un umbral mínimo de **80 puntos sobre 100** para considerar válido un match. Cuando una empresa obtuvo puntajes superiores al umbral en más de un catálogo, se aplicó un **mecanismo de torneo**: se seleccionó el match de mayor puntaje; en caso de empate, se privilegió el catálogo de mayor confianza según el orden de prioridad: SCVS > SRI Razón Social > SRI Nombre Fantasía.
-
-Para eficiencia computacional, el proceso de comparación se implementó mediante la función `cdist` de `rapidfuzz`, que ejecuta la matriz de similitudes completa (queries × catálogo) en bloques de 500.000 pares con paralelismo multihilo (`workers=-1`), lo que permitió procesar los catálogos millonarios del SRI en tiempo razonable.
-
-### Etapa 3 — Auditoría por LLM
-
-Los matches obtenidos por la vía difusa fueron sometidos a una **revisión automática mediante un modelo de lenguaje grande** (GPT-4o-mini de OpenAI), implementada en el notebook `04_auditoria_llm_y_match_final.ipynb`. Se diseñó un *prompt* de sistema que instruye al modelo a actuar como auditor de matching de empresas ecuatorianas, evaluando la coherencia entre el nombre original del lead y el candidato encontrado en el catálogo, con las reglas:
-
-- Si el RUC no tiene 13 dígitos → `verdict = incorrect`.
-- Si existe coherencia total entre nombre original y candidato → `verdict = correct`.
-- Si el nombre es genérico o los datos son insuficientes → `verdict = uncertain`.
-
-Los casos se enviaron en bloques (*chunks*) al API de OpenAI, y los resultados (`verdict`, `confidence`, `reason`) se integraron a cada registro para la construcción del match final.
-
----
-
-## 3.5 Consolidación del match final
-
-El archivo `match_final_empresas.csv` integra los resultados de las tres etapas, consolidando el mapeo entre nombre de empresa interno y RUC verificado. La tabla final contiene los campos: `source_label` (LEADS o HORAS), `name_raw`, `name_norm`, `RUC`, `source_winner` (fuente ganadora del match), `score` y `verdict`.
-
-Los resultados por fuente de match fueron los siguientes:
-
-| Fuente de match (`source_winner`) | Empresas |
+| Fuente publica | Uso principal |
 |---|---|
-| SCVS (match exacto) | 24 |
-| SCVS (match difuso validado) | 70 |
-| SRI Razón Social | 38 |
-| SRI Nombre Fantasía | 45 |
-| **Total** | **177** |
-
-De las 177 empresas con RUC asignado, **113 provienen de la fuente LEADS** (CRM) y **64 de la fuente HORAS** (proyectos activos).
+| Catastro RUC del SRI | Obtencion de atributos tributarios, ubicacion, actividad economica, estado y antiguedad. |
+| Directorio de companias SCVS | Vinculacion entre RUC y expediente societario. |
+| Ranking financiero SCVS | Incorporacion de variables financieras y de tamano empresarial para la Capa 2. |
 
 ---
 
-## 3.6 Cobertura y limitaciones del enriquecimiento
+## 3.2 Problema estructural del CRM
 
-Del universo de 440 leads históricos, 177 registros (40,2%) pudieron ser vinculados con certeza a fuentes de información pública oficiales (SRI y Superintendencia de Compañías) mediante un proceso de *entity resolution* en cuatro etapas: normalización, matching exacto, matching difuso con torneo competitivo y auditoría LLM. Los 263 registros restantes fueron excluidos del modelo por carecer de identificación fiscal verificable: 22 corresponden a empresas internacionales fuera del alcance del registro tributario ecuatoriano, y los demás presentaron ambigüedades de naming no resolubles con las fuentes disponibles sin incurrir en costos de datos propietarios. Esta limitación se documenta como restricción del estudio y no afecta la validez del análisis, dado que el subconjunto de 177 empresas enriquecidas constituye una muestra representativa del pipeline comercial con información firmográfica objetiva y verificable.
+El obstaculo principal identificado fue que las fuentes internas registran mayoritariamente el **nombre comercial** o una variante informal de la empresa, mientras que las bases oficiales se organizan alrededor del **RUC** y la **razon social**.
 
-En términos cuantitativos, la distribución de los registros excluidos se explica por:
+Ejemplos habituales de este problema son:
 
-1. **Empresas internacionales** (22 registros): leads de México, Colombia, Perú, Venezuela, Brasil y Chile, para los cuales no existe registro en el SRI ni en la SCVS. La incorporación de fuentes de datos firmográficos internacionales (Dun & Bradstreet, Clearbit, etc.) habría requerido contratos comerciales con costos no justificables en el marco de un proyecto de investigación académica.
+- Empresas registradas en el CRM con marca comercial, pero inscritas en SRI con razon social distinta.
+- Abreviaturas, tildes, sufijos legales, nombres incompletos o nombres de grupo empresarial.
+- Leads internacionales o marcas globales que pueden tener sociedades registradas en Ecuador, lo cual exige verificacion manual para no depender solamente de similitud textual.
+- Multiples alias comerciales asociados a un mismo RUC.
 
-2. **Empresas no resolubles** (~241 registros): nombres demasiado genéricos, entidades informales no registradas en el SRI, variaciones de denominación no resolubles por métodos automáticos, o empresas que operan bajo un nombre comercial completamente distinto al registrado en el catálogo tributario.
+El notebook `01_data_ingestion_enrichment/01_profiling_fuentes_validacion_join.ipynb` documenta este problema de forma exploratoria. Su aporte principal es mostrar que un JOIN directo por nombre no es suficiente para conectar CRM y fuentes oficiales.
 
-Esta limitación es consistente con las tasas de cobertura reportadas en la literatura de *entity resolution* sobre datos de CRM y fuentes de registro público, donde tasas de matching del 35–50% son esperables en ausencia de identificadores primarios pre-existentes (Christen, 2012; Getoor & Machanavajjhala, 2012). El subconjunto de 177 empresas enriquecidas constituye, no obstante, una muestra con información firmográfica objetiva y verificable, derivada de fuentes oficiales del Estado ecuatoriano, lo que garantiza la calidad y trazabilidad de los datos de entrada al modelo de clustering.
+Para el modelo final, el criterio operativo es la existencia de un RUC ecuatoriano verificado manualmente. El pais comercial u origen del lead queda como trazabilidad, pero no excluye un registro si la revision manual encontro una razon social ecuatoriana valida. Esta regla mantiene el foco en empresas integrables con SRI/SCVS y evita que el pipeline dependa de inferencias automaticas por similitud de marca.
 
 ---
 
-## Referencias relacionadas con esta sección
+## 3.3 Staging y normalizacion de empresas
+
+El notebook `02_data_cleaning/01_staging_empresas_normalizadas.ipynb` prepara el universo inicial de empresas. Su funcion no es asignar RUC, sino limpiar y estandarizar nombres para habilitar comparaciones posteriores.
+
+El proceso aplicado a cada nombre incluye:
+
+1. Conversion a texto y eliminacion de espacios extremos.
+2. Remocion de tildes y caracteres especiales.
+3. Conversion a mayusculas.
+4. Eliminacion de sufijos legales y conectores frecuentes.
+5. Colapso de espacios multiples.
+6. Construccion de una clave normalizada `name_norm`.
+
+Los artefactos actuales de esta etapa son:
+
+| Output | Registros | Columnas | Descripcion |
+|---|---:|---:|---|
+| `02_data_cleaning/outputs/leads_companies_clean.csv` | 326 | 4 | Empresas unicas provenientes de leads. |
+| `02_data_cleaning/outputs/horas_empresas_clean.csv` | 119 | 4 | Empresas unicas provenientes de proyectos. |
+| `02_data_cleaning/outputs/empresas_universe_compilado.csv` | 445 | 9 | Universo integrado LEADS + HORAS, manteniendo trazabilidad por fuente. |
+
+Este universo normalizado se usa en el carril automatizado y como evidencia del volumen de entidades que originalmente debian resolverse.
+
+---
+
+## 3.4 Carril automatizado: baseline de Entity Resolution
+
+El carril automatizado se conserva como componente metodologico del proyecto, pero no alimenta directamente el modelo final. Su objetivo fue evaluar hasta que punto era posible resolver automaticamente el RUC a partir de nombres comerciales.
+
+### Matching exacto contra SCVS
+
+El notebook `02_data_cleaning/02_matching_exacto_scvs.ipynb` compara los nombres normalizados del CRM contra el Directorio de Companias de la SCVS.
+
+| Output | Registros evaluados | RUC no nulos | RUC unicos |
+|---|---:|---:|---:|
+| `leads_ruc_exact.csv` | 326 | 12 | 12 |
+| `horas_ruc_exact.csv` | 119 | 22 | 22 |
+
+La cobertura exacta es baja, especialmente en leads. Este resultado confirma que la similitud textual exacta no resuelve el problema estructural del CRM.
+
+### Matching difuso como generador de candidatos
+
+El pipeline tambien genera sugerencias difusas con RapidFuzz/SCVS:
+
+| Output | Candidatos sugeridos | RUC unicos |
+|---|---:|---:|
+| `leads_ruc_sugerido_scvs.csv` | 205 | 192 |
+| `horas_ruc_sugerido_scvs.csv` | 71 | 70 |
+
+Estas sugerencias son utiles como aproximacion y como posible herramienta de productividad futura. Sin embargo, en la version final de la tesis no se tratan como verdad operacional, porque una alta similitud lexica no garantiza identidad legal cuando se trabaja con nombres comerciales.
+
+### Interpretacion metodologica
+
+El carril automatizado no se descarta como trabajo inutil. Su valor para la tesis es triple:
+
+1. Evidencia empiricamente que el CRM carece de una llave oficial para integrarse con datos publicos.
+2. Justifica la construccion de un Golden Record manual para proteger la validez interna del modelo.
+3. Queda como propuesta de productizacion: para nuevos leads, puede sugerir candidatos y reducir el esfuerzo humano de verificacion.
+
+Por esta razon, archivos historicos como `match_final_empresas.csv` deben entenderse como salidas del experimento automatizado, no como fuente final del modelo de clustering.
+
+---
+
+## 3.5 Golden Record manual
+
+Ante la insuficiencia del matching automatico para garantizar 100% de precision, se construyo un diccionario manual de alias empresariales. Este diccionario conecta el nombre observado en el CRM con su razon social y RUC verificados.
+
+El notebook operativo de esta etapa es:
+
+```text
+02_data_cleaning/08_consolidacion_ground_truth_manual.ipynb
+```
+
+El notebook lee todos los archivos ubicados en:
+
+```text
+02_data_cleaning/data_ruc_universo_empresas/new/
+```
+
+Los insumos manuales activos son exclusivamente `leads_ruc_new.xlsx` y `proyectos_empresa_ruc_new.xlsx`, ubicados en esa carpeta. Los archivos antiguos ubicados fuera de `new/`, como `leads_ruc.xlsx` y `proyectos_empresa_ruc.xlsx`, se consideran historicos y no deben usarse para reconstruir el Golden Record.
+
+Adicionalmente, antes de consolidar se aplica una regla de calidad: se aceptan registros con nombre original, razon social y RUC ecuatoriano de 13 digitos verificados manualmente. El pais comercial u origen no funciona como filtro de exclusion; se conserva como dato de auditoria.
+
+El notebook consolida la revision manual en:
+
+```text
+02_data_cleaning/data_ruc_universo_empresas/match_final_empresas_verificado.csv
+```
+
+La estructura clave del archivo final es:
+
+| Columna | Descripcion |
+|---|---|
+| `nombre_original` | Alias o nombre comercial observado en la fuente interna. |
+| `nombre_original_norm` | Version normalizada del alias. |
+| `razon_social` | Razon social verificada manualmente. |
+| `razon_social_norm` | Version normalizada de la razon social. |
+| `ruc` | Identificador oficial de 13 digitos. |
+| `pais_empresa` | Pais asociado cuando la revision manual lo incluyo; se conserva para trazabilidad, no como variable de clustering. |
+| `sede_ecuador` | Indicador auxiliar de presencia/localizacion en Ecuador; complementa la auditoria manual pero no reemplaza al RUC verificado. |
+| `n_apariciones` | Numero de apariciones consolidadas del alias. |
+| `fuentes` | Archivo y fila de origen usados para trazabilidad. |
+
+### Resultados de consolidacion
+
+| Indicador | Valor |
+|---|---:|
+| Alias verificados aceptados | 209 |
+| RUC unicos verificados | 181 |
+| Alias provenientes de leads | 114 |
+| Alias provenientes de proyectos/horas | 95 |
+| Registros descartados por validacion o incompletitud | 312 |
+| Conflictos alias -> multiples RUC | 0 |
+| Conflictos RUC -> multiples razones sociales | 0 |
+
+El resultado no es solamente un archivo auxiliar, sino el **diccionario de alias manual** del proyecto. En terminos metodologicos, funciona como el Ground Truth que permite pasar de nombres comerciales no estandarizados a identificadores oficiales verificables.
+
+En esta etapa tambien se preserva la distincion entre prospectos y clientes historicos: los alias provenientes solo de `leads_ruc_new.xlsx` se tratan como prospectos/no clientes, mientras que los alias provenientes de archivos manuales derivados de `proyectos_empresa.xlsx` se marcan como clientes FPA. Si un mismo RUC aparece en ambas fuentes, prevalece la condicion de cliente para la validacion externa.
+
+---
+
+## 3.6 Conexion con Feature Engineering
+
+El notebook `03_feature_engineering/01_base_sri.ipynb` fue actualizado para dejar de ingerir outputs del carril automatizado y usar directamente el Golden Record manual.
+
+El flujo actual es:
+
+```text
+match_final_empresas_verificado.csv
+        |
+        v
+deduplicacion por RUC
+        |
+        v
+JOIN con Catastro RUC del SRI
+        |
+        v
+features_capa1.csv
+```
+
+La unidad de observacion del modelo pasa a ser el **RUC unico**, no el alias. Esto evita que una misma empresa entre dos veces al modelo por estar escrita con nombres comerciales distintos.
+
+La Capa 1 actual queda asi:
+
+| Artefacto | Registros | RUC unicos | Clientes FPA |
+|---|---:|---:|---:|
+| `features_capa1.csv` | 181 | 181 | 82 |
+
+Ademas, el archivo conserva columnas de trazabilidad como `source_label`, `source_winner`, `score` y `verdict`. En la version actual, `source_winner = GROUND_TRUTH_MANUAL` y `verdict = VERIFICADO_MANUAL`, dejando claro que el origen del RUC es la revision manual.
+
+---
+
+## 3.7 Enriquecimiento con SCVS
+
+La Capa 2 incorpora informacion financiera y de tamano empresarial de la SCVS. El notebook `03_feature_engineering/02_enriquecimiento_ranking.ipynb` toma las empresas de Capa 1, obtiene el expediente societario desde el Directorio de Companias y luego cruza contra el ranking financiero.
+
+La cobertura actual es:
+
+| Artefacto | Registros | RUC unicos | Clientes FPA |
+|---|---:|---:|---:|
+| `features_capa2.csv` | 141 | 141 | 57 |
+
+Existe una fila con valores financieros crudos incompletos en liquidez y margen; estos faltantes se imputan en la etapa de construccion de matrices, antes del clustering.
+
+---
+
+## 3.8 Decision metodologica para la tesis
+
+La narrativa recomendada es la siguiente:
+
+> El proyecto encontro una limitacion estructural comun en iniciativas de analitica B2B: los CRM suelen registrar nombres comerciales porque son utiles para la operacion comercial, pero las fuentes publicas oficiales organizan la informacion por razon social y RUC. Esta diferencia impide una integracion directa y vuelve necesario un proceso de resolucion de entidades.
+
+En consecuencia:
+
+- El matching automatizado se presenta como baseline experimental y propuesta futura.
+- El Golden Record manual se presenta como solucion metodologica para garantizar precision en el modelo final.
+- El modelo K-Means se entrena solo sobre empresas con RUC verificado manualmente.
+- La validez del clustering se apoya en datos oficiales del SRI y SCVS, no en similitudes textuales probabilisticas.
+
+Esta decision protege la calidad academica del experimento y, al mismo tiempo, deja abierta una linea aplicada: convertir el pipeline automatizado en una herramienta asistida para sugerir RUCs de nuevos leads, siempre con revision humana antes de incorporarlos al modelo.
+
+---
+
+## Referencias relacionadas
 
 - Christen, P. (2012). *Data matching: Concepts and techniques for record linkage, entity resolution, and duplicate detection*. Springer.
-- Getoor, L., & Machanavajjhala, A. (2012). Entity resolution: Theory, practice & open challenges. *Proceedings of the VLDB Endowment, 5*(12), 2018–2019. https://doi.org/10.14778/2367502.2367564
-- SRI – Servicio de Rentas Internas del Ecuador. (2026). *Catastro RUC por provincia* [Conjunto de datos]. https://www.sri.gob.ec
-- Superintendencia de Compañías, Valores y Seguros del Ecuador (SCVS). (2026). *Directorio de compañías* [Conjunto de datos]. https://www.supercias.gob.ec
+- Getoor, L., & Machanavajjhala, A. (2012). Entity resolution: Theory, practice & open challenges. *Proceedings of the VLDB Endowment, 5*(12), 2018-2019.
+- SRI - Servicio de Rentas Internas del Ecuador. Catastro RUC por provincia.
+- Superintendencia de Companias, Valores y Seguros del Ecuador. Directorio de companias y ranking empresarial.

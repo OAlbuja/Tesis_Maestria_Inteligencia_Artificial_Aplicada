@@ -1,0 +1,6 @@
+{
+  "isort.importStrategy": "fromEnvironment",
+  "isort.interpreter": [
+    "${workspaceFolder}\\venv\\Scripts\\python.exe"
+  ]
+}

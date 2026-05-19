@@ -1,264 +1,268 @@
-# 4. Feature Engineering y Diseño del Modelo de Clustering
+# 4. Feature Engineering y diseño del clustering
 
-Este documento registra las decisiones metodológicas tomadas para la construcción de las variables del modelo de segmentación, la estrategia de capas adoptada y la teoría base del clustering. Sirve como guía de referencia para la redacción del capítulo de metodología y resultados de la tesis.
-
----
-
-## 4.1 Inventario completo de features posibles
-
-A partir del análisis de cobertura de las fuentes disponibles, se identificaron dos grupos de variables provenientes de fuentes distintas con coberturas distintas.
-
-### Fuente A — Datos SRI (acceso vía RUC)
-
-Estas columnas provienen de los 26 archivos CSV provinciales del SRI, separados por `|`, codificación `utf-8-sig`. Se obtienen haciendo un JOIN entre `match_final_empresas.csv` (RUC limpio) y el catálogo SRI consolidado.
-
-| # | Feature en modelo | Columna SRI origen | Transformación aplicada | Cobertura |
-|---|---|---|---|---|
-| 1 | `tipo_sociedad` | `TIPO_CONTRIBUYENTE` | SOCIEDAD=1, PERSONA NATURAL=0 | 163/177 (92%) |
-| 2 | `obligado_contabilidad` | `OBLIGADO` | S=1, N=0 | 163/177 (92%) |
-| 3 | `es_agente_retencion` | `AGENTE_RETENCION` | S=1, N=0 | ~162/177 (99% de los 163) |
-| 4 | `es_contribuyente_especial` | `ESPECIAL` | S=1, N=0 | ~162/177 |
-| 5 | `estado_activo` | `ESTADO_CONTRIBUYENTE` | ACTIVO=1, otro=0 | 163/177 (92%) |
-| 6 | `antiguedad_anos` | `FECHA_INICIO_ACTIVIDADES` | 2026 − año(fecha) | 163/177 (92%) |
-| 7 | `sector_ciiu_*` | `CODIGO_CIIU` (primera letra) | dummies G/C/M/K/S/Otro | 163/177 (92%) |
-| 8 | `region_*` | `DESCRIPCION_PROVINCIA_EST` | dummies Pichincha/Guayas/Resto | 163/177 (92%) |
-
-> **N disponible para el modelo: 163 empresas**  
-> Las 14 empresas restantes no se encontraron en los archivos SRI provinciales (corresponden a empresas con domicilio fuera del catálogo o con RUC no coincidente).
+Este documento registra la construccion de variables, la estrategia de dos capas y las decisiones de modelado usadas para segmentar empresas B2B de FPA Latam. La version actual parte del archivo verificado manualmente `match_final_empresas_verificado.csv`; los outputs del matching automatizado se conservan como baseline metodologico, pero no como entrada operacional del modelo final.
 
 ---
 
-### Fuente B — Ranking financiero SCVS (acceso vía expediente SCVS)
+## 4.1 Unidad de analisis
 
-Estas columnas provienen del archivo `bi_ranking.csv` de la Superintendencia de Compañías, Valores y Seguros (SCVS). El acceso requiere dos pasos: primero obtener el `EXPEDIENTE` de cada empresa desde `directorio_companias.xlsx` usando el RUC, luego hacer JOIN con el ranking tomando el último año fiscal disponible por empresa.
+La unidad de analisis del modelo es la **empresa identificada por RUC ecuatoriano unico**. Esta decision evita duplicar empresas que aparecen con mas de un alias comercial en leads o en proyectos, y permite conectar cada observacion con SRI/SCVS mediante una llave oficial verificada manualmente.
 
-| # | Feature en modelo | Columna ranking origen | Transformación aplicada | Cobertura |
-|---|---|---|---|---|
-| 9 | `log_empleados` | `n_empleados` | log₁₀(x+1) | 93/177 (53%) |
-| 10 | `log_ingresos` | `ingresos_ventas` | log₁₀(x+1) | 93/177 (53%) |
-| 11 | `log_activos` | `activos` | log₁₀(x+1) | 93/177 (53%) |
-| 12 | `segmento` | `cod_segmento` | ordinal 1–4 (micro→grande) | 92/93 (~99%) |
-| 13 | `liquidez_corriente` | `liquidez_corriente` | valor crudo (clip p99) | 88/93 (95%) |
-| 14 | `margen_operacional` | `margen_operacional` | valor crudo (clip p99) | 88/93 (95%) |
+El flujo base es:
 
-> **N disponible para este enriquecimiento: 93 empresas**
+```text
+Golden Record manual
+match_final_empresas_verificado.csv
+        |
+        v
+deduplicacion por RUC
+        |
+        v
+features_capa1.csv
+```
 
----
-
-### Variable de validación externa (nunca entra al modelo)
-
-| Nombre | Origen | Valores | Conteo |
-|---|---|---|---|
-| `es_cliente_fpa` | `proyectos_empresa.xlsx` columna `EMPRESA` | 1 = ya tiene proyectos con FPA, 0 = prospecto | 50 clientes / 177 total (28%) |
-
-Esta variable se usa **exclusivamente después** de ejecutar el clustering, para medir qué proporción de clientes reales cae en cada segmento. Incorporarla al modelo sería un error metodológico grave: el algoritmo vería la respuesta antes de segmentar, rompiendo la naturaleza no supervisada del ejercicio.
+El archivo verificado contiene 209 alias aceptados y 181 RUC unicos en la ultima ejecucion documentada. Despues de consolidar por RUC, la Capa 1 trabaja con empresas unicas integrables con SRI. Estos conteos deben recalcularse despues de cada actualizacion de los archivos manuales nuevos.
 
 ---
 
-## 4.2 El problema de cobertura — por qué importa la fuente
+## 4.2 Variable de validacion externa
 
-La siguiente tabla resume el problema central de cobertura que motivó la estrategia de dos capas:
+La variable `es_cliente_fpa` identifica si la empresa aparece en `proyectos_empresa.xlsx`, que es el registro operativo de proyectos/horas de FPA por empresa. Por tanto, esta variable no describe una caracteristica firmografica externa de la empresa; describe una relacion historica con FPA.
 
-| Grupo | N | % del total (177) |
+| Uso | Decision |
+|---|---|
+| Se conserva en `features_capa1.csv` y `features_capa2.csv` | Si, para trazabilidad y evaluacion posterior. |
+| Entra a `matriz_capa1.csv` o `matriz_capa2.csv` | No. |
+| Es vista por K-Means | Nunca. |
+| Se usa despues del clustering | Si, para comparar tasas de clientes por segmento. |
+
+Esta separacion evita fuga de informacion. El clustering sigue siendo no supervisado porque el algoritmo agrupa empresas usando atributos tributarios y financieros, no la etiqueta historica de cliente.
+
+Las variables operativas de `proyectos_empresa.xlsx` (horas estimadas, horas ejecutadas, facturacion, avance, ocupacion, responsable, etc.) tampoco se incluyen en el clustering. Usarlas mezclaria atributos de mercado con resultados de la gestion comercial de FPA. Su valor metodologico esta en permitir una validacion externa agregada: una vez creados los clusters, se calcula la tasa de clientes por segmento sin revelar ni usar esa informacion durante el entrenamiento.
+
+---
+
+## 4.3 Capa 1: variables SRI
+
+La Capa 1 es el modelo principal de la tesis porque usa informacion publica de alta cobertura y replicable para cualquier empresa con RUC ecuatoriano.
+
+**Notebook:** `03_feature_engineering/01_base_sri.ipynb`  
+**Output:** `03_feature_engineering/outputs/features_capa1.csv`
+
+| Indicador | Valor |
+|---|---:|
+| Empresas | 181 |
+| RUC unicos | 181 |
+| Clientes FPA | 82 |
+| Tasa base de clientes | 45,3% |
+
+Distribucion por origen operacional:
+
+| `source_label` | Empresas |
+|---|---:|
+| LEADS | 99 |
+| HORAS | 77 |
+| HORAS+LEADS | 5 |
+
+### Variables construidas en Capa 1
+
+| Variable | Tipo | Fuente |
 |---|---|---|
-| Total empresas con RUC verificado (`match_final_empresas.csv`) | 177 | 100% |
-| En `features_capa1.csv` (antes de deduplicar) | 175 | 99% |
-| **Empresas únicas en Capa 1 (tras deduplicar por RUC)** | **163** | **92%** |
-| Con expediente SCVS en directorio | 98 | 55% |
-| Con datos financieros en ranking SCVS | **92** | **52%** |
-| Identificadas como clientes FPA activos (en 163 únicos) | **49** | **30,1%** |
+| `tipo_sociedad` | Binaria | SRI, tipo de contribuyente. |
+| `obligado_contabilidad` | Binaria | SRI, obligado a llevar contabilidad. |
+| `es_agente_retencion` | Binaria | SRI, agente de retencion. |
+| `es_contribuyente_especial` | Binaria | SRI, contribuyente especial. |
+| `estado_activo` | Binaria | SRI, estado del contribuyente. |
+| `antiguedad_anos` | Numerica | Diferencia entre 2026 y fecha de inicio de actividades. |
+| `sector_ciiu_macro` | Categorica | Primera letra del codigo CIIU. |
+| `region` | Categorica | Pichincha, Guayas o Resto. |
 
-**Interpretación:** Si se construye el modelo exclusivamente con datos financieros del ranking SCVS, se descarta el 47% del dataset. Con N=92 y un K=4 clusters, el promedio sería ~23 empresas por cluster — demasiado pequeño para generalizar o para que el modelo sea operativo en el futuro con nuevos leads.
+La matriz final de Capa 1 contiene 14 columnas numericas:
 
-> **Nota sobre deduplicación de Capa 1 (paso crítico de preprocesamiento):**  
-> El archivo `features_capa1.csv` contiene **175 filas** porque la fuente `match_final_empresas.csv` proviene de dos fuentes de leads distintas (HORAS y LEADS), y 12 empresas aparecen en ambas fuentes con el mismo RUC. Al ejecutar el modelo de clustering, estas filas duplicadas se eliminan conservando la versión con `es_cliente_fpa = 1` cuando existe conflicto, lo que resulta en **163 empresas únicas** (163 RUCs distintos). Esta deduplicación se aplica al inicio del notebook `04_modeling/01_clustering.ipynb` y es el motivo por el que la cifra de referencia del modelo es **N = 163**, no 175 ni 177.
-
----
-
-## 4.3 Estrategia de dos capas — decisión metodológica adoptada
-
-Se decidió construir el modelo en **dos capas con roles distintos**. Esta estrategia responde a la necesidad de balancear cobertura, riqueza de información y operatividad futura del sistema.
-
-### Capa 1 — Modelo principal (defendible, operativo, replicable)
-
-- **N = 163 empresas**
-- **Features: 8 variables SRI** (binarias + categóricas → ~12–14 columnas tras one-hot encoding)
-- **Propósito:** Es el modelo que se defiende en la tesis. Tiene sentido operativo para FPA porque puede aplicarse a cualquier empresa ecuatoriana que tenga RUC — los datos SRI son públicos, actualizados y de cobertura nacional.
-- **Ventaja clave:** Replicable en el futuro. Cualquier nuevo lead con RUC puede ser clasificado instantáneamente.
-- **Limitación:** Las features son puramente cualitativas (tipo de empresa, sector, región, antigüedad). No capturan directamente el tamaño económico real de la empresa.
-
-### Capa 2 — Análisis de enriquecimiento (validación de robustez)
-
-- **N = 92 empresas** (subconjunto de las 163 únicas que tienen datos en el ranking SCVS)
-- **Features: 14 variables** (las 8 de Capa 1 + 6 financieras del ranking SCVS)
-- **Propósito:** No es un modelo independiente — es la misma pregunta de segmentación ejecutada sobre las 93 empresas con información financiera adicional. Sirve para responder: *"¿El clustering que encontré en Capa 1 se confirma cuando tengo datos económicos reales?"*
-- **Si los clusters coinciden:** El modelo Capa 1 es robusto y las variables SRI capturan la misma estructura que los datos financieros detallados.
-- **Si los clusters difieren:** Se tiene una limitación metodológica relevante y una sección de discusión muy interesante para la tesis.
-
-### Flujo de datos de las dos capas
-
-```
-match_final_empresas.csv (177 empresas con RUC)
-        │
-        ├── JOIN por RUC → catálogo SRI
-        │       └── 163 empresas → 8 features → matriz_capa1.csv
-        │
-        └── JOIN por RUC → directorio SCVS → expediente
-                └── JOIN por expediente → bi_ranking.csv (último año)
-                        └── 93 empresas → 14 features → matriz_capa2.csv
-
-Ambas matrices agregan: es_cliente_fpa (label de validación, NO para clustering)
-
-Notebook de clustering:
-  → Modelo principal:     K-Means sobre matriz_capa1.csv
-  → Análisis de soporte:  K-Means sobre matriz_capa2.csv
-  → Comparación:          ¿Los clusters coinciden en las 93 empresas comunes?
-  → Validación externa:   Tasa es_cliente_fpa por cluster (en ambos modelos)
+```text
+tipo_sociedad
+obligado_contabilidad
+es_agente_retencion
+es_contribuyente_especial
+estado_activo
+antiguedad_anos
+sector_ciiu_macro_C
+sector_ciiu_macro_G
+sector_ciiu_macro_K
+sector_ciiu_macro_M
+sector_ciiu_macro_OTRO
+region_Guayas
+region_Pichincha
+region_Resto
 ```
 
 ---
 
-## 4.4 Por qué se aplica transformación logarítmica a las variables financieras
+## 4.4 Capa 2: enriquecimiento financiero SCVS
 
-Las variables financieras como `ingresos_ventas`, `n_empleados` y `activos` tienen distribuciones extremadamente sesgadas. En nuestra muestra:
+La Capa 2 es un analisis complementario. Agrega variables financieras y de tamano empresarial del ranking SCVS para el subconjunto de empresas con informacion disponible.
 
-```
-n_empleados:     mínimo = 1,        mediana = 30,        máximo = 2.877
-ingresos_ventas: mínimo = 0,        mediana = 7.682.427, máximo = 662.335.105
-activos:         mínimo = 0,        mediana = 12.133.053, máximo = 502.093.690
-```
+**Notebook:** `03_feature_engineering/02_enriquecimiento_ranking.ipynb`  
+**Output:** `03_feature_engineering/outputs/features_capa2.csv`
 
-Si se usan los valores crudos en el algoritmo de clustering, la distancia entre dos empresas estará dominada casi exclusivamente por sus ingresos absolutos, ignorando todas las demás variables. Por ejemplo:
+| Indicador | Valor |
+|---|---:|
+| Empresas | 141 |
+| RUC unicos | 141 |
+| Clientes FPA | 57 |
+| Tasa base de clientes | 40,4% |
 
-- La distancia en ingresos entre empresa A (100.000 USD) y empresa B (662 millones USD) es 661.9 millones.
-- La distancia en antigüedad entre una empresa de 5 años y una de 10 años es 5.
+Distribucion por origen operacional:
 
-Sin transformación, el modelo ve ingresos como 132 millones de veces más importante que la antigüedad.
+| `source_label` | Empresas |
+|---|---:|
+| LEADS | 84 |
+| HORAS | 52 |
+| HORAS+LEADS | 5 |
 
-Con $\log_{10}$, los valores se comprimen a una escala comparable:
+### Variables adicionales de Capa 2
 
-$$\log_{10}(100.000) = 5{,}0 \qquad \log_{10}(662.000.000) = 8{,}8$$
-
-La diferencia pasa de 661.9 millones a 3.8 — ahora es comparable con las demás variables después del escalado estándar.
-
-> **Regla general:** Siempre que una variable financiera o de conteo tenga una distribución donde el máximo es 100x o más que la mediana, se debe aplicar $\log_{10}(x+1)$. El `+1` evita `log(0)` en empresas con ingresos = 0.
-
----
-
-## 4.5 Por qué `es_cliente_fpa` se usa como validación y no como feature
-
-Esta es una de las decisiones más importantes del diseño metodológico.
-
-**Si `es_cliente_fpa` entrara al modelo**, el algoritmo sabría desde el inicio cuáles empresas ya compraron a FPA. El clustering tendería a crear un cluster de "clientes" y otro de "no clientes" — que es exactamente lo que queremos *descubrir*, no lo que queremos *imponer*. El modelo dejaría de ser no supervisado.
-
-**Al mantenerla fuera**, el clustering trabaja únicamente con características observables (tipo de empresa, sector, tamaño económico, antigüedad) y agrupa empresas por similitud real. Luego, al proyectar `es_cliente_fpa` sobre los clusters ya formados, se puede responder:
-
-- ¿Qué cluster tiene mayor concentración de clientes actuales? → Ese es el perfil de empresa que más compra a FPA
-- ¿Hay clusters con 0% de clientes? → Esos son perfiles de empresa que FPA nunca ha penetrado (oportunidad o descarte)
-- ¿Los prospectos del cluster de mayor conversión son prioritarios para el equipo comercial?
-
-Este análisis se denomina en la literatura **validación externa con etiquetas latentes** (*external validation with latent labels*). Es metodológicamente correcto porque la etiqueta no fue vista por el modelo durante el entrenamiento.
-
----
-
-## 4.6 Teoría del clustering — fundamentos para la tesis
-
-### ¿Qué es el clustering?
-
-El clustering es un método de **aprendizaje no supervisado** que agrupa observaciones en segmentos (*clusters*) de forma que los elementos del mismo grupo sean más similares entre sí que con los elementos de otros grupos. No existe una variable respuesta que predecir — el modelo *descubre* la estructura latente de los datos.
-
-Para este proyecto: el objetivo es descubrir si existen **perfiles de empresa** diferenciados entre los 163 leads de FPA Latam, y determinar si esos perfiles se correlacionan con la probabilidad de convertirse en clientes.
-
-### Preprocesamiento obligatorio antes del clustering
-
-```
-Variables binarias (tipo_sociedad, obligado, etc.)   → sin transformación adicional
-Variables categóricas (sector_ciiu, region)          → one-hot encoding (dummies 0/1)
-Variables numéricas continuas (antiguedad, log_*)    → StandardScaler (media=0, desv=1)
-```
-
-El escalado estándar es **crítico**: sin él, `antiguedad_anos` (rango 0–90) domina sobre `liquidez_corriente` (rango 0–5) únicamente por diferencia de escala, no por importancia real para la segmentación.
-
-### Algoritmos recomendados
-
-| Algoritmo | Ventajas | Desventajas | Rol en este proyecto |
-|---|---|---|---|
-| **K-Means** | Rápido, interpretable, funciona bien con features escaladas | Asume clusters esféricos, sensible a outliers extremos | ✅ Algoritmo principal |
-| **Hierarchical (Ward)** | El dendrograma permite visualizar el número de clusters natural | No escala bien con N grande | ✅ Exploración inicial para elegir K |
-| **K-Medoids (PAM)** | Más robusto a outliers que K-Means | Más lento computacionalmente | ✅ Análisis de robustez |
-| **DBSCAN** | Detecta clusters de forma arbitraria, identifica ruido | Difícil calibrar en datos de alta dimensión | ⚠️ Opcional |
-
-### Cómo elegir el número de clusters K
-
-Ninguna métrica sola es suficiente — se usan tres en conjunto:
-
-**a) Método del Codo (Elbow):**  
-Se grafica la inercia intra-cluster (WCSS) en función de K. El punto de inflexión ("codo") indica el K a partir del cual agregar más clusters ya no reduce sustancialmente la inercia.
-
-$$\text{WCSS}(K) = \sum_{k=1}^{K} \sum_{x_i \in C_k} \|x_i - \mu_k\|^2$$
-
-**b) Índice de Silhouette:**  
-Para cada punto mide qué tan bien está asignado a su cluster (rango: −1 a +1). Se busca **maximizar** el promedio.
-
-$$s(i) = \frac{b(i) - a(i)}{\max\bigl(a(i),\; b(i)\bigr)}$$
-
-Donde $a(i)$ = distancia media a los otros puntos del mismo cluster, y $b(i)$ = distancia media al cluster vecino más cercano.
-
-**c) Índice de Davies-Bouldin:**  
-Mide el ratio entre dispersión intra-cluster y separación inter-cluster. Se busca **minimizar**.
-
-$$DB = \frac{1}{K} \sum_{i=1}^{K} \max_{j \neq i} \frac{\sigma_i + \sigma_j}{d(\mu_i, \mu_j)}$$
-
-### Flujo metodológico completo del clustering
-
-```
-1. Cargar matriz_capa1.csv (163 empresas, 8 features)
-        ↓
-2. One-hot encoding de sector_ciiu y region
-        ↓
-3. StandardScaler en variables numéricas (antiguedad_anos, log_*)
-        ↓
-4. Clustering jerárquico (Ward) → dendrogram → inspeccionar K candidatos
-        ↓
-5. K-Means con K = 3, 4, 5, 6
-   → calcular silhouette score
-   → calcular Davies-Bouldin index
-   → calcular WCSS (método del codo)
-        ↓
-6. Elegir K óptimo con base en las 3 métricas
-        ↓
-7. Interpretar clusters: perfil de centroides por feature
-        ↓
-8. Validación externa: tasa es_cliente_fpa por cluster
-        ↓
-9. Nombrar segmentos con criterio de negocio
-   (ej: "Corporativo Activo", "PYME Técnica", "Microempresa Incipiente")
-        ↓
-10. Exportar etiquetas de cluster → base para scoring de nuevos leads
-        ↓
-[Repetir pasos 3–10 con matriz_capa2.csv para análisis de robustez]
-```
-
-### Interpretación y comunicación de resultados
-
-Una vez definidos los K clusters, cada uno se describe con:
-
-- **Perfil cuantitativo:** valor promedio (centroide) de cada feature por cluster
-- **Nombre interpretativo:** etiqueta de negocio que resume el perfil (lo más valioso para FPA)
-- **Tasa de conversión FPA:** `es_cliente_fpa.mean()` por cluster → qué segmento concentra más clientes actuales
-- **Recomendación táctica:** "FPA debe priorizar el segmento X porque concentra el Y% de clientes actuales y el perfil sugiere Z"
-
----
-
-## 4.7 Resumen de decisiones tomadas
-
-| Decisión | Opción elegida | Justificación |
+| Variable | Transformacion | Interpretacion |
 |---|---|---|
-| Fuente principal de features | SRI (vía RUC) | Cobertura máxima, datos públicos, operativo para producción |
-| Datos financieros (ranking SCVS) | Capa 2 / análisis de soporte | Solo 53% cobertura — no viable como modelo principal |
-| `es_cliente_fpa` en el modelo | NO — solo validación externa | Incluirla rompería la naturaleza no supervisada |
-| Transformación variables financieras | log₁₀(x+1) | Distribución extremadamente sesgada — escala dominaría el clustering |
-| Variables cualitativas | one-hot encoding | Necesario para calcular distancias euclidianas en K-Means |
-| Escalado | StandardScaler | Evita que variables de mayor rango dominen la distancia |
-| Algoritmo principal | K-Means | Velocidad, interpretabilidad, estándar en literatura |
-| Selección de K | Elbow + Silhouette + Davies-Bouldin | Ninguna métrica sola es suficiente |
+| `log_empleados` | `log10(n_empleados + 1)` | Tamano laboral. |
+| `log_ingresos` | `log10(ingresos_ventas + 1)` | Escala comercial. |
+| `log_activos` | `log10(activos + 1)` | Escala patrimonial. |
+| `segmento` | Ordinal | Segmento empresarial SCVS. |
+| `liquidez_corriente` | Clip de outliers, luego escalado | Solvencia de corto plazo. |
+| `margen_operacional` | Clip de outliers, luego escalado | Rentabilidad operativa. |
+
+La matriz final de Capa 2 contiene 20 columnas numericas: las 14 de Capa 1 mas 6 variables financieras.
+
+Existe una empresa con faltantes crudos en liquidez y margen operacional. La etapa `03_matriz_final.ipynb` imputa estos valores antes de exportar `matriz_capa2.csv`, por lo que la matriz entregada al modelo no contiene nulos.
+
+---
+
+## 4.5 Construccion de matrices
+
+**Notebook:** `03_feature_engineering/03_matriz_final.ipynb`
+
+| Matriz | Empresas | Columnas numericas | Nulos |
+|---|---:|---:|---:|
+| `matriz_capa1.csv` | 181 | 14 | 0 |
+| `matriz_capa2.csv` | 141 | 20 | 0 |
+
+Las reglas de preprocesamiento son:
+
+1. Las variables binarias permanecen como 0/1.
+2. `sector_ciiu_macro` y `region` se transforman con one-hot encoding.
+3. Las variables numericas continuas se escalan con `StandardScaler`.
+4. `es_cliente_fpa` no se incluye en las matrices de entrenamiento.
+
+La eleccion de one-hot encoding es necesaria porque K-Means usa distancia euclidiana. Codificar sectores como numeros enteros impondria una jerarquia artificial entre categorias que no tienen orden natural.
+
+---
+
+## 4.6 Transformaciones financieras
+
+Las variables financieras suelen tener distribuciones altamente asimetricas. Por esa razon se usa `log10(x + 1)` en empleados, ingresos y activos.
+
+La transformacion reduce la dominancia de empresas extremadamente grandes y permite que el modelo compare empresas en una escala mas estable. El termino `+1` evita problemas con valores iguales a cero.
+
+Adicionalmente, `liquidez_corriente` y `margen_operacional` se acotan para reducir el impacto de outliers financieros. Esta decision es importante porque razones financieras extremas pueden provocar clusters de uno, dos o tres casos, poco utiles para una interpretacion comercial.
+
+---
+
+## 4.7 Algoritmo de clustering
+
+El algoritmo principal es **K-Means**, por tres razones:
+
+1. Es interpretable para explicar segmentos a usuarios de negocio.
+2. Funciona adecuadamente con matrices numericas escaladas.
+3. Permite comparar soluciones de distintos valores de `K` mediante metricas internas.
+
+Tambien se calculan metricas con clustering jerarquico Ward como apoyo exploratorio, pero la segmentacion final reportada se basa en K-Means.
+
+Las metricas usadas para seleccionar `K` son:
+
+| Metrica | Criterio |
+|---|---|
+| Inercia | Menor es mejor; se revisa el metodo del codo. |
+| Silhouette | Mayor es mejor. |
+| Davies-Bouldin | Menor es mejor. |
+| Tamano minimo de cluster | Evita soluciones con micro-segmentos no accionables. |
+
+---
+
+## 4.8 Seleccion de K
+
+### Capa 1
+
+| K | Silhouette | Davies-Bouldin | Min cluster | Max cluster |
+|---:|---:|---:|---:|---:|
+| 2 | 0,224 | 1,590 | 66 | 115 |
+| 3 | 0,192 | 1,838 | 56 | 64 |
+| **4** | **0,209** | **1,601** | **35** | **60** |
+| 5 | 0,215 | 1,453 | 27 | 44 |
+| 6 | 0,208 | 1,529 | 17 | 43 |
+| 7 | 0,213 | 1,469 | 11 | 39 |
+| 8 | 0,192 | 1,591 | 10 | 29 |
+
+Aunque `K = 2` tiene la mejor Silhouette, genera una particion demasiado gruesa para segmentacion comercial. `K = 4` ofrece un equilibrio razonable entre interpretabilidad, tamanos de segmento y separacion.
+
+La decision final para Capa 1 es:
+
+```text
+K-Means Capa 1: K = 4
+```
+
+### Capa 2
+
+| K | Silhouette | Davies-Bouldin | Min cluster | Max cluster |
+|---:|---:|---:|---:|---:|
+| **2** | **0,379** | **1,212** | **31** | **110** |
+| 3 | 0,197 | 1,605 | 17 | 71 |
+| 4 | 0,209 | 1,341 | 3 | 71 |
+| 5 | 0,233 | 1,141 | 2 | 84 |
+| 6 | 0,172 | 1,299 | 2 | 70 |
+| 7 | 0,182 | 1,241 | 2 | 53 |
+| 8 | 0,178 | 1,240 | 2 | 42 |
+
+En Capa 2, `K = 2` es la solucion mas estable: maximiza Silhouette y evita micro-clusters derivados de outliers financieros. Se conserva una corrida `K = 4` solo como sensibilidad.
+
+La decision final para Capa 2 es:
+
+```text
+K-Means Capa 2: K = 2
+```
+
+---
+
+## 4.9 Segmentos finales definidos
+
+La salida de modelado genera dos archivos principales:
+
+| Output | Empresas | Descripcion |
+|---|---:|---|
+| `04_modeling/outputs/clusters_capa1.csv` | 181 | Segmentos principales basados en SRI. |
+| `04_modeling/outputs/clusters_capa2.csv` | 141 | Segmentos complementarios con variables financieras SCVS. |
+
+Los segmentos finales son:
+
+### Capa 1
+
+| Cluster | Segmento |
+|---:|---|
+| 0 | Comercio formal maduro en Pichincha |
+| 1 | Industriales consolidados de alta afinidad FPA |
+| 2 | Comercio formal emergente en Pichincha |
+| 3 | Comercio formal regional en Guayas |
+
+### Capa 2
+
+| Cluster | Segmento |
+|---:|---|
+| 0 | Empresas grandes consolidadas |
+| 1 | Empresas medianas y recientes de alta afinidad |
+
+---
+
+## 4.10 Lectura metodologica
+
+La tesis debe presentar la Capa 1 como el modelo principal porque es el mas replicable y tiene mayor cobertura. La Capa 2 no reemplaza a la Capa 1; la complementa con variables economicas para estudiar si la estructura firmografica cambia cuando se dispone de informacion financiera.
+
+El resultado esperado no es que ambas capas produzcan clusters identicos. De hecho, si los datos financieros introducen otra estructura, eso es un hallazgo: indica que el SRI permite una segmentacion formal y territorial, mientras que SCVS agrega una lectura economica y de escala empresarial.
