@@ -1,0 +1,69 @@
+Tarea: Ajustes al prototipo, reporte de análisis estadístico y documentación del repositorio
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: 
+
+Optimizar el prototipo de inteligencia artificial desarrollado, incorporando ajustes técnicos basados en el análisis de resultados preliminares y aplicando técnicas de validación estadística que permitan evaluar de manera más rigurosa el desempeño del modelo.
+
+Instrucciones:
+En esta actividad deberás realizar ajustes técnicos al prototipo, elaborar un reporte de análisis estadístico de los resultados y consolidar la documentación del repositorio del proyecto.
+
+Desarrolla los siguientes componentes:
+
+Ajustes de prototipo
+
+Implementa mejoras al modelo o al pipeline, tales como:
+
+Ajuste de hiperparámetros
+Selección o ingeniería de características
+Modificación de técnicas o enfoques de modelado
+Mejora en el preprocesamiento de datos.
+Describe claramente:
+
+¿Qué ajustes realizaste?
+¿Por qué fueron necesarios?
+¿Qué resultados esperas mejorar con estos cambios?
+Reporte de análisis estadístico 
+
+Elabora un reporte que incluya
+
+Técnica(s) de validación aplicada (por ejemplo: validación cruzada) 
+Comparación entre el modelo baseline y el modelo ajustado
+Métricas estadísticas utilizadas
+Análisis de la variabilidad e incertidumbre de los resultados
+Interpretación de los hallazgos obtenidos
+Consolidación y documentación del repositorio 
+
+Actualiza el repositorio del proyecto incorporando: 
+
+Código final del prototipo ajustado
+README claro con: 
+Descripción del proyecto 
+Instrucciones de ejecución
+Dependencias y versiones
+Registro de cambios (bitácora) 
+Evidencias de control de versiones
+Síntesis reflexiva
+
+Decisiones técnicas más relevantes 
+Riesgos técnicos identificados y cómo se mitigaron 
+ Formato de entrega 
+
+Documento en formato Word o PDF 
+Extensión: 2 a 3 páginas.
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 3. Diseña un algoritmo de inteligencia artificial utilizando herramientas de software
+
