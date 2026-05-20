@@ -1,0 +1,154 @@
+
+Ocultar información de asignación
+Categoría de grupo
+MIA225
+Nombre de grupo
+Group 18
+Instrucciones
+
+
+Tarea: informe y presentación final 
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: 
+
+Entregar la versión definitiva del proyecto de titulación y la presentación final que se utilizará en la defensa, integrando los ajustes realizados a lo largo del curso y consolidando los resultados técnicos, metodológicos y analíticos del proyecto.
+
+Instrucciones:
+En esta actividad deberás entregar la versión final del informe del proyecto y la presentación final de defensa, asegurando que ambos productos reflejen de manera clara, coherente y rigurosa el trabajo desarrollado durante el curso. Asegúrate de que tu trabajo tenga las 5 dimensiones fundamentales que reflejan las competencias esperadas. 
+
+Problema y objetivos 
+Metodología y coherencia 
+Resultados y validación 
+Documentación y reproducibilidad 
+Presentación y defensa
+Formato de entrega 
+
+Documento en formato Word o PDF 
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Por favor, revisa la rúbrica de evaluación; allí se describen los criterios que se evaluarán en el informe final.
+Revisa el archivo rúbrica y reglamento de titulación (materiales presesión). 
+ Formato de entrega:
+
+Asegúrese de guardar y subir su trabajo en formato PDF para una presentación impecable.
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 25% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 4. Desarrolla un proyecto de inteligencia artificial aplicada.
+
+Vence el 22 de mayo de 2026 23:59
+
+Ocultar rúbricas
+Nota: La evaluación de actividades se aplicará a todos los miembros de este grupo.
+Nombre de rúbrica: TTMZ0055-S12-INFORME Y PRESENTACION FINAL
+Criterios	
+EXCELENTE
+MUY BUENO
+BUENO
+REGULAR
+INSUFICIENTE
+Puntuación del criterio
+Estructura y claridad del informe
+25 puntos
+Estructura impecable; se entiende el problema, objetivos, metodología y resultados sin ambigüedad; transiciones claras.
+
+20 puntos
+Muy claro; pequeñas mejoras de redacción o orden menores.
+
+15 puntos
+Claro en general; algunas secciones extensas o poco conectadas.
+
+10 puntos
+Difícil de seguir; faltan conexiones entre secciones o hay repetición.
+
+5 puntos
+Desordenado o incompleto; no comunica el proyecto adecuadamente.
+
+Puntuación de Estructura y claridad del informe,/25
+Metodología y coherencia del proyecto aplicado
+30 puntos
+Metodología adecuada al tipo de proyecto (modelo/herramienta/low-code); decisiones justificadas; limitaciones y supuestos explícitos.
+
+24 puntos
+Metodología correcta y mayormente justificada; algunos supuestos poco explícitos.
+
+18 puntos
+Metodología aceptable; justificación parcial o muy general.
+
+12 puntos
+Metodología débil o poco alineada al problema; faltan supuestos clave.
+
+6 puntos
+Metodología incorrecta o inconsistente con el proyecto ejecutado.
+
+Puntuación de Metodología y coherencia del proyecto aplicado,/30
+Resultados, evidencia y conclusiones
+25 puntos
+Resultados bien presentados (tablas/figuras); interpretación sólida; conclusiones derivan directamente de evidencia; limitaciones reconocidas.
+
+20 puntos
+Buena evidencia; interpretación adecuada; conclusiones mayormente alineadas.
+
+15 puntos
+Evidencia suficiente pero interpretación superficial o conclusiones poco conectadas.
+
+10 puntos
+Evidencia limitada o confusa; conclusiones débiles.
+
+5 puntos
+No hay evidencia suficiente o conclusiones no sustentadas.
+
+Puntuación de Resultados, evidencia y conclusiones,/25
+Calidad de la presentación (diapositivas)
+10 puntos
+Diapositivas muy claras y visuales; narrativa fluida; enfatiza lo esencial; coherente con el informe.
+
+8 puntos
+Muy buena presentación; pocos slides con exceso de texto o visuales mejorables.
+
+6 puntos
+Presentación entendible; aún hay texto de más o narrativa mejorable.
+
+4 puntos
+Presentación cargada o poco clara; dificulta entender el proyecto.
+
+2 puntos
+Presentación inadecuada; no comunica el proyecto.
+
+Puntuación de Calidad de la presentación (diapositivas),/10
+Cumplimiento de lineamientos y citación
+10 puntos
+Cumple lineamientos institucionales; APA consistente; figuras y anexos correctos; sin faltas formales relevantes.
+
+8 puntos
+Cumple casi completo; detalles menores.
+
+6 puntos
+Cumplimiento parcial; varios detalles formales por corregir.
+
+4 puntos
+Muchas fallas de forma (citas, tablas, consistencia).
+
+2 puntos
+Incumplimiento significativo de lineamientos.
+
+Puntuación de Cumplimiento de lineamientos y citación,/10
+Total
+Puntuación de TTMZ0055-S12-INFORME Y PRESENTACION FINAL,/100
+Puntuación general
+EXCELENTE
+90 puntos mínimos
+MUY BUENO
+80 puntos mínimos
+BUENO
+75 puntos mínimos
+REGULAR
+65 puntos mínimos
+INSUFICIENTE
+55 puntos mínimos
