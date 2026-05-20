@@ -1,0 +1,152 @@
+Tarea: documento técnico con pipeline y baseline del proyecto.
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: 
+
+Concretar el diseño metodológico de su proyecto de titulación, traduciendo la fundamentación teórica y técnica revisada en semanas anteriores en una estructura clara y reproducible del pipeline de datos y en la definición de un modelo baseline. A través de este ejercicio, el estudiante aplica criterios técnicos para seleccionar y justificar un enfoque inicial de inteligencia artificial, sentando las bases para el desarrollo del prototipo.
+
+Instrucciones:
+En esta actividad deberás elaborar un documento técnico preliminar en el que describas el diseño metodológico del proyecto, incorporando el pipeline de datos y el modelo baseline que guiarán el desarrollo de tu solución de inteligencia artificial. El objetivo es que traduzcas la revisión del estado del arte y la metodología propuesta en decisiones técnicas claras, estructuradas y justificadas.   
+
+Descripción del pipeline del proyecto
+
+Define y explica las etapas del pipeline de tu proyecto de IA, incluyendo: 
+
+Origen y tipo de los datos (estructura, formato, volumen, consideraciones éticas)
+Proceso de preparación de datos (limpieza, transformación, selección de variables)
+División de los conjuntos de datos (entrenamiento, validación y prueba)
+Flujo general del proceso desde la entrada de datos hasta la generación de resultados
+Definición del modelo baseline
+
+Describe el modelo base que utilizarás como punto de comparación inicial: 
+
+Técnica o algoritmo seleccionado
+Justificación de la selección con base en el estado del arte
+Supuestos iniciales del modelo
+Métricas preliminares de evaluación
+Plan inicial de experimentación 
+
+Incluye una breve descripción de: 
+
+Variables a experimentar 
+Estrategia inicial de validación 
+Criterios para identificar mejoras o ajustes
+Formato de entrega 
+
+Documento en formato Word o PDF 
+Extensión: 2 a 3 páginas.
+Subir el archivo en esta tarea dentro del plazo establecido 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 2. Selecciona un método de aprendizaje de máquina o inteligencia artificial para el análisis de datos.  
+
+Vence el 15 de marzo de 2026 23:59
+
+Ocultar rúbricas
+Nota: La evaluación de actividades se aplicará a todos los miembros de este grupo.
+Nombre de rúbrica: TTMZ0055-S4 DOCUMENTO TECNICO CON PIPELINE
+Criterios	
+EXCELENTE
+MUY BUENO
+BUENO
+REGULAR
+INSUFICIENTE
+Puntuación del criterio
+DISEÑO DEL PIPELINE
+20 puntos
+El pipeline está claramente definido, describe todas las etapas (preprocesamiento, partición, entrenamiento y evaluación) y permite replicar el flujo completo del proyecto sin ambigüedades.
+
+16 puntos
+El pipeline está bien definido, pero alguna etapa carece de detalle o claridad.
+
+12 puntos
+El pipeline incluye las etapas principales, pero de forma superficial o incompleta.
+
+8 puntos
+El pipeline es confuso, desordenado o difícil de seguir.
+
+4 puntos
+No se presenta un pipeline identificable.
+
+Puntuación de DISEÑO DEL PIPELINE,/20
+BASELINE
+20 puntos
+Se define un modelo baseline simple, adecuado al problema, claramente explicado y justificado como punto de comparación para mejoras posteriores.
+
+16 puntos
+El baseline está definido y es coherente, aunque su justificación es limitada.
+
+12 puntos
+Se menciona un baseline, pero sin explicar claramente su rol o funcionamiento.
+
+8 puntos
+El baseline es confuso o poco pertinente al problema.
+
+4 puntos
+No se define ningún baseline.
+
+Puntuación de BASELINE,/20
+PLAN DE EXPERIMENTOS
+20 puntos
+El plan de experimentos describe qué se probará, qué se mantendrá constante y qué métricas se evaluarán, mostrando coherencia con los objetivos del proyecto.
+
+16 puntos
+El plan de experimentos está definido, pero con bajo nivel de detalle.
+
+12 puntos
+El plan se describe de forma general, sin especificar claramente las pruebas.
+
+8 puntos
+El plan es poco claro o incoherente
+
+4 puntos
+No se presenta un plan de experimentos
+
+Puntuación de PLAN DE EXPERIMENTOS,/20
+REPRODUCIBILIDAD
+20 puntos
+Se documentan explícitamente elementos de reproducibilidad: partición de datos, semillas aleatorias, versiones de librerías y control de cambios.
+
+16 puntos
+Se documentan algunos elementos de reproducibilidad, pero no todos.
+
+12 puntos
+Se menciona la reproducibilidad, pero sin evidencias claras. 
+
+8 puntos
+La reproducibilidad se considera de forma mínima o implícita.
+
+4 puntos
+No se considera la reproducibilidad
+
+Puntuación de REPRODUCIBILIDAD,/20
+DOCUMENTACION TECNICA
+20 puntos
+La documentación técnica es clara, ordenada y suficiente para que un tercero pueda comprender y replicar el pipeline y el baseline.
+
+16 puntos
+La documentación es adecuada, aunque con detalles faltantes
+
+12 puntos
+La documentación es básica y limitada. 
+
+8 puntos
+La documentació es confusa o incompleta. 
+
+4 puntos
+No presenta documentación técnica
+
+Puntuación de DOCUMENTACION TECNICA,/20
+Total
+Puntuación de TTMZ0055-S4 DOCUMENTO TECNICO CON PIPELINE,/100
