@@ -1,0 +1,67 @@
+Tarea: Informe de resultados preliminares 1
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: 
+
+Analizar y documentar los primeros resultados obtenidos a partir del prototipo mínimo viable y del modelo baseline, evaluando su desempeño inicial y reflexionando sobre los ajustes necesarios para mejorar la solución de inteligencia artificial propuesta. Este informe constituye un punto de control clave dentro del proyecto, ya que orienta las acciones de ajuste, validación y mejora continua que se abordarán en las semanas posteriores.
+
+Instrucciones:
+En esta actividad deberás elaborar un informe técnico preliminar en el que documentes y analices los primeros resultados obtenidos con el prototipo y el modelo baseline. El informe debe reflejar una evaluación crítica del desempeño inicial del modelo y plantear los siguientes pasos del proyecto.
+
+Desarrolla los componentes que se detallan a continuación:
+
+Descripción del prototipo y del baseline
+
+Describe brevemente:
+
+El objetivo del prototipo 
+El modelo baseline implementado 
+El conjunto de datos utilizado 
+El contexto en el que se evaluó el modelo
+Métricas y resultados obtenidos
+
+Presenta los resultados preliminares del modelo, incluyendo: 
+
+Métricas técnicas utilizadas (por ejemplo: accuracy, precision, recall, RMSE, entre otras, según el caso)
+Resultados obtenidos en entrenamiento y validación 
+Tablas, gráficos o capturas que respalden los resultados 
+Análisis crítico de resultados 
+
+Realiza un análisis reflexivo que incluya:
+
+Identificación de errores comunes y comportamientos inesperados del modelo
+Fortalezas y limitaciones del enfoque actual 
+Relación entre los resultados obtenidos y el problema organizacional planteado
+Propuesta de próximos pasos 
+
+Con base en el análisis realizado, plantea: 
+
+Ajustes técnicos iniciales al modelo o al pipeline
+Posibles mejoras en datos, features, métricas o enfoque metodológico
+Actualización del backlog del proyecto con tareas priorizadas
+ Evidencias y documentación 
+
+Asegúrate de: 
+
+Actualizar el repositorio del proyecto (código, README, bitácora)
+Registrar los cambios realizados y los resultados obtenidos
+Mantener coherencia entre el informe y las evidencias técnicas
+Formato de entrega 
+
+Documento en formato Word o PDF 
+Extensión: 2 a 3 páginas.
+Subir el archivo en esta tarea dentro del plazo establecido 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 2. Selecciona un método de aprendizaje de máquina o inteligencia artificial para el análisis de datos.  
