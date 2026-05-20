@@ -1,0 +1,167 @@
+
+Ocultar información de asignación
+Categoría de grupo
+MIA225
+Nombre de grupo
+Group 18
+Instrucciones
+
+
+Tarea: estado del arte y metodología
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: Consolidar los fundamentos conceptuales y técnicos del proyecto de titulación mediante una revisión sistemática y crítica de literatura especializada, lo que permitirá profundizar en la comprensión del problema seleccionado y sustentar la elección preliminar de técnicas de inteligencia artificial adecuadas para su análisis.
+
+Instrucciones:
+En esta actividad deberás elaborar un avance del estado del arte y una propuesta metodológica inicial que fundamenten de manera académica y técnica el problema seleccionado para tu proyecto de titulación.  
+
+Búsqueda bibliográfica sistemática: Realiza una búsqueda en bases académicas relevantes (IEEE, Springer, Scopus, Google Scholar, entre otras) utilizando: 
+
+Estrategias avanzadas de búsqueda (operadores booleanos, filtros por año, tipo de estudio y palabras clave).
+Mínimo 10 fuentes académicas pertinentes y actuales (preferiblemente de los últimos 5 años). 
+Registra tus resultados en una matriz de literatura, que deberá incluir: 
+Cita en formato APA 7 
+Objetivo del estudio 
+Método o técnica de IA aplicada 
+Hallazgos relevantes 
+Vacíos o limitaciones identificados 
+Relación con tu problema organizacional 
+Síntesis crítica del estado del arte: Elabora un texto de 1 a 1,5 páginas en el que 
+
+Explique las principales tendencias encontradas en la literatura
+Identifiques cómo ha sido abordado tu problema en investigaciones previas
+Relaciona estos hallazgos con el problema de tu proyecto
+Propuesta metodológica preliminar: A partir de la revisión bibliográfica, plantea una propuesta metodológica inicial que incluya. (1 pagina) 
+
+Tipo de datos que utilizarás (estructura, origen, consideraciones éticas)
+Técnicas o modelos de IA potenciales, justificadas con base en la literatura 
+Variables y métricas preliminares (de rendimiento, interpretabilidad, riesgo, etc.) 
+Consideraciones sobre sesgos o equidad en el modelo
+ Formato de entrega:
+
+Archivo en formato PDF. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 2. Selecciona un método de aprendizaje de máquina o inteligencia artificial para el análisis de datos.  
+
+Vence el 13 de marzo de 2026 23:59
+
+Ocultar rúbricas
+Nota: La evaluación de actividades se aplicará a todos los miembros de este grupo.
+Nombre de rúbrica: TTMZ0055-S3 ESTADO DE ARTE Y METODOLOGIA
+Criterios	
+EXCELENTE
+MUY BUENO
+BUENO
+REGULAR
+INSUFICIENTE
+Puntuación del criterio
+BUSQUEDA Y MATRIZ DE LITERATURA
+20 puntos
+Evidencia una búsqueda estructurada y reproducible: usa herramienta digital, registra claramente cadenas/filtros/fuentes, y reúne ≥10 fuentes pertinentes y actuales/seminales. La matriz permite entender el panorama sin ambigüedades.
+
+16 puntos
+Búsqueda bien planteada y registrada; ≥10 fuentes en general pertinentes. Hay pequeños vacíos (p. ej., filtros no totalmente claros o diversidad de fuentes mejorable).
+
+12 puntos
+Búsqueda realizada pero con registro parcial (cadenas o filtros poco claros). 8–9 fuentes o algunas con pertinencia limitada.
+
+8 puntos
+Búsqueda poco sistemática (fuentes dispersas o poco confiables). Menos de 8 fuentes o registro débil que impide replicarla.
+
+4 puntos
+No hay evidencia clara de búsqueda sistemática o la matriz es incompleta/no usable.
+
+Puntuación de BUSQUEDA Y MATRIZ DE LITERATURA,/20
+SINTESISI DE FUENTES Y HALLAZGOS (Calidad de lectura y mapeo)
+20 puntos
+Cada fuente incluye síntesis clara (objetivo/enfoque/resultado) y se extraen hallazgos útiles para el proyecto. Se distinguen patrones o tendencias (qué funciona, en qué condiciones, con qué datos).
+
+16 puntos
+La mayoría de fuentes tiene síntesis clara y se identifican hallazgos relevantes; falta mayor consistencia en algunas entradas o mayor conexión entre estudios.
+
+12 puntos
+Hay síntesis, pero tiende a ser descriptiva o desigual entre fuentes (algunas completas, otras vagas). Hallazgos poco comparados.
+
+8 puntos
+Síntesis superficial (copiada o sin interpretación). Difícil identificar qué aporta cada fuente al proyecto.
+
+4 puntos
+No hay síntesis real o es incorrecta; no se entiende qué aporta la literatura.
+
+Puntuación de SINTESISI DE FUENTES Y HALLAZGOS (Calidad de lectura y mapeo),/20
+VACIOS/LIMITACIONES Y DECISIONES DERIVADAS
+20 puntos
+Identifica explícitamente vacíos/limitaciones (p. ej., datos no representativos, sesgos, evaluación insuficiente, falta de explicabilidad) y deriva decisiones concretas para el proyecto (qué ajustar en datos, técnica, evaluación o alcance).
+
+16 puntos
+Identifica vacíos relevantes y propone acciones razonables, aunque algunas decisiones podrían estar mejor justificadas o priorizadas.
+
+12 puntos
+Menciona vacíos de forma general; las decisiones o ajustes son genéricos o no se conectan claramente con evidencia.
+
+8 puntos
+Vacíos poco claros o irrelevantes; decisiones confusas o no viables en el contexto del proyecto.
+
+4 puntos
+No identifica vacíos/limitaciones o no propone ninguna acción derivada.
+
+Puntuación de VACIOS/LIMITACIONES Y DECISIONES DERIVADAS,/20
+COHERENCIA METODOLOGÓGICA Y VIABILIDAD DEL PLAN
+20 puntos
+Metodología clara, secuencial y viable: describe fases y actividades (obtención/uso de datos, preparación, entrenamiento/uso de herramienta, evaluación, iteración), con consistencia con el problema y la literatura. Se entiende cómo se ejecutará en el tiempo disponible.
+
+16 puntos
+Metodología clara y viable, con pequeñas brechas (algún paso poco detallado o falta una validación puntual), pero es defendible.
+
+12 puntos
+Metodología aceptable pero parcial: enumera fases sin explicar bien cómo se conectan o cómo se ejecutarán.
+
+8 puntos
+Metodología confusa o incompleta; pasos desordenados o no alineados al problema.
+
+4 puntos
+No presenta una metodología clara o es incompatible con el proyecto.
+
+Puntuación de COHERENCIA METODOLOGÓGICA Y VIABILIDAD DEL PLAN,/20
+DATOS, TECNICAS Y METRICAS (alineación con el problema y evaluación)
+20 puntos
+Define fuentes de datos concretas (origen, acceso, restricciones), propone técnicas/herramientas adecuadas (incluyendo no-code/low-code si aplica) y selecciona métricas apropiadas y explicadas (qué significa “éxito”, qué error es crítico). Todo está alineado a objetivos y contexto.
+
+16 puntos
+Datos, técnica y métricas están bien definidos y alineados; falta algún detalle (restricciones de datos, justificación de técnica o interpretación de métricas).
+
+12 puntos
+Se mencionan datos/técnicas/métricas, pero en forma genérica o con justificación débil; la alineación con el problema podría mejorar.
+
+8 puntos
+Datos poco claros o dudosos; técnica mal definida o no viable; métricas confusas o inadecuadas para el caso.
+
+4 puntos
+No define datos, no propone técnica/herramienta o no define métricas.
+
+Puntuación de DATOS, TECNICAS Y METRICAS (alineación con el problema y evaluación),/20
+Total
+Puntuación de TTMZ0055-S3 ESTADO DE ARTE Y METODOLOGIA,/100
+Puntuación general
+EXCELENTE
+90 puntos mínimos
+MUY BUENO
+80 puntos mínimos
+BUEONO
+75 puntos mínimos
+REGULAR
+65 puntos mínimos
+INSUFICIENTE
+55 puntos mínimos
