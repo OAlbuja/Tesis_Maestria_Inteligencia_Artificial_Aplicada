@@ -1,0 +1,158 @@
+Tarea: Anexos de validación 
+
+Tipo de actividad: Trabajo de titulación grupal
+
+Propósito: 
+
+Documentar de manera rigurosa y estructurada los procesos de validación avanzada del modelo de inteligencia artificial, incorporando evidencias técnicas que respalden los resultados y conclusiones del proyecto de titulación. A través de esta tarea, se busca fortalecer la transparencia, reproducibilidad y solidez metodológica del proyecto, mediante la integración de anexos técnicos que complementen el informe principal. 
+
+Instrucciones:
+Elaborar y presentar los anexos de validación del proyecto, los cuales formarán parte del informe final como evidencia técnica de los procesos de evaluación realizados. Los anexos deben demostrar coherencia con la metodología aplicada, claridad en la presentación de resultados y una adecuada interpretación de los hallazgos.
+
+Desarrolla los siguientes componentes: 
+
+Evidencia de validación del modelo. Incluye evidencias claras y organizadas de los procesos de validación realizados, tales como: 
+Resultados de validación cruzada u otras técnicas de validación aplicadas. 
+Comparaciones entre el modelo baseline y versiones ajustadas. 
+Tablas, gráficos o métricas que respalden la estabilidad y desempeño del modelo. 
+Análisis de robustez. Incorpora los resultados de las pruebas de robustez realizadas. 
+Pruebas de sensibilidad ante cambios en parámetros o datos 
+Evaluaciones frente a escenarios alternativos o adversos
+Identificación de comportamientos inestables o vulnerables del modelo.
+Acompaña las evidencias con una breve explicación para comprender la relevancia en el proyecto. 
+Interpretación técnica de los resultados. Presenta una interpretación clara y fundamentada de los resultados incluidos en los anexos, abordando aspectos como:  
+Qué revelan las pruebas sobre la confiabilidad y consistencia del modelo
+Cómo los resultados respaldan (o cuestionan) las decisiones metodológicas tomadas
+Relación entre los hallazgos de validación y los objetivos del proyecto
+Coherencia con el informe principal. Asegura que los anexos: 
+Estén correctamente referenciados desde el informe principal.
+Sean coherentes con la metodología, resultados y conclusiones presentadas.
+Complemente la argumentación sin introducir contradicciones o información aislada.
+Formato de entrega 
+
+Documento en formato Word o PDF 
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 2. Selecciona un método de aprendizaje de máquina o inteligencia artificial para el análisis de datos.  
+
+Vence el 3 de mayo de 2026 23:59
+
+Ocultar rúbricas
+Nota: La evaluación de actividades se aplicará a todos los miembros de este grupo.
+Nombre de rúbrica: TTMZ0055-S9-ANEXOS DE VALIDACION
+Criterios	
+EXCELENTE
+MUY BUENO
+BUENO
+REGULAR
+INSUFICIENTE
+Puntuación del criterio
+Pertinencia de los anexos
+20 puntos
+Los anexos incluidos respaldan directamente las conclusiones del proyecto. Cada tabla/figura tiene un propósito claro y está correctamente referenciada en el informe.
+
+16 puntos
+Los anexos son pertinentes y relevantes, aunque alguno podría estar mejor conectado con las conclusiones.
+
+12 puntos
+Los anexos están relacionados con el proyecto, pero su aporte a las conclusiones es parcial o poco explícito.
+
+8 puntos
+Se incluyen anexos genéricos o poco relevantes para las conclusiones principales.
+
+4 puntos
+Los anexos no guardan relación clara con las conclusiones o son irrelevantes.
+
+Puntuación de Pertinencia de los anexos,/20
+Calidad de tablas y figuras
+20 puntos
+Tablas y figuras claras, legibles, bien rotuladas, con títulos y notas explicativas. Facilitan la comprensión de resultados.
+
+16 puntos
+Tablas y figuras correctas, con rotulación adecuada, aunque con oportunidades menores de mejora visual o descriptiva.
+
+12 puntos
+Tablas/figuras comprensibles, pero con rotulación incompleta o presentación básica.
+
+8 puntos
+Tablas/figuras confusas, mal rotuladas o difíciles de interpretar.
+
+4 puntos
+Tablas/figuras ausentes, incorrectas o ininteligibles.
+
+Puntuación de Calidad de tablas y figuras,/20
+Integración con el informe principal
+20 puntos
+Los anexos están correctamente citados en el texto principal y se integran de forma fluida al argumento del informe.
+
+16 puntos
+Los anexos están citados, aunque la conexión con el texto podría ser más clara en algunos puntos.
+
+12 puntos
+Los anexos se mencionan de forma puntual, sin una integración consistente en el discurso.
+
+8 puntos
+Los anexos aparecen aislados, con escasa o nula referencia en el texto principal.
+
+4 puntos
+No existe integración entre anexos e informe principal.
+
+Puntuación de Integración con el informe principal,/20
+Interpretación de resultados
+20 puntos
+Los anexos incluyen breves explicaciones que interpretan los resultados y refuerzan las decisiones tomadas en el proyecto.
+
+16 puntos
+Se presenta interpretación adecuada, aunque podría profundizarse en algunos resultados clave.
+
+12 puntos
+La interpretación es descriptiva, con escaso análisis de implicaciones.
+
+8 puntos
+La interpretación es superficial o poco clara.
+
+4 puntos
+No se interpreta la información presentada en los anexos.
+
+Puntuación de Interpretación de resultados,/20
+Claridad y orden
+20 puntos
+Anexos bien organizados, numerados y presentados de forma profesional y consistente.
+
+16 puntos
+Organización clara, con mínimos problemas de orden o formato.
+
+12 puntos
+Organización aceptable, aunque mejorable en numeración o consistencia.
+
+8 puntos
+Organización desordenada o poco clara.
+
+4 puntos
+Anexos desorganizados o incompletos.
+
+Puntuación de Claridad y orden,/20
+Total
+Puntuación de TTMZ0055-S9-ANEXOS DE VALIDACION,/100
+Puntuación general
+EXCELENTE
+90 puntos mínimos
+MUY BUENO
+80 puntos mínimos
+BUENO
+75 puntos mínimos
+REGULAR
+65 puntos mínimos
+INSUFICIENTE
+55 puntos mínimos

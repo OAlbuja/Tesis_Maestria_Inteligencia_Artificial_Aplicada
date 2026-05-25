@@ -1,0 +1,119 @@
+Tarea: artefactos del proyecto
+
+Tipo de actividad: trabajo de titulación grupal
+
+Propósito: 
+
+Organizar, consolidar y presentar los principales artefactos generados durante el desarrollo del proyecto de titulación, integrando de manera estructurada los elementos técnicos, metodológicos y documentales que respaldan el trabajo realizado.  
+
+Instrucciones:
+Compilar y presentar los artefactos clave del proyecto, los cuales servirán como evidencia del proceso de diseño, desarrollo, validación y documentación de la solución de inteligencia artificial propuesta. Los artefactos deben organizarse de manera clara y estructurada, permitiendo comprender cómo se desarrolló el proyecto desde su planteamiento inicial hasta la consolidación del prototipo.
+
+Evidencias del proceso metodológico. Integra los principales artefactos que evidencian el proceso de desarrollo del proyecto, tales como:  
+Definición del problema y objetivos del proyecto
+Estado del arte o revisión de literatura 
+Descripción de la metodología utilizada 
+Selección del modelo o técnica de inteligencia artificial 
+Diseño del pipeline o flujo de trabajo del modelo
+Cada elemento debe incluir una breve explicación que permita comprender su función dentro del proyecto. 
+Evidencias del desarrollo técnico. Incluye elementos que demuestren la construcción y funcionamiento del modelo, por ejemplo:  
+Estructura general del prototipo 
+Fragmentos representativos del código fuente o notebooks 
+Organización del repositorio del proyecto 
+Descripción de los componentes principales del sistema 
+Las evidencias deben estar organizadas y acompañadas de explicaciones breves que faciliten su comprensión.
+Resultados y evidencias de evaluación: Presenta evidencias que respalden el desempeño y validación del modelo, tales como: 
+Métri­cas finales del modelo
+Comparaciones entre versiones o experimentos 
+Visualizaciones o resultados relevantes
+Documentación y elementos de soporte. Incluye los artefactos que facilitan la comprensión y uso del proyecto, tales como:  
+Enlace al repositorio del proyecto
+Documentación técnica principal
+Estructura del README
+Recursos adicionales relevantes
+Formato de entrega 
+
+Documento en formato Word o PDF. 
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF.
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 4. Desarrolla un proyecto en inteligencia artificial aplicada. 
+
+Vence el 19 de mayo de 2026 23:59
+
+Ocultar rúbricas
+Nota: La evaluación de actividades se aplicará a todos los miembros de este grupo.
+Nombre de rúbrica: TTMZ0055-S11-CHECK LIST ARTEFACTOS DEL PROYECTO
+Criterios	
+CUMPLE
+PARCIALMENTE
+NO CUMPLE
+Puntuación del criterio
+Organización y navegación: estructura clara de carpetas (artefactos, anexos, evidencias) y nombres entendibles; no hay archivos “sueltos” sin contexto.
+15 puntos
+7.5 puntos
+1.5 puntos
+Puntuación de Organización y navegación: estructura clara de carpetas (artefactos, anexos, evidencias) y nombres entendibles; no hay archivos “sueltos” sin contexto.,/15
+README de revisión: incluye (a) qué es el prototipo, (b) qué necesita el evaluador, (c) pasos numerados para ejecutar/probar, (d) qué resultado debe ver.
+15 puntos
+7.5 puntos
+1.5 puntos
+Puntuación de README de revisión: incluye (a) qué es el prototipo, (b) qué necesita el evaluador, (c) pasos numerados para ejecutar/probar, (d) qué resultado debe ver.,/15
+Evidencias de ejecución: capturas, outputs, links o video/demo (si aplica) que demuestran funcionamiento con el flujo principal.
+10 puntos
+5 puntos
+1 punto
+Puntuación de Evidencias de ejecución: capturas, outputs, links o video/demo (si aplica) que demuestran funcionamiento con el flujo principal.,/10
+Datos anonimizados o sustitutos: si hay datos sensibles, se entrega dataset anonimizado/sintético o instrucciones de acceso seguro; se explica qué se anonimizó y cómo.
+10 puntos
+5 puntos
+1 punto
+Puntuación de Datos anonimizados o sustitutos: si hay datos sensibles, se entrega dataset anonimizado/sintético o instrucciones de acceso seguro; se explica qué se anonimizó y cómo.,/10
+Notebook(s) o flujo ejecutable: existe al menos un flujo “de punta a punta” (ejecutable o reproducible) para probar la solución (notebook, pipeline guiado, o pasos low-code).
+10 puntos
+5 puntos
+1 punto
+Puntuación de Notebook(s) o flujo ejecutable: existe al menos un flujo “de punta a punta” (ejecutable o reproducible) para probar la solución (notebook, pipeline guiado, o pasos low-code).,/10
+Registro de versiones: se identifica versión final (tag/release o versión nombrada) y fecha; se evita “último_final_v7”.
+10 puntos
+5 puntos
+1 punto
+Puntuación de Registro de versiones: se identifica versión final (tag/release o versión nombrada) y fecha; se evita “último_final_v7”.,/10
+Requisitos/Dependencias: lista simple de herramientas/servicios usados (y versiones si aplica) o requisitos mínimos; evita “instalar todo”.
+10 puntos
+5 puntos
+1 punto
+Puntuación de Requisitos/Dependencias: lista simple de herramientas/servicios usados (y versiones si aplica) o requisitos mínimos; evita “instalar todo”.,/10
+Licencias y atribuciones: fuentes/datasets/modelos/recursos externos citados o atribuidos (aunque sea en un apartado “Créditos”).
+10 puntos
+5 puntos
+1 punto
+Puntuación de Licencias y atribuciones: fuentes/datasets/modelos/recursos externos citados o atribuidos (aunque sea en un apartado “Créditos”).,/10
+Prueba rápida del docente (muestreo): docente logra ejecutar o probar el flujo principal en ≤10 min siguiendo el README (o documenta por qué no fue posible).
+10 puntos
+5 puntos
+1 punto
+Puntuación de Prueba rápida del docente (muestreo): docente logra ejecutar o probar el flujo principal en ≤10 min siguiendo el README (o documenta por qué no fue posible).,/10
+Total
+Puntuación de TTMZ0055-S11-CHECK LIST ARTEFACTOS DEL PROYECTO,/100
+Puntuación general
+EXCELENTE
+90 puntos mínimos
+MUY BUENO
+80 puntos mínimos
+BUENO
+75 puntos mínimos
+REGULAR
+65 puntos mínimos
+INSUFICIENTE
+55 puntos mínimos

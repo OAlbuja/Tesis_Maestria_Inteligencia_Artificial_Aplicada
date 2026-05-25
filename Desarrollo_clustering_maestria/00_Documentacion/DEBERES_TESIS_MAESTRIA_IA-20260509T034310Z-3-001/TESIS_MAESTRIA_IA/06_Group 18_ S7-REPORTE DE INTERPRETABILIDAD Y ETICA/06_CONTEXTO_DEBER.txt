@@ -1,0 +1,61 @@
+Tarea: Reporte de interpretabilidad y ética 
+
+Tipo de actividad: Trabajo de titulación grupal 
+
+Propósito: Analizar, interpretar y comunicar el comportamiento del modelo de inteligencia artificial desarrollado, incorporando técnicas de explicabilidad y una reflexión ética fundamentada sobre su uso en un contexto organizacional real. 
+
+Instrucciones:
+En esta actividad deberás elaborar un reporte técnico en el que documentes el análisis de interpretabilidad del modelo y la evaluación ética del proyecto, utilizando herramientas de explicabilidad y criterios éticos revisados durante la semana. 
+
+Desarrolla los siguientes componentes:
+
+Descripción del modelo evaluado 
+El modelo o modelos analizados 
+El objetivo del modelo dentro del proyecto 
+El conjunto de datos utilizado para el análisis de interpretabilidad
+Análisis de interpretabilidad: Aplica técnicas de explicabilidad como SHAP y/o LIME (u otra herramienta pertinente).
+Visualizaciones generadas (gráficos, tablas o capturas) 
+Identificación de las variables más influyentes 
+Explicación de los patrones observados en el comportamiento del modelo 
+Reflexión sobre la coherencia entre los resultados y el problema organizacional planteado
+Identificación de riesgos éticos: analiza el modelo desde una perspectiva ética considerando  
+Posibles sesgos en los datos o en el modelo 
+Riesgos de discriminación, opacidad o uso indebido 
+Impactos potenciales en usuarios, organizaciones o grupos afectados 
+Este análisis debe estar fundamentado en principios de IA responsable revisados en el curso
+Interpretación de hallazgos clave: 
+Explica qué variables influyen más en las predicciones del modelo
+Describe cómo influyen estas variables en el resultado (dirección, magnitud, patrones)
+Relaciona los hallazgos con el problema organizacional planteado y con los objetivos del proyecto 
+Estrategias de mitigación: Propón acciones concretas para mitigar los riesgos identificados, tales como 
+Ajustes técnicos o metodológicos 
+Cambios en datos o variables 
+Recomendaciones para el uso responsable del modelo 
+Limitaciones explícitas del sistema
+Aprendizajes derivados del análisis: Reflexiona sobre lo aprendido a partir de este ejercicio 
+¿Qué reveló el análisis sobre el comportamiento real del modelo? 
+¿Qué supuestos iniciales se confirmaron o se cuestionaron? 
+¿Qué implicaciones tienen estos aprendizajes para el uso del modelo en un contexto real? 
+Propuestas de ajuste al modelo: Con base en los hallazgos y riesgos identificados, plantea
+Ajustes técnicos concretos y viables (datos, variables, métricas, enfoque de modelado) 
+Acciones para mitigar sesgos o riesgos detectados 
+Recomendaciones para mejorar la interpretabilidad, confiabilidad o uso responsable del modelo 
+Las propuestas deben estar directamente relacionadas con el análisis realizado, no ser sugerencias generales 
+Formato de entrega 
+
+Documento en formato Word o PDF 
+Extensión: 2 a 3 páginas.
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 2. Selecciona un método de aprendizaje de máquina o inteligencia artificial para el análisis de datos.  

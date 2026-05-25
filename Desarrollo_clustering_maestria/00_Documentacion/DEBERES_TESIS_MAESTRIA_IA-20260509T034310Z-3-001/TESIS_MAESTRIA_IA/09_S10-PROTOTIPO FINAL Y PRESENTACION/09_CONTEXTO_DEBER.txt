@@ -1,0 +1,174 @@
+Tarea: Prototipo final y presentación
+
+Tipo de actividad: trabajo de titulación grupal 
+
+Propósito: 
+
+Consolidar la versión final del prototipo de inteligencia artificial desarrollado para su proyecto de titulación, garantizando su funcionalidad, reproducibilidad, documentación técnica y coherencia metodológica. Asimismo, busca fortalecer la capacidad para comunicar de manera clara, estructurada y fundamentada los resultados del proyecto, integrando aspectos técnicos, éticos y organizacionales. 
+
+Instrucciones:
+En esta actividad debes entregar el prototipo final completamente consolidado y realizar una presentación oral (pitch) en la que expongas los aspectos más relevantes del proyecto. El trabajo debe evidenciar madurez técnica, claridad conceptual y solidez argumentativa.
+
+Entrega técnica del prototipo. El prototipo debe estar completamente funcional y organizado, incluyendo:  
+Implementación final del modelo 
+Código limpio, modular y estructurado. 
+Modelo final entrenado y validado 
+Incorporación de mejoras realizadas a lo largo del curso. 
+Evidencia de pruebas finales realizadas 
+Documentación técnica: El repositorio debe contener 
+Archivo README claro y completo que incluya: 
+Descripción del problema y solución
+Requisitos técnicos y dependencias
+Instrucciones de ejecución paso a paso 
+Explicación general del pipeline 
+Control de versiones actualizado y demo 
+Organización estructurada de carpetas (data, notebooks, scripts, resultados, etc.) 
+Evidencias de validación 
+Resultados finales del modelo 
+Métricas comparativas 
+Evidencias de robustez y pruebas finales 
+Referencia a los anexos técnicos desarrollados previamente 
+El prototipo debe poder ejecutarse siguiendo las instrucciones proporcionadas.
+Presentación oral del proyecto (pitch 5-10 minutos). Debes realizar una exposición breve y estructurada del proyecto, en esta exposición recibirás un feedback, el cual debes tomar en cuenta para presentar la versión final de tu proyecto de titulación. La presentación debe tener la siguiente estructura:
+Contexto y problema abordado
+Descripción clara del problema organizacional 
+Justificación de la relevancia del proyecto 
+Enfoque metodológico 
+Tipos de datos utilizados 
+Modelo(s) aplicado(s) 
+Principales decisiones técnicas
+Resultados y hallazgos
+Métricas finales alcanzadas
+Interpretación de los resultados 
+Impacto potencial del modelo 
+Consideraciones éticas y de robustez 
+Principales riesgos identificados
+Estrategias de mitigación aplicadas 
+Limitaciones del modelo
+Formato de entrega 
+
+Documento en formato  PDF 
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea y presentación.
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF.
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 10% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 4. Desarrolla un proyecto en inteligencia artificial aplicada. 
+
+Vence el 16 de mayo de 2026 23:59
+
+Ocultar rúbricas
+Nombre de rúbrica: TTMZ0055-S10-PROTOTIPO FINAL Y PRESENTACION
+Criterios	
+EXCELENTE
+MUY BUENO
+BUENO
+REGULAR
+INSUFICIENTE
+Puntuación del criterio
+Prototipo final (funcionalidad y completitud)
+20 puntos
+El prototipo está completo, funciona correctamente y refleja fielmente el estado final del proyecto. Cumple con los objetivos planteados.
+
+16 puntos
+El prototipo funciona y cubre la mayoría de los objetivos, con detalles menores por mejorar.
+
+12 puntos
+El prototipo es funcional, pero presenta limitaciones claras en alcance o estabilidad.
+
+8 puntos
+El prototipo funciona parcialmente o de forma inconsistente.
+
+4 puntos
+El prototipo no funciona o no corresponde al proyecto descrito.
+
+Puntuación de Prototipo final (funcionalidad y completitud),/20
+Reproducibilidad y evidencias
+20 puntos
+README claro y completo, instrucciones precisas, control de versiones adecuado y evidencias suficientes para reproducir la ejecución.
+
+16 puntos
+README e instrucciones adecuadas, con pequeños vacíos que no impiden la reproducción general.
+
+12 puntos
+Documentación básica; reproducibilidad posible pero con esfuerzo adicional.
+
+8 puntos
+Documentación incompleta o confusa; difícil reproducir el prototipo.
+
+4 puntos
+No hay documentación suficiente ni evidencia de reproducibilidad.
+
+Puntuación de Reproducibilidad y evidencias,/20
+Organización y presentación de evidencias
+20 puntos
+Evidencias bien organizadas (archivos, capturas, enlaces, demos), fáciles de revisar y coherentes con el informe.
+
+16 puntos
+Evidencias claras y organizadas, con mínimos problemas de orden o claridad.
+
+12 puntos
+Evidencias presentes pero con organización mejorable.
+
+8 puntos
+Evidencias desordenadas o difíciles de interpretar.
+
+4 puntos
+Evidencias ausentes o irrelevantes.
+
+Puntuación de Organización y presentación de evidencias,/20
+Pitch del proyecto (claridad y estructura)
+20 puntos
+Presentación clara, estructurada, dentro del tiempo, explicando problema, solución, resultados y valor del proyecto de forma convincente.
+
+16 puntos
+Presentación clara y bien estructurada, con pequeños problemas de tiempo o énfasis.
+
+12 puntos
+Presentación comprensible, pero con estructura débil o uso ineficiente del tiempo.
+
+8 puntos
+Presentación confusa, desordenada o poco clara.
+
+4 puntos
+No se logra explicar el proyecto de forma comprensible.
+
+Puntuación de Pitch del proyecto (claridad y estructura),/20
+Reflexión final y uso de retroalimentación
+20 puntos
+Integra adecuadamente la retroalimentación recibida y demuestra reflexión crítica sobre logros, limitaciones y mejoras futuras.
+
+16 puntos
+Integra la mayoría de la retroalimentación y reflexiona sobre el proyecto.
+
+12 puntos
+Menciona retroalimentación, pero con reflexión limitada.
+
+8 puntos
+Escasa referencia a la retroalimentación o reflexión superficial.
+
+4 puntos
+No integra retroalimentación ni reflexiona sobre el proyecto.
+
+Puntuación de Reflexión final y uso de retroalimentación,/20
+Total
+Puntuación de TTMZ0055-S10-PROTOTIPO FINAL Y PRESENTACION,/100
+Puntuación general
+EXCELENTE
+90 puntos mínimos
+MUY BUENO
+80 puntos mínimos
+BUENO
+75 puntos mínimos
+REGULAR
+65 puntos mínimos
+INSUFICIENTE
+55 puntos mínimos

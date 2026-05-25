@@ -1,0 +1,59 @@
+Tarea: borrador informe final 
+
+Tipo de actividad: Trabajo de titulación grupal
+
+Propósito: 
+
+Integrar y consolidar los avances técnicos, metodológicos y analíticos desarrollados a lo largo del proyecto de titulación, en un documento estructurado, coherente y fundamentado. Este ejercicio permite evaluar la madurez del proyecto y preparar una versión inicial del informe que será ajustado a su versión final en las semanas finales.
+
+Instrucciones:
+En esta actividad deberás elaborar un borrador del informe final del Proyecto MIA, integrando los avances realizados hasta la semana 8. El documento debe reflejar una estructura académica clara y evidenciar coherencia entre el problema planteado, la metodología aplicada y los resultados obtenidos.
+
+Desarrolla los siguientes apartados:
+
+Introducción 
+Contextualización del problema organizacional. 
+Justificación del proyecto y su relevancia. 
+Objetivo general y objetivos específicos. 
+Marco teórico y estado del arte 
+Síntesis de los principales aportes de la literatura revisada. 
+Tendencias, enfoques metodológicos y vacíos identificados. 
+Relación con el problema abordado
+Metodología 
+Descripción del diseño metodológico. 
+Fuentes y preparación de los datos. 
+Técnicas y modelos de IA utilizados. 
+Técnicas y modelos de IA utilizados. 
+Consideraciones éticas y de sesgo. 
+Resultados preliminares
+Descripción del prototipo desarrollado. 
+Resultados obtenidos (métricas, gráficos, tablas). 
+Análisis del desempeño del modelo. 
+Validación e interpretabilidad 
+Técnicas de validación aplicadas. 
+Análisis de interpretabilidad (XAI)
+Pruebas de robustez realizadas
+Riesgos identificados y estrategias de mitigación
+Conclusiones preliminares y trabajo futuro
+Principales aprendizajes 
+Aportes del proyecto 
+Líneas de mejora 
+Referencias 
+Referencias bibliográficas en formato APA 7
+Formato de entrega 
+
+Documento en formato Word o PDF 
+Subir el archivo en esta tarea dentro del plazo establecido. 
+ Importante:
+
+Revisa la rúbrica de evaluación; aquí se detallan los criterios con los que se evaluará tu tarea.  
+ Formato de entrega:
+
+Guarde y suba su trabajo en formato PDF
+ Puntuación:
+
+La tarea tiene un valor de 100 puntos y equivale al 5% de la nota total del curso.
+
+ Resultados de aprendizaje:
+
+RDA 3. Diseña un algoritmo de inteligencia artificial utilizando herramientas de software.  
