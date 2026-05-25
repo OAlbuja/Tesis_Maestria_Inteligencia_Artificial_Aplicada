@@ -25,3 +25,7 @@
 
 # Temporales de Excel
 ~$*.xlsx
+
+# Ignorar directorios de Python
+__pycache__/
+venv/ 

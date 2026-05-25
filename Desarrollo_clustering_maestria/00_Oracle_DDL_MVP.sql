@@ -176,8 +176,65 @@ CREATE INDEX IDX_C1_CLUSTER ON ML_CLUSTERS_CAPA1(CLUSTER_ID);
 CREATE INDEX IDX_C2_CLUSTER ON ML_CLUSTERS_CAPA2(CLUSTER_ID);
 
 -- ====================================================================
--- 4. VISTAS PARA DASHBOARDS APEX
+-- 4. VISTAS PARA DASHBOARDS APEX Y OML4PY
 -- ====================================================================
+
+-- 4.0 Vistas de Feature Engineering (Alineadas Matemáticamente a Scikit-Learn)
+CREATE OR REPLACE VIEW VW_FEATURES_ML_CAPA1 AS
+SELECT
+    RUC,
+    CASE WHEN UPPER(TRIM(TIPO_CONTRIBUYENTE)) = 'SOCIEDAD' THEN 1 ELSE 0 END AS tipo_sociedad,
+    CASE WHEN UPPER(TRIM(OBLIGADO_CONTABILIDAD)) = 'S' THEN 1 ELSE 0 END AS obligado_contabilidad,
+    CASE WHEN UPPER(TRIM(AGENTE_RETENCION)) = 'S' THEN 1 ELSE 0 END AS es_agente_retencion,
+    CASE WHEN UPPER(TRIM(CONTRIBUYENTE_ESPECIAL)) = 'S' THEN 1 ELSE 0 END AS es_contribuyente_especial,
+    CASE WHEN UPPER(TRIM(ESTADO_CONTRIBUYENTE)) = 'ACTIVO' THEN 1 ELSE 0 END AS estado_activo,
+    GREATEST(2026 - EXTRACT(YEAR FROM FECHA_INICIO_ACTIVIDADES), 0) AS antiguedad_anos,
+    CASE
+        WHEN UPPER(SUBSTR(TRIM(CIIU_PRINCIPAL), 1, 1)) IN ('G', 'C', 'M', 'K', 'S') THEN UPPER(SUBSTR(TRIM(CIIU_PRINCIPAL), 1, 1))
+        ELSE 'OTRO'
+    END AS sector_ciiu_macro,
+    CASE
+        WHEN UPPER(TRIM(PROVINCIA_PRINCIPAL)) LIKE '%PICHINCHA%' THEN 'Pichincha'
+        WHEN UPPER(TRIM(PROVINCIA_PRINCIPAL)) LIKE '%GUAYAS%' THEN 'Guayas'
+        ELSE 'Resto'
+    END AS region
+FROM SRI_RUC_EMPRESAS_RESUMEN;
+
+CREATE OR REPLACE VIEW VW_FEATURES_ML_CAPA1_FINAL AS
+SELECT
+    RUC, tipo_sociedad, obligado_contabilidad, es_agente_retencion, es_contribuyente_especial, estado_activo,
+    (antiguedad_anos - AVG(antiguedad_anos) OVER()) / NULLIF(STDDEV(antiguedad_anos) OVER(), 0) AS antiguedad_anos,
+    CASE WHEN sector_ciiu_macro = 'C' THEN 1 ELSE 0 END AS sector_C,
+    CASE WHEN sector_ciiu_macro = 'G' THEN 1 ELSE 0 END AS sector_G,
+    CASE WHEN sector_ciiu_macro = 'K' THEN 1 ELSE 0 END AS sector_K,
+    CASE WHEN sector_ciiu_macro = 'M' THEN 1 ELSE 0 END AS sector_M,
+    CASE WHEN sector_ciiu_macro = 'S' THEN 1 ELSE 0 END AS sector_S,
+    CASE WHEN sector_ciiu_macro = 'OTRO' THEN 1 ELSE 0 END AS sector_OTRO,
+    CASE WHEN region = 'Guayas' THEN 1 ELSE 0 END AS region_Guayas,
+    CASE WHEN region = 'Pichincha' THEN 1 ELSE 0 END AS region_Pichincha,
+    CASE WHEN region = 'Resto' THEN 1 ELSE 0 END AS region_Resto
+FROM VW_FEATURES_ML_CAPA1;
+
+CREATE OR REPLACE VIEW VW_FEATURES_ML_CAPA2_FINAL AS
+SELECT
+    f.RUC, f.tipo_sociedad, f.obligado_contabilidad, f.es_agente_retencion, f.es_contribuyente_especial, f.estado_activo,
+    (f.antiguedad_anos - AVG(f.antiguedad_anos) OVER()) / NULLIF(STDDEV(f.antiguedad_anos) OVER(), 0) AS antiguedad_anos,
+    (NVL(s.LOG_EMPLEADOS, 0) - AVG(NVL(s.LOG_EMPLEADOS, 0)) OVER()) / NULLIF(STDDEV(NVL(s.LOG_EMPLEADOS, 0)) OVER(), 0) AS log_empleados,
+    (NVL(s.LOG_INGRESOS, 0) - AVG(NVL(s.LOG_INGRESOS, 0)) OVER()) / NULLIF(STDDEV(NVL(s.LOG_INGRESOS, 0)) OVER(), 0) AS log_ingresos,
+    (NVL(s.LOG_ACTIVOS, 0) - AVG(NVL(s.LOG_ACTIVOS, 0)) OVER()) / NULLIF(STDDEV(NVL(s.LOG_ACTIVOS, 0)) OVER(), 0) AS log_activos,
+    (NVL(s.LIQUIDEZ_CORRIENTE, 1.46) - AVG(NVL(s.LIQUIDEZ_CORRIENTE, 1.46)) OVER()) / NULLIF(STDDEV(NVL(s.LIQUIDEZ_CORRIENTE, 1.46)) OVER(), 0) AS liquidez_corriente,
+    (NVL(s.MARGEN_OPERACIONAL, 0) - AVG(NVL(s.MARGEN_OPERACIONAL, 0)) OVER()) / NULLIF(STDDEV(NVL(s.MARGEN_OPERACIONAL, 0)) OVER(), 0) AS margen_operacional,
+    CASE WHEN f.SECTOR_CIIU_MACRO = 'C' THEN 1 ELSE 0 END AS sector_C,
+    CASE WHEN f.SECTOR_CIIU_MACRO = 'G' THEN 1 ELSE 0 END AS sector_G,
+    CASE WHEN f.SECTOR_CIIU_MACRO = 'K' THEN 1 ELSE 0 END AS sector_K,
+    CASE WHEN f.SECTOR_CIIU_MACRO = 'M' THEN 1 ELSE 0 END AS sector_M,
+    CASE WHEN f.SECTOR_CIIU_MACRO = 'S' THEN 1 ELSE 0 END AS sector_S,
+    CASE WHEN f.SECTOR_CIIU_MACRO = 'OTRO' THEN 1 ELSE 0 END AS sector_OTRO,
+    CASE WHEN f.REGION = 'Guayas' THEN 1 ELSE 0 END AS region_Guayas,
+    CASE WHEN f.REGION = 'Pichincha' THEN 1 ELSE 0 END AS region_Pichincha,
+    CASE WHEN f.REGION = 'Resto' THEN 1 ELSE 0 END AS region_Resto
+FROM ML_FEATURES_CAPA1 f
+JOIN ML_FEATURES_CAPA2 s ON f.RUC = s.RUC;
 
 -- 4.1 Vista Principal Capa 1
 CREATE OR REPLACE VIEW VW_EMPRESAS_CLUSTER_CAPA1 AS
@@ -276,8 +333,8 @@ SELECT
     -- Lógica de Priorización (Clustering a Acción Comercial)
     CASE 
         WHEN l1.ES_CLIENTE_FPA = 1 THEN 'Cliente Actual'
-        WHEN c2.SEGMENTO = 'Grandes consolidadas' OR c1.SEGMENTO IN ('Industriales', 'Comercio maduro') THEN 'Foco Alto'
-        WHEN c2.SEGMENTO = 'Medianas/recientes' THEN 'Foco Medio'
+        WHEN c2.SEGMENTO LIKE '%grandes%' OR c1.SEGMENTO LIKE '%maduro%' OR c1.SEGMENTO LIKE '%Industriales%' THEN 'Foco Alto'
+        WHEN c2.SEGMENTO LIKE '%medianas%' OR c1.SEGMENTO LIKE '%emergente%' OR c1.SEGMENTO LIKE '%regional%' THEN 'Foco Medio'
         WHEN c1.SEGMENTO IS NOT NULL THEN 'Foco Bajo'
         ELSE 'Sin Clasificar'
     END AS NIVEL_PRIORIDAD
@@ -288,3 +345,79 @@ LEFT JOIN ML_LABELS_CAPA1 l1 ON g.RUC = l1.RUC
 LEFT JOIN LATEST_CLUSTER_CAPA2 c2 ON g.RUC = c2.RUC AND c2.rn = 1
 LEFT JOIN SCVS_DIRECTORIO scvs ON g.RUC = scvs.RUC
 LEFT JOIN RANKING_ACTUAL rnk ON scvs.EXPEDIENTE = rnk.EXPEDIENTE AND rnk.rn = 1;
+
+-- ====================================================================
+-- 5. TABLAS Y VISTAS PARA EL MINI-CRM (APEX)
+-- ====================================================================
+
+-- 5.1 Tabla para guardar prospectos priorizados por los usuarios
+CREATE TABLE ML_PROSPECTOS_GUARDADOS (
+    ID NUMBER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+    RUC VARCHAR2(13) NOT NULL,
+    RAZON_SOCIAL VARCHAR2(500),
+    CLUSTER_CAPA1 NUMBER,
+    SEGMENTO_CAPA1 VARCHAR2(255),
+    CLUSTER_CAPA2 NUMBER,
+    SEGMENTO_CAPA2 VARCHAR2(255),
+    NIVEL_PRIORIDAD VARCHAR2(50), 
+    FECHA_CONSULTA DATE DEFAULT SYSDATE,
+    USUARIO_CONSULTA VARCHAR2(100)
+);
+
+-- 5.2 Vista para el Buscador Predictivo (Surrogate Model de K-Means extraído para Inferencia Ultrarrápida)
+CREATE OR REPLACE VIEW VW_BUSCADOR_PREDICTIVO AS
+WITH BASE_SRI AS (
+    SELECT 
+        RUC, 
+        RAZON_SOCIAL_SRI AS RAZON_SOCIAL, 
+        ESTADO_CONTRIBUYENTE,
+        CIIU_PRINCIPAL,
+        PROVINCIA_PRINCIPAL,
+        FECHA_INICIO_ACTIVIDADES,
+        OBLIGADO_CONTABILIDAD,
+        GREATEST(2026 - EXTRACT(YEAR FROM FECHA_INICIO_ACTIVIDADES), 0) AS ANTIGUEDAD_ANOS
+    FROM SRI_RUC_EMPRESAS_RESUMEN
+),
+SURROGATE_MODEL AS (
+    SELECT 
+        b.RUC,
+        b.RAZON_SOCIAL,
+        b.ESTADO_CONTRIBUYENTE,
+        b.ANTIGUEDAD_ANOS,
+        -- Busca si existen ingresos en la Super de Compañías
+        (SELECT MAX(s.INGRESOS) FROM SCVS_RANKING_RESUMEN s JOIN SCVS_DIRECTORIO d ON s.EXPEDIENTE = d.EXPEDIENTE WHERE d.RUC = b.RUC) AS INGRESOS,
+        (SELECT MAX(s.EMPLEADOS) FROM SCVS_RANKING_RESUMEN s JOIN SCVS_DIRECTORIO d ON s.EXPEDIENTE = d.EXPEDIENTE WHERE d.RUC = b.RUC) AS EMPLEADOS,
+        -- REGLAS EXTRAIDAS DEL PERFILAMIENTO K-MEANS (Surrogate Model)
+        CASE 
+            WHEN UPPER(SUBSTR(TRIM(b.CIIU_PRINCIPAL), 1, 1)) = 'C' AND b.OBLIGADO_CONTABILIDAD = 'S' THEN 'Industriales consolidados de alta afinidad FPA'
+            WHEN UPPER(TRIM(b.PROVINCIA_PRINCIPAL)) LIKE '%GUAYAS%' THEN 'Comercio formal regional en Guayas'
+            WHEN UPPER(TRIM(b.PROVINCIA_PRINCIPAL)) LIKE '%PICHINCHA%' AND b.ANTIGUEDAD_ANOS >= 10 THEN 'Comercio formal maduro en Pichincha'
+            WHEN UPPER(TRIM(b.PROVINCIA_PRINCIPAL)) LIKE '%PICHINCHA%' AND b.ANTIGUEDAD_ANOS < 10 THEN 'Comercio formal emergente en Pichincha'
+            ELSE 'Comercio formal emergente en Pichincha'
+        END AS SEGMENTO_CAPA1_PREDICHO
+    FROM BASE_SRI b
+)
+SELECT 
+    p.RUC, 
+    p.RAZON_SOCIAL, 
+    p.ESTADO_CONTRIBUYENTE,
+    p.INGRESOS, 
+    p.EMPLEADOS,
+    p.SEGMENTO_CAPA1_PREDICHO,
+    -- REGLAS CAPA 2 (Financiera Surrogate)
+    CASE 
+        WHEN p.INGRESOS > 5000000 OR p.EMPLEADOS > 50 THEN 'Empresas grandes consolidadas'
+        WHEN p.INGRESOS IS NOT NULL THEN 'Empresas medianas/recientes de alta afinidad'
+        ELSE 'Sin datos financieros SCVS'
+    END AS SEGMENTO_CAPA2_PREDICHO,
+    CASE 
+        WHEN p.SEGMENTO_CAPA1_PREDICHO LIKE '%maduro%' OR p.SEGMENTO_CAPA1_PREDICHO LIKE '%Industriales%' THEN 'Foco Alto'
+        WHEN p.SEGMENTO_CAPA1_PREDICHO LIKE '%emergente%' OR p.SEGMENTO_CAPA1_PREDICHO LIKE '%regional%' THEN 'Foco Medio'
+        ELSE 'Foco Bajo'
+    END AS NIVEL_PRIORIDAD,
+    CASE 
+        WHEN p.SEGMENTO_CAPA1_PREDICHO LIKE '%maduro%' OR p.SEGMENTO_CAPA1_PREDICHO LIKE '%Industriales%' THEN 'u-danger'
+        WHEN p.SEGMENTO_CAPA1_PREDICHO LIKE '%emergente%' OR p.SEGMENTO_CAPA1_PREDICHO LIKE '%regional%' THEN 'u-warning'
+        ELSE 'u-normal'
+    END AS COLOR_CSS
+FROM SURROGATE_MODEL p;
